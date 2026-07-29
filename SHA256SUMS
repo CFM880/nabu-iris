@@ -1,10 +1,12 @@
-e8b5e7bee0246b00420a44f0952d8e710eb0123f57a42217216f6e995e489eb7  ./README.md
+3e60ec57a7f5c50ac253abea3b7ad20594201c78c1c2b8911bb2d70e52dc4657  ./README.md
 6709146878423d8f643aa5d8e667ac42e0c7b197d59e630fd1c2323483d41f27  ./bin/mpv-iris
 66e969b34a2d8184ff0b2bb85a5de114718a4544b8878b0fb46b837156b271b4  ./desktop/mpv-iris.desktop.in
 e81e97690fe2882b1c12dacf48c30e9f4eae4bfae87884a2f043fa1f121fe61f  ./ffmpeg/ffmpeg-8.0.1-v11-drmprime.patch
 269702373de297ec136ecde995df7b767a4f6caf4fed16c53fa7b90dfaec76bf  ./ffmpeg/lib/libavcodec.so.62.11.100
+1877cd990c3e7298edff6cef24d6d46a9f2f3e557214b1dc7fc8fb12a917a0ed  ./firmware/NOTICE.md
+9d4af65d7ede845e900f1b29ff425b7a8e2947056e695e246e58a2091445a085  ./firmware/venus.mbn
 423670b3b8043ad514bae3f29bb0d98d299adbde3fc39be515741c2e4a70683f  ./install-driver.sh
-0d52ef8db670a1a368e8bec412245d31fd8aacc076721525636bfffc57c608b4  ./install-kernel.sh
+59891122f01f53db5117bd578402c9e363f1c3376f01eb87f0145c53b1fc5b6c  ./install-kernel.sh
 284e01e8c7a30c6036026e782c6b766c6eb691549343810b017412df73c7ba15  ./install-user.sh
 1db2d48c828f5605352ace2fa8af6fb6695cba4c84879521e4a8d2877a5706d2  ./kernel/base-patches/0001-media-iris-fix-legacy-VP9-output-extradata-pointer.patch
 8bc30d05882d2c6879ec1818b307cebb3a82de613a963850f180437e8d99836c  ./kernel/base-patches/0002-media-iris-release-stopped-session-internal-buffers.patch
@@ -803,7 +805,7 @@ c632334462aeddd3fa29c495b3ec418173ec433c4d6c52643c4ad61369e3c857  ./kernel/modul
 ee0701b2acdd1d9509ffc00f2304687a56021f22bee11661cc8fdfb200da6ccb  ./kernel/qcom-iris.ko
 246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30  ./licenses/COPYING.LGPLv2.1
 fb5a425bd3b3cd6071a3a9aff9909a859e7c1158d54d32e07658398cd67eb6a0  ./licenses/COPYING.kernel.GPL-2.0
-2e1d16c72fd74e12063776371da757322f8b77589386532f4fd8634bde7de1af  ./licenses/LICENSE.md
+85a56cba865111a05baea55786484c2e85fd02c51767dff31b06098a14769bd1  ./licenses/LICENSE.md
 b2c4623b88b7141db1b7b5bee21e6f2c7c2dbdc8bd283a757d34ff127c97319a  ./system/qcom-iris-autoload.service
 099000dc3ddfb66e04e26a82c6e7e0d97316f08b792645cc5a6f6c6c73f55bc5  ./system/qcom-iris.conf
 3bfbf4011f1a89e344b323355c85b8b19c7d5807d126c136c41ecb97fa1674bc  ./uninstall-user.sh

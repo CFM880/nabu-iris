@@ -13,6 +13,8 @@ It contains the complete matching kernel stack and the patched userspace:
   Iris v140 preserves the kernel-only in-place seek handling
   and prevents CAPTURE backpressure from lowering a 60 fps stream's power
   vote below its timestamp-derived frame rate.
+- The exact Qualcomm Venus VPU firmware used by the validated tablet,
+  installed as `/lib/firmware/qcom/sm8150/xiaomi/nabu/venus.mbn`.
 - Patched FFmpeg `libavcodec.so.62.11.100`: exports V4L2 decoder CAPTURE
   buffers with `VIDIOC_EXPBUF` and exposes them as `AV_PIX_FMT_DRM_PRIME`.
   It intentionally contains no V4L2 decoder flush/reopen callback; seek is
@@ -29,6 +31,8 @@ provided `mpv-iris` wrapper. It does not overwrite files under `/usr/lib`.
 - Userspace ABI: FFmpeg 8 with `libavcodec.so.62.11.100`, mpv 0.41.
 - Tested codecs in the launcher: H.264 and HEVC, NV12 output.
 - Display: Wayland compositor supporting Linux DMA-BUF and linear NV12.
+- VPU firmware SHA-256:
+  `9d4af65d7ede845e900f1b29ff425b7a8e2947056e695e246e58a2091445a085`.
 
 Do not install the binary kernel module on a different kernel. The exact source
 base and complete patch order are documented below.
@@ -111,7 +115,7 @@ sudo mount /dev/disk/by-label/ESPNABU /mnt/esp-nabu
 sudo ./install-kernel.sh /mnt/esp-nabu
 ```
 
-The script installs the complete module tree and adds
+The script installs the complete module tree, the validated `venus.mbn`, and adds
 `EFI/ubuntu/6.14.11-nabu-iris1-v140-drmprime.efi`. It does not overwrite the
 existing v38/v44 UKIs and does not change rEFInd's default selection. Reboot,
 select the new entry, and verify the reported kernel and Iris hash before
@@ -127,6 +131,8 @@ Expected Iris SHA-256:
 `ee0701b2acdd1d9509ffc00f2304687a56021f22bee11661cc8fdfb200da6ccb`.
 Keep the old rEFInd entry as the recovery path until the new entry has been
 validated. See `kernel/boot/ORIGIN.md` for exact UKI provenance and hashes.
+The firmware is copied unmodified from `xiaomi-nabu-firmware 1.0`; see
+`firmware/NOTICE.md` for its provenance and redistribution notice.
 
 ## Verify
 

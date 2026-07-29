@@ -125,3 +125,10 @@ unredistributable.
 The Fraunhofer FDK AAC and OpenSSL libraries are under licenses which are
 incompatible with the GPLv2 and v3. To the best of our knowledge, they are
 compatible with the LGPL.
+
+## Qualcomm Venus firmware
+
+The bundled `firmware/venus.mbn` is an unmodified firmware binary originating
+from the tablet's `xiaomi-nabu-firmware 1.0` package. That package did not
+provide explicit license or redistribution metadata. It is not covered by the
+FFmpeg or Linux kernel licenses above. See `firmware/NOTICE.md`.
