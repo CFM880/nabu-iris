@@ -1,0 +1,45 @@
+From 60bab4f40fae42eeac53c190402126def35bc775 Mon Sep 17 00:00:00 2001
+From: Cheng Fangming <chengfangming1993@gmail.com>
+Date: Sun, 26 Jul 2026 23:09:02 +0800
+Subject: [PATCH 3/8] media: iris: keep legacy VPU5 runtime active
+
+Runtime power collapse is not implemented for the legacy VPU5 path, so prevent runtime PM from retrying the deliberately unsupported transition every autosuspend interval. This stops the persistent suspend-error and printk loop while retaining the powered-controller bring-up behavior.
+---
+ drivers/media/platform/qcom/iris/iris_hfi_common.c |  2 +-
+ drivers/media/platform/qcom/iris/iris_probe.c      | 10 ++++++++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_common.c b/drivers/media/platform/qcom/iris/iris_hfi_common.c
+index 632f876ca..1b591bc40 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_common.c
++++ b/drivers/media/platform/qcom/iris/iris_hfi_common.c
+@@ -86,7 +86,7 @@ int iris_hfi_core_init(struct iris_core *core)
+ 	 */
+ 	if (core->iris_platform_data->legacy_vpu5) {
+ 		dev_info(core->dev,
+-			 "Iris1 v87: sending SYS_INIT through legacy HFI queue\n");
++			 "Iris1 v88: sending SYS_INIT through legacy HFI queue\n");
+ 		return hfi_ops->sys_init(core);
+ 	}
+ 
+diff --git a/drivers/media/platform/qcom/iris/iris_probe.c b/drivers/media/platform/qcom/iris/iris_probe.c
+index 09865ebf6..be7df2637 100644
+--- a/drivers/media/platform/qcom/iris/iris_probe.c
++++ b/drivers/media/platform/qcom/iris/iris_probe.c
+@@ -279,6 +279,16 @@ static int iris_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_vdev_unreg;
+ 
++	/*
++	 * The legacy VPU5 power-collapse sequence is not implemented yet:
++	 * iris_vpu_prepare_pc() deliberately returns -EAGAIN to keep the
++	 * controller powered.  Do not let runtime PM retry that unsupported
++	 * transition after every autosuspend delay, since it creates a
++	 * permanent workqueue/printk loop while the device is otherwise idle.
++	 */
++	if (core->iris_platform_data->legacy_vpu5)
++		pm_runtime_forbid(core->dev);
++
+ 	return 0;
+ 
+ err_vdev_unreg:

@@ -1,0 +1,243 @@
+From dbddec38875f5c9cb233268cb9afb1b1d69cc88f Mon Sep 17 00:00:00 2001
+From: Cheng Fangming <chengfangming1993@gmail.com>
+Date: Tue, 28 Jul 2026 17:29:07 +0800
+Subject: [PATCH 6/8] media: iris: release stopped-session internal buffers
+
+---
+ .../media/platform/qcom/iris/iris_buffer.c    | 10 ++-
+ .../qcom/iris/iris_hfi_gen1_command.c         | 21 ++++++
+ drivers/media/platform/qcom/iris/iris_vb2.c   | 12 +++-
+ drivers/media/platform/qcom/iris/iris_vdec.c  | 71 ++++++++++++++++---
+ 4 files changed, 100 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/media/platform/qcom/iris/iris_buffer.c b/drivers/media/platform/qcom/iris/iris_buffer.c
+index 957616385..99b0414c8 100644
+--- a/drivers/media/platform/qcom/iris/iris_buffer.c
++++ b/drivers/media/platform/qcom/iris/iris_buffer.c
+@@ -298,12 +298,18 @@ static int iris_create_internal_buffer(struct iris_inst *inst,
+ 		buffer->index = index;
+ 	buffer->buffer_size = buffers->size;
+ 	buffer->dma_attrs = DMA_ATTR_WRITE_COMBINE | DMA_ATTR_NO_KERNEL_MAPPING;
+-	list_add_tail(&buffer->list, &buffers->list);
+ 
+ 	buffer->kvaddr = dma_alloc_attrs(core->dev, buffer->buffer_size,
+ 					 &buffer->device_addr, GFP_KERNEL, buffer->dma_attrs);
+-	if (!buffer->kvaddr)
++	if (!buffer->kvaddr) {
++		dev_err(core->dev,
++			"Iris1 v121: internal DMA allocation failed type=%u index=%u size=%zu\n",
++			buffer_type, index, buffer->buffer_size);
++		kfree(buffer);
+ 		return -ENOMEM;
++	}
++
++	list_add_tail(&buffer->list, &buffers->list);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c b/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
+index a6cd053fa..09c90281e 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
++++ b/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
+@@ -284,6 +284,12 @@ static int iris_hfi_gen1_session_start(struct iris_inst *inst, u32 plane)
+ 	struct hfi_session_pkt packet;
+ 	int ret;
+ 
++	dev_info(core->dev,
++		 "Iris1 v107: session_start plane=%s state=%u substate=%#x load_resources=%u\n",
++		 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
++		 inst->state, inst->sub_state,
++		 !!(inst->sub_state & IRIS_INST_SUB_LOAD_RESOURCES));
++
+ 	if (!V4L2_TYPE_IS_OUTPUT(plane))
+ 		return 0;
+ 
+@@ -323,6 +329,11 @@ static int iris_hfi_gen1_session_stop(struct iris_inst *inst, u32 plane)
+ 	u32 flush_type = 0;
+ 	int ret = 0;
+ 
++	dev_info(core->dev,
++		 "Iris1 v107: session_stop plane=%s state=%u substate=%#x streamoff=%u\n",
++		 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
++		 inst->state, inst->sub_state, inst->streamoff_pending);
++
+ 	if ((V4L2_TYPE_IS_OUTPUT(plane) &&
+ 	     inst->state == IRIS_INST_INPUT_STREAMING) ||
+ 	    (V4L2_TYPE_IS_CAPTURE(plane) &&
+@@ -359,11 +370,21 @@ static int iris_hfi_gen1_session_stop(struct iris_inst *inst, u32 plane)
+ 		flush_pkt.shdr.session_id = inst->session_id;
+ 		flush_pkt.flush_type = flush_type;
+ 
++		dev_info(core->dev,
++			 "Iris1 v107: sending SESSION_FLUSH plane=%s type=%#x pending=%u\n",
++			 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
++			 flush_type, inst->flush_responses_pending);
++
+ 		ret = iris_hfi_queue_cmd_write(core, &flush_pkt, flush_pkt.shdr.hdr.size);
+ 		if (!ret) {
+ 			inst->flush_responses_pending++;
+ 			ret = iris_wait_for_session_response(inst, true);
+ 		}
++
++		dev_info(core->dev,
++			 "Iris1 v107: SESSION_FLUSH done plane=%s type=%#x ret=%d pending=%u\n",
++			 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
++			 flush_type, ret, inst->flush_responses_pending);
+ 	}
+ 
+ 	return ret;
+diff --git a/drivers/media/platform/qcom/iris/iris_vb2.c b/drivers/media/platform/qcom/iris/iris_vb2.c
+index aacdadd61..33346dfe9 100644
+--- a/drivers/media/platform/qcom/iris/iris_vb2.c
++++ b/drivers/media/platform/qcom/iris/iris_vb2.c
+@@ -337,14 +337,22 @@ int iris_vb2_start_streaming(struct vb2_queue *q, unsigned int count)
+ 		ret = iris_vdec_streamon_input(inst);
+ 	else if (V4L2_TYPE_IS_CAPTURE(q->type))
+ 		ret = iris_vdec_streamon_output(inst);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: start_streaming failed queue=%u count=%u state=%u ret=%d\n",
++			q->type, count, inst->state, ret);
+ 		goto error;
++	}
+ 
+ 	buf_type = iris_v4l2_type_to_driver(q->type);
+ 
+ 	ret = iris_queue_deferred_buffers(inst, buf_type);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: deferred buffer queue failed queue=%u count=%u state=%u ret=%d\n",
++			q->type, count, inst->state, ret);
+ 		goto error;
++	}
+ 
+ 	mutex_unlock(&inst->lock);
+ 
+diff --git a/drivers/media/platform/qcom/iris/iris_vdec.c b/drivers/media/platform/qcom/iris/iris_vdec.c
+index 2bca872ff..392e6dc1e 100644
+--- a/drivers/media/platform/qcom/iris/iris_vdec.c
++++ b/drivers/media/platform/qcom/iris/iris_vdec.c
+@@ -380,6 +380,27 @@ int iris_vdec_session_streamoff(struct iris_inst *inst, u32 plane)
+ 
+ 	iris_vdec_flush_deferred_buffers(inst, buffer_type);
+ 
++	/*
++	 * SESSION_RELEASE_RESOURCES has completed when the second queue reaches
++	 * INIT, so firmware no longer owns the internal buffers.  Release them
++	 * here instead of retaining their DMA mappings until close().  A userspace
++	 * AVFrame may intentionally keep the file alive across a decoder reopen.
++	 */
++	if (inst->state == IRIS_INST_INIT) {
++		ret = iris_destroy_all_internal_buffers(inst,
++						V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
++		if (ret)
++			return ret;
++
++		ret = iris_destroy_all_internal_buffers(inst,
++						V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
++		if (ret)
++			return ret;
++
++		dev_info(inst->core->dev,
++			 "Iris1 v121: released stopped-session internal DMA buffers\n");
++	}
++
+ 	return 0;
+ 
+ error:
+@@ -437,26 +458,41 @@ int iris_vdec_streamon_input(struct iris_inst *inst)
+ 	inst->frame_rate_down_count = 0;
+ 
+ 	ret = iris_set_properties(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: input streamon set_properties failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	ret = iris_alloc_and_queue_persist_bufs(inst);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: input streamon persist buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	iris_get_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+ 
+ 	ret = iris_destroy_dequeued_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: input streamon destroy buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	ret = iris_create_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: input streamon create buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	ret = iris_queue_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: input streamon queue buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	inst->frame_counter = 0;
+ 
+@@ -535,26 +571,41 @@ int iris_vdec_streamon_output(struct iris_inst *inst)
+ 	inst->streamoff_pending = false;
+ 
+ 	ret = hfi_ops->session_set_config_params(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: capture streamon config failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	iris_get_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+ 
+ 	ret = iris_destroy_dequeued_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: capture streamon destroy buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	ret = iris_create_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: capture streamon create buffers failed: %d\n", ret);
+ 		return ret;
++	}
+ 
+ 	ret = iris_vdec_process_streamon_output(inst);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: capture streamon process failed: %d\n", ret);
+ 		goto error;
++	}
+ 
+ 	ret = iris_queue_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+-	if (ret)
++	if (ret) {
++		dev_err(inst->core->dev,
++			"Iris1 v119: capture streamon queue buffers failed: %d\n", ret);
+ 		goto error;
++	}
+ 
+ 	return ret;
+ 

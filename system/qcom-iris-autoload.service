@@ -1,0 +1,11 @@
+[Unit]
+Description=Load Qualcomm Iris video decoder
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/modprobe qcom_iris
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

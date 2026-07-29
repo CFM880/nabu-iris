@@ -1,0 +1,47 @@
+From aff8f1924107cef6881d2c1f8007be0293c55043 Mon Sep 17 00:00:00 2001
+From: Cheng Fangming <chengfangming1993@gmail.com>
+Date: Tue, 28 Jul 2026 00:07:14 +0800
+Subject: [PATCH 1/4] media: iris: fix legacy VP9 output extradata pointer
+
+---
+ .../qcom/iris/iris_hfi_gen1_command.c         | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c b/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
+index ad51daafa..a6cd053fa 100644
+--- a/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
++++ b/drivers/media/platform/qcom/iris/iris_hfi_gen1_command.c
+@@ -426,16 +426,25 @@ static int iris_hfi_gen1_queue_output_buffer(struct iris_inst *inst, struct iris
+ 	op_pkt.offset = buf->data_offset;
+ 	op_pkt.data = 0;
+ 
+-	dev_dbg(inst->core->dev,
+-		 "Iris1 v57 FTB: index=%u dma=%pad alloc=%zu filled=%zu offset=%u\n",
+-		 buf->index, &buf->device_addr, buf->buffer_size, buf->data_size,
+-		 buf->data_offset);
+-
+ 	if (buf->type == BUF_OUTPUT && iris_split_mode_enabled(inst))
+ 		op_pkt.stream_id = 1;
+ 	else
+ 		op_pkt.stream_id = 0;
+ 
++	/*
++	 * Downstream msm_vidc points legacy split-mode output FTBs at the byte
++	 * immediately following the image even when the firmware reports a zero
++	 * extradata size.  Iris1 validates that pointer independently of the size.
++	 */
++	if (inst->core->iris_platform_data->legacy_vpu5 &&
++	    inst->codec == V4L2_PIX_FMT_VP9)
++		op_pkt.extradata_buffer = buf->device_addr + buf->buffer_size;
++
++	dev_dbg(inst->core->dev,
++		 "Iris1 v57 FTB: index=%u dma=%pad alloc=%zu filled=%zu offset=%u\n",
++		 buf->index, &buf->device_addr, buf->buffer_size, buf->data_size,
++		 buf->data_offset);
++
+ 	return iris_hfi_queue_cmd_write(inst->core, &op_pkt, op_pkt.shdr.hdr.size);
+ }
+ 
+-- 
+2.43.0
+
