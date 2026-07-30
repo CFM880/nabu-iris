@@ -1,0 +1,111 @@
+<4>[  630.682971] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+<4>[  633.470029] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+<6>[  633.516784] wld0: disconnect from AP 60:da:83:24:d1:b1 for new auth to 60:da:83:24:d1:a1
+<6>[  633.632736] wld0: VHT information is missing, disabling VHT
+<6>[  633.664986] wld0: authenticate with 60:da:83:24:d1:a1 (local address=86:3c:ec:44:a3:8f)
+<6>[  633.665020] wld0: send auth to 60:da:83:24:d1:a1 (try 1/3)
+<6>[  633.684419] wld0: authenticated
+<6>[  633.686975] wld0: associate with 60:da:83:24:d1:a1 (try 1/3)
+<6>[  633.689525] wld0: RX ReassocResp from 60:da:83:24:d1:a1 (capab=0x8011 status=17 aid=0)
+<6>[  633.689552] wld0: 60:da:83:24:d1:a1 denied association (code=17)
+<4>[  634.709163] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+<4>[  638.692031] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+<6>[  638.732111] wld0: authenticate with 60:da:83:24:d1:b1 (local address=86:3c:ec:44:a3:8f)
+<6>[  638.732137] wld0: send auth to 60:da:83:24:d1:b1 (try 1/3)
+<6>[  638.734761] wld0: authenticated
+<6>[  638.742347] wld0: associate with 60:da:83:24:d1:b1 (try 1/3)
+<6>[  638.748317] wld0: RX AssocResp from 60:da:83:24:d1:b1 (capab=0x8431 status=0 aid=141)
+<6>[  638.824792] wld0: associated
+<7>[  638.825042] ath: EEPROM regdomain: 0x809c
+<7>[  638.825056] ath: EEPROM indicates we should expect a country code
+<7>[  638.825065] ath: doing EEPROM country->regdmn map search
+<7>[  638.825073] ath: country maps to regdmn code: 0x52
+<7>[  638.825083] ath: Country alpha2 being used: CN
+<7>[  638.825091] ath: Regpair used: 0x52
+<7>[  638.825100] ath: regdomain 0x809c dynamically updated by country element
+<6>[  681.371596] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+<6>[  681.371604] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+<6>[  681.371609] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+<6>[  681.378480] qcom-iris aa00000.video-codec: Iris1 v85: VP9 reserved high IOVA hole 0xd8000000-0xdbffffff (size 0x4000000)
+<6>[  681.413103] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=VP90 little-endian (0x30395056) assigned core=1 (loads 0/0)
+<6>[  681.413130] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+<6>[  681.413405] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=256 bytes
+<6>[  681.413433] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x2 size=3153920 region=0 hold=11 min=32 actual=32 contiguous=0 align=4096
+<6>[  681.413441] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0xa size=0 region=0 hold=0 min=0 actual=0 contiguous=0 align=4096
+<6>[  681.413449] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=3133440 region=0 hold=11 min=4 actual=4 contiguous=0 align=256
+<6>[  681.413462] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0xb size=0 region=0 hold=0 min=0 actual=0 contiguous=0 align=4096
+<6>[  681.413488] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=278528 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  681.413496] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x6 size=19861504 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  681.413503] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[6] type=0x5 size=9001984 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  681.413511] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[7] type=0x1 size=3133440 region=0 hold=1 min=0 actual=32 contiguous=0 align=256
+<6>[  681.413536] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 9001984 instead of calculated 9268992
+<6>[  681.414545] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 19861504 instead of calculated 12533760
+<6>[  681.414552] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 278528 instead of calculated 395520
+<6>[  681.417298] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+<6>[  681.417696] qcom-iris aa00000.video-codec: Iris1 v154: reserved 8160 mb/f at 60 fps; aggregate 489600/3916800 mb/s
+<6>[  681.419851] qcom-iris aa00000.video-codec: Iris1 v85: VP9 released high IOVA hole 0xd8000000-0xdbffffff
+<6>[  681.419886] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=11 (raw hold=11 min=0)
+<6>[  681.431961] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec VP90 little-endian (0x30395056)
+<6>[  681.431976] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) output2 width=1920 height=1080 actual=20 min_host=11 size=3133440
+<6>[  681.431982] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) internal dpb size=3153920
+<6>[  681.431986] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) internal dpb actual=11 min_host=11 queued=11
+<6>[  681.436959] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 19861504 instead of calculated 12533760
+<6>[  681.436967] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 278528 instead of calculated 393984
+<6>[  681.439244] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+<6>[  682.446359] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 31, timestamps 30), voting 35 fps (down windows 0)
+<6>[  683.455872] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 31, timestamps 31), voting 35 fps (down windows 0)
+<6>[  684.531758] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 30, timestamps 31), voting 35 fps (down windows 0)
+<6>[  685.556382] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 35 fps (down windows 1)
+<6>[  686.597791] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 35 fps (down windows 2)
+<6>[  687.656565] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 33 fps (down windows 0)
+<6>[  688.680899] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 33 fps (down windows 0)
+<6>[  689.714274] qcom-iris aa00000.video-codec: Iris1 v140: measured input 32 fps (qbuf 32, timestamps 31), voting 36 fps (down windows 0)
+<6>[  690.756848] qcom-iris aa00000.video-codec: Iris1 v140: measured input 35 fps (qbuf 35, timestamps 31), voting 39 fps (down windows 0)
+<6>[  691.174439] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0xd8 streamoff=1
+<6>[  691.174526] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+<6>[  691.177330] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+<6>[  691.177354] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0xd8 streamoff=1
+<6>[  691.183947] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+<6>[  721.742345] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+<6>[  721.742353] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+<6>[  721.742358] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+<6>[  721.749352] qcom-iris aa00000.video-codec: Iris1 v85: VP9 reserved high IOVA hole 0xd8000000-0xdbffffff (size 0x4000000)
+<6>[  721.799882] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=VP90 little-endian (0x30395056) assigned core=1 (loads 0/0)
+<6>[  721.799907] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+<6>[  721.800173] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=256 bytes
+<6>[  721.800184] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x2 size=3153920 region=0 hold=11 min=32 actual=32 contiguous=0 align=4096
+<6>[  721.800192] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0xa size=0 region=0 hold=0 min=0 actual=0 contiguous=0 align=4096
+<6>[  721.800200] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=3133440 region=0 hold=11 min=4 actual=4 contiguous=0 align=256
+<6>[  721.800207] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0xb size=0 region=0 hold=0 min=0 actual=0 contiguous=0 align=4096
+<6>[  721.800215] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=278528 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  721.800223] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x6 size=19861504 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  721.800230] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[6] type=0x5 size=9001984 region=0 hold=1 min=0 actual=1 contiguous=1 align=256
+<6>[  721.800237] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[7] type=0x1 size=3133440 region=0 hold=1 min=0 actual=32 contiguous=0 align=256
+<6>[  721.800261] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 9001984 instead of calculated 9268992
+<6>[  721.801161] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 19861504 instead of calculated 12533760
+<6>[  721.801165] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 278528 instead of calculated 395520
+<6>[  721.803122] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+<6>[  721.803569] qcom-iris aa00000.video-codec: Iris1 v154: reserved 8160 mb/f at 60 fps; aggregate 489600/3916800 mb/s
+<6>[  721.805006] qcom-iris aa00000.video-codec: Iris1 v85: VP9 released high IOVA hole 0xd8000000-0xdbffffff
+<6>[  721.805017] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=11 (raw hold=11 min=0)
+<6>[  721.815886] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec VP90 little-endian (0x30395056)
+<6>[  721.815901] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) output2 width=1920 height=1080 actual=20 min_host=11 size=3133440
+<6>[  721.815906] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) internal dpb size=3153920
+<6>[  721.815910] qcom-iris aa00000.video-codec: Iris1 v65: codec=VP90 little-endian (0x30395056) internal dpb actual=11 min_host=11 queued=11
+<6>[  721.820662] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 19861504 instead of calculated 12533760
+<6>[  721.820671] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 278528 instead of calculated 393984
+<6>[  721.822985] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+<6>[  722.823790] qcom-iris aa00000.video-codec: Iris1 v140: measured input 32 fps (qbuf 32, timestamps 30), voting 36 fps (down windows 0)
+<6>[  723.881334] qcom-iris aa00000.video-codec: Iris1 v140: measured input 32 fps (qbuf 32, timestamps 30), voting 36 fps (down windows 0)
+<6>[  724.923248] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 31, timestamps 31), voting 36 fps (down windows 1)
+<6>[  725.956367] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 36 fps (down windows 2)
+<6>[  727.022356] qcom-iris aa00000.video-codec: Iris1 v140: measured input 32 fps (qbuf 32, timestamps 30), voting 36 fps (down windows 0)
+<6>[  728.081925] qcom-iris aa00000.video-codec: Iris1 v140: measured input 34 fps (qbuf 34, timestamps 31), voting 38 fps (down windows 0)
+<6>[  729.114474] qcom-iris aa00000.video-codec: Iris1 v140: measured input 30 fps (qbuf 30, timestamps 30), voting 38 fps (down windows 1)
+<6>[  730.189714] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 31, timestamps 30), voting 38 fps (down windows 2)
+<6>[  731.256439] qcom-iris aa00000.video-codec: Iris1 v140: measured input 31 fps (qbuf 31, timestamps 31), voting 35 fps (down windows 0)
+<6>[  731.489487] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0xd8 streamoff=1
+<6>[  731.489508] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+<6>[  731.489680] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+<6>[  731.489708] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0xd8 streamoff=1
+<6>[  731.494458] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources

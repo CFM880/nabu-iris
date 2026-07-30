@@ -38,4 +38,4 @@ fi
 echo "Installed patched FFmpeg under ${install_root}"
 echo "Installed launcher ${bin_dir}/mpv-iris"
 echo "Installed desktop entry ${desktop_file}"
-echo "Run: ${bin_dir}/mpv-iris VIDEO.mp4"
+echo "Run: ${bin_dir}/mpv-iris VIDEO_FILE"

@@ -1,0 +1,1012 @@
+[  821.425135] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425194] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425267] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425313] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425416] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425439] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425580] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425586] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425709] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425715] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425822] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425831] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425938] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.425947] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426051] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426064] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426174] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426185] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426323] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426328] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426425] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426433] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426560] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426567] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426686] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426716] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426806] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426838] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426954] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.426960] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427069] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427078] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427180] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427188] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427294] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427300] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427419] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427425] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427554] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427584] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427680] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427706] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427812] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427859] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427944] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.427985] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428089] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428106] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428221] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428228] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428326] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428332] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428450] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428589] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428634] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428709] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428776] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428842] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428877] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428944] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.428976] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429061] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429086] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429177] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429198] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429309] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429319] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429424] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429592] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429743] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429776] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429898] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.429955] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430062] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430184] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430201] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430332] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430340] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430455] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430461] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430604] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430610] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430712] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430727] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430819] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430864] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430936] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.430989] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431089] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431114] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431191] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431245] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431309] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431360] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431427] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431464] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431544] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431624] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431650] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431756] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431767] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431876] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431885] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431991] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.431997] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432105] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432110] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432228] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432234] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432331] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432337] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432447] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432608] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432616] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432762] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432813] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432869] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432914] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.432974] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433067] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433114] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433190] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433235] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433308] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433352] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433421] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433454] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433564] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433596] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433679] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433715] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433791] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433844] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433921] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.433991] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434043] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434119] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434151] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434223] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434249] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434343] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434363] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434456] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434510] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434643] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434675] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434761] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434805] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434911] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.434935] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435015] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435044] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435131] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435163] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435245] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435286] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435360] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435403] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435469] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435531] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435601] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435647] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435702] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435747] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435802] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435850] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435918] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.435957] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436021] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436076] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436125] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436184] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436294] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436428] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436438] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436589] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436596] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436697] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436703] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436797] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436816] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436914] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.436927] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437034] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437043] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437161] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437170] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437269] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437276] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437377] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437384] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437524] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437530] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437653] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437659] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437767] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437774] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437883] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437895] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.437994] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438025] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438105] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438137] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438209] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438268] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438302] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438371] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438423] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438503] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438546] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438635] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438664] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438751] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438769] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438852] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438887] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438983] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.438996] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439089] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439097] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439196] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439202] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439316] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439322] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439442] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439448] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439588] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439595] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439708] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439715] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439815] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439828] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439918] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.439958] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440013] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440054] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440127] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440160] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440238] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440256] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440336] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440374] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440440] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440473] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440563] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440602] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440668] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440702] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440760] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440793] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440850] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440888] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440944] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.440985] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441040] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441082] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441142] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441181] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441245] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441279] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441344] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441377] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441463] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441529] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441582] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441643] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441701] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441749] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441799] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441844] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441891] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441936] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.441986] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442035] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442090] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442139] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442190] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442249] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442300] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442362] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442401] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442455] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442515] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442589] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442621] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442692] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442734] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442799] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442839] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442923] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.442946] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443037] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443075] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443182] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443212] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443287] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443335] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443384] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443458] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443510] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443623] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443636] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443753] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443762] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443855] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443876] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443957] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.443997] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444065] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444124] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444177] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444244] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444308] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444363] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444415] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444499] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444529] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444779] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444785] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444944] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.444951] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445112] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445124] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445245] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445263] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445404] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445418] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445559] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445590] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445693] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445709] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445813] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445824] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445947] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.445963] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446098] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446105] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446201] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446215] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446334] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446347] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446519] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446525] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446652] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446659] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446791] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446798] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446929] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.446943] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447060] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447076] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447189] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447228] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447325] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447357] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447437] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447470] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447601] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447631] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447727] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447763] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447844] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447882] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.447974] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448009] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448089] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448145] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448202] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448250] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448308] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448355] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448416] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448475] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448552] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448624] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448678] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448741] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448798] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448860] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448924] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.448999] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449054] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449167] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449175] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449288] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449294] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449393] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449417] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449548] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449570] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449709] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449721] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449836] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449845] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449961] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.449974] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450086] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450095] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450227] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450234] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450380] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450387] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450566] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450578] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450749] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450755] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450863] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450891] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.450971] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451011] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451086] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451130] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451199] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451244] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451320] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451358] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451450] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451503] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451596] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451634] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451705] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451745] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451812] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451869] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451921] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.451988] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452032] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452108] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452147] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452236] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452261] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452354] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452477] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452614] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452640] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452758] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452776] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452877] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452892] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.452987] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453036] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453107] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453166] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453249] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453301] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453400] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453420] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453543] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453565] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453677] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453705] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453795] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453832] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453913] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.453963] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454030] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454089] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454163] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454223] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454285] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454331] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454392] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454456] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454535] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454621] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454676] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454752] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454806] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454875] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.454915] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455027] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455048] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455170] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455180] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455305] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455317] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455438] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455453] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455590] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455604] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455732] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455748] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455847] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455860] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455979] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.455999] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456122] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456141] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456276] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456290] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456417] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456432] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456568] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456592] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456700] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456716] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456836] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456853] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456982] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.456991] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457123] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457136] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457238] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457274] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457371] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457390] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457496] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457524] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457638] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457662] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457772] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457802] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457899] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.457925] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458016] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458055] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458151] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458183] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458268] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458296] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458383] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458414] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458526] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458559] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458667] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458706] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458787] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458842] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458924] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.458955] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459039] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459090] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459142] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459196] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459259] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459308] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459377] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459427] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459532] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459579] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459663] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459703] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459788] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459843] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459908] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.459968] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460012] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460075] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460119] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460192] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460236] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460344] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460367] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460465] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460526] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460622] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460643] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460749] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460776] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460866] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.460899] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461019] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461065] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461147] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461190] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461282] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461331] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461409] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461442] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461549] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461599] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461695] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461751] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461865] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461898] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.461988] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462020] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462121] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462154] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462232] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462261] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462350] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462377] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462471] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462531] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462631] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462657] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462777] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462793] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462949] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.462971] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463106] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463113] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463222] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463234] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463331] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463345] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463435] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463456] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463570] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463602] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463693] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463722] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463819] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463832] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463933] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.463949] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464069] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464085] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464185] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464200] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464298] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464310] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464436] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464450] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464612] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464634] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464739] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464750] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464850] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464883] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.464991] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465015] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465121] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465148] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465255] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465278] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465377] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465390] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465537] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465544] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465673] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465679] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465809] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465816] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465926] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.465937] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466045] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466058] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466170] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466189] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466298] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466314] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466434] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466442] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466586] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466600] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466693] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466727] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466814] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466860] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.466980] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467096] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467129] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467215] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467254] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467327] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467364] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467435] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467470] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467579] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467601] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467687] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467709] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467797] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.467903] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468021] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468145] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468261] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468372] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468538] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468649] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468750] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468852] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.468959] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.469060] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.469159] qcom-iris aa00000.video-codec: Iris1 v153: rejecting aggregate load 5864400 mb/s above 3916800 (session 32400 mb/f at 61 fps)
+[  821.471039] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[  821.475855] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[  821.484968] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[  821.506359] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[  822.197390] qcom-iris aa00000.video-codec: Iris1 v140: measured input 105 fps (qbuf 105, timestamps 60), voting 116 fps (down windows 0)
+[  822.202952] qcom-iris aa00000.video-codec: Iris1 v140: measured input 104 fps (qbuf 104, timestamps 61), voting 115 fps (down windows 0)
+[  823.210783] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 116 fps (down windows 1)
+[  823.215985] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 115 fps (down windows 1)
+[  824.224196] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 116 fps (down windows 2)
+[  824.229651] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 115 fps (down windows 2)
+[  825.238260] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  825.243000] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  826.250867] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  826.256449] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  827.265296] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  827.269939] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[  827.899164] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[  827.899187] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[  827.904680] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[  827.904700] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[  827.910174] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[  827.910186] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[  827.921076] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[  827.921095] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[  827.930419] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[  827.930584] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[  929.626181] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+[  932.392612] ath10k_snoc 18800000.wifi: chan info: invalid frequency 0 (idx 41 out of bounds)
+[ 1066.122992] qcom-iris aa00000.video-codec: initializing HFI queues
+[ 1066.123011] qcom-iris aa00000.video-codec: HFI queues: allocating 3145728-byte queue region (2461696 bytes used)
+[ 1066.123996] qcom-iris aa00000.video-codec: HFI queues: queue table allocated at 0x00000000dfc00000
+[ 1066.124010] qcom-iris aa00000.video-codec: HFI queues: IOMMU coverage IOVA 0x00000000dfc00000..0x00000000dfefffff -> phys 0x00000001ed600000..0x000000010215dfff
+[ 1066.124034] qcom-iris aa00000.video-codec: HFI queues: allocating 4096-byte SFR buffer
+[ 1066.124055] qcom-iris aa00000.video-codec: HFI queues: SFR buffer allocated at 0x00000000dfbfd000
+[ 1066.124062] qcom-iris aa00000.video-codec: HFI queues: initializing command queue
+[ 1066.124067] qcom-iris aa00000.video-codec: HFI queues: initializing message queue
+[ 1066.124072] qcom-iris aa00000.video-codec: HFI queues: initializing debug queue
+[ 1066.124077] qcom-iris aa00000.video-codec: HFI queues: initializing table header
+[ 1066.124082] qcom-iris aa00000.video-codec: HFI queues: legacy Venus table size 192, first header offset 24
+[ 1066.124088] qcom-iris aa00000.video-codec: HFI queues: initialization complete
+[ 1066.124093] qcom-iris aa00000.video-codec: powering on Iris hardware
+[ 1066.124098] qcom-iris aa00000.video-codec: vpu power: voting interconnect
+[ 1066.124230] qcom-iris aa00000.video-codec: Iris1 v154: retaining maximum clock and interconnect votes until power-off
+[ 1066.124237] qcom-iris aa00000.video-codec: vpu power: enabling controller domain and clocks
+[ 1066.124243] qcom-iris aa00000.video-codec: vpu controller: enabling power domain
+[ 1066.124282] qcom-iris aa00000.video-codec: vpu controller: resetting clocks
+[ 1066.124288] qcom-iris aa00000.video-codec: vpu controller: reset 0 (bus): assert begin
+[ 1066.124300] qcom-iris aa00000.video-codec: vpu controller: reset 0 (bus): assert done
+[ 1066.124567] qcom-iris aa00000.video-codec: vpu controller: reset 0 (bus): deassert begin
+[ 1066.124576] qcom-iris aa00000.video-codec: vpu controller: reset 0 (bus): deassert done
+[ 1066.124582] qcom-iris aa00000.video-codec: vpu controller: reset 1 (core): assert begin
+[ 1066.124592] qcom-iris aa00000.video-codec: vpu controller: reset 1 (core): assert done
+[ 1066.124857] qcom-iris aa00000.video-codec: vpu controller: reset 1 (core): deassert begin
+[ 1066.124868] qcom-iris aa00000.video-codec: vpu controller: reset 1 (core): deassert done
+[ 1066.124873] qcom-iris aa00000.video-codec: vpu controller: reset 2 (vcodec0_bus): assert begin
+[ 1066.124880] qcom-iris aa00000.video-codec: vpu controller: reset 2 (vcodec0_bus): assert done
+[ 1066.125148] qcom-iris aa00000.video-codec: vpu controller: reset 2 (vcodec0_bus): deassert begin
+[ 1066.125156] qcom-iris aa00000.video-codec: vpu controller: reset 2 (vcodec0_bus): deassert done
+[ 1066.125162] qcom-iris aa00000.video-codec: vpu controller: reset 3 (vcodec1_bus): assert begin
+[ 1066.125169] qcom-iris aa00000.video-codec: vpu controller: reset 3 (vcodec1_bus): assert done
+[ 1066.125434] qcom-iris aa00000.video-codec: vpu controller: reset 3 (vcodec1_bus): deassert begin
+[ 1066.125443] qcom-iris aa00000.video-codec: vpu controller: reset 3 (vcodec1_bus): deassert done
+[ 1066.125448] qcom-iris aa00000.video-codec: vpu controller: enabling bus clock
+[ 1066.125462] qcom-iris aa00000.video-codec: clock type 1 enabled at 0 Hz
+[ 1066.125467] qcom-iris aa00000.video-codec: vpu controller: enabling AXI clock
+[ 1066.125512] qcom-iris aa00000.video-codec: clock type 0 enabled at 533000097 Hz
+[ 1066.125518] qcom-iris aa00000.video-codec: vpu controller: enabling core clock
+[ 1066.125526] qcom-iris aa00000.video-codec: clock type 2 enabled at 533000097 Hz
+[ 1066.125532] qcom-iris aa00000.video-codec: vpu controller: power-on complete
+[ 1066.125537] qcom-iris aa00000.video-codec: vpu power: codec domain deferred until after OPP vote
+[ 1066.125542] qcom-iris aa00000.video-codec: vpu power: setting OPP rate
+[ 1066.125741] qcom-iris aa00000.video-codec: vpu power: enabling codec domain after OPP vote
+[ 1066.125747] qcom-iris aa00000.video-codec: vcodec power: enabling GDSC without duplicate OPP vote
+[ 1066.125778] qcom-iris aa00000.video-codec: vcodec power: GDSC enable returned 0
+[ 1066.125783] qcom-iris aa00000.video-codec: vcodec power: enabling auxiliary GDSC
+[ 1066.125812] qcom-iris aa00000.video-codec: vcodec power: auxiliary GDSC enable returned 0
+[ 1066.125818] qcom-iris aa00000.video-codec: vcodec power: enabling codec0 AXI clock
+[ 1066.125827] qcom-iris aa00000.video-codec: clock type 3 enabled at 0 Hz
+[ 1066.125833] qcom-iris aa00000.video-codec: vcodec power: enabling codec1 AXI clock
+[ 1066.125840] qcom-iris aa00000.video-codec: clock type 5 enabled at 0 Hz
+[ 1066.125846] qcom-iris aa00000.video-codec: vcodec power: enabling core clock
+[ 1066.125856] qcom-iris aa00000.video-codec: clock type 4 enabled at 533000097 Hz
+[ 1066.125862] qcom-iris aa00000.video-codec: vcodec power: core clock enabled
+[ 1066.125867] qcom-iris aa00000.video-codec: vcodec power: enabling auxiliary core clock
+[ 1066.125877] qcom-iris aa00000.video-codec: clock type 6 enabled at 533000097 Hz
+[ 1066.125883] qcom-iris aa00000.video-codec: vcodec power: auxiliary core clock enabled
+[ 1066.125889] qcom-iris aa00000.video-codec: vcodec power: keeping both GDSCs in software mode
+[ 1066.125894] qcom-iris aa00000.video-codec: vcodec power: hardware ready
+[ 1066.125900] qcom-iris aa00000.video-codec: vpu power: programming preset registers
+[ 1066.125907] qcom-iris aa00000.video-codec: vpu power: enabling interrupt
+[ 1066.125913] qcom-iris aa00000.video-codec: Iris1 interrupt mask before unmask: 0x1f6
+[ 1066.125918] qcom-iris aa00000.video-codec: Iris1 interrupt mask after unmask: 0x1f2
+[ 1066.125928] qcom-iris aa00000.video-codec: loading Iris firmware
+[ 1066.125936] qcom-iris aa00000.video-codec: requesting firmware 'qcom/sm8150/xiaomi/nabu/venus.mbn'
+[ 1066.137891] qcom-iris aa00000.video-codec: firmware image copied; starting PAS authentication (id 9)
+[ 1066.145786] qcom-iris aa00000.video-codec: PAS authentication returned 0
+[ 1066.145827] qcom-iris aa00000.video-codec: resuming secure VPU5 hardware state
+[ 1066.145880] qcom-iris aa00000.video-codec: secure VPU5 hardware state resumed
+[ 1066.145884] qcom-iris aa00000.video-codec: booting Iris firmware CPU
+[ 1066.145886] qcom-iris aa00000.video-codec: HFI registers: writing UC_REGION_ADDR 0xdfc00000 to 0xd2064
+[ 1066.145890] qcom-iris aa00000.video-codec: HFI registers: UC_REGION_ADDR write complete
+[ 1066.145892] qcom-iris aa00000.video-codec: HFI registers: writing UC_REGION_SIZE 0x300000 to 0xd2068
+[ 1066.145895] qcom-iris aa00000.video-codec: HFI registers: UC_REGION_SIZE write complete
+[ 1066.145897] qcom-iris aa00000.video-codec: HFI registers: writing QTBL_ADDR 0xdfc00000 to 0xd2054
+[ 1066.145900] qcom-iris aa00000.video-codec: HFI registers: QTBL_ADDR write complete
+[ 1066.145901] qcom-iris aa00000.video-codec: HFI registers: enabling QTBL at 0xd2050
+[ 1066.145904] qcom-iris aa00000.video-codec: HFI registers: QTBL enable complete
+[ 1066.145906] qcom-iris aa00000.video-codec: HFI registers: writing DSP QTBL/UC region 0xdfc00000 size 0x300000
+[ 1066.145909] qcom-iris aa00000.video-codec: HFI registers: DSP QTBL/UC region writes complete
+[ 1066.145911] qcom-iris aa00000.video-codec: HFI registers: writing SFR_ADDR 0xdfbfd000 to 0xd205c
+[ 1066.145914] qcom-iris aa00000.video-codec: HFI registers: SFR_ADDR write complete
+[ 1066.145916] qcom-iris aa00000.video-codec: HFI registers: writing CTRL_INIT to 0xd2048
+[ 1066.145918] qcom-iris aa00000.video-codec: HFI registers: CTRL_INIT write complete
+[ 1066.145920] qcom-iris aa00000.video-codec: HFI registers: polling CTRL_STATUS at 0xd204c
+[ 1066.152153] qcom-iris aa00000.video-codec: HFI registers: CTRL_STATUS 0x1 after 59 polls
+[ 1066.152158] qcom-iris aa00000.video-codec: Iris1 firmware booted; leaving Iris2-only controls untouched
+[ 1066.152160] qcom-iris aa00000.video-codec: initializing HFI core
+[ 1066.152162] qcom-iris aa00000.video-codec: Iris1 v88: sending SYS_INIT through legacy HFI queue
+[ 1097.884061] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1097.884068] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1097.884080] qcom-iris aa00000.video-codec: Iris1 v57: setting LLCC resources: id=2 size=512 KiB, id=3 size=512 KiB
+[ 1097.884084] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1097.890439] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1097.890446] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1097.890453] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1097.891976] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1097.891982] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1097.891987] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1097.904149] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1097.904156] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1097.904161] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1097.909680] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=1 (loads 0/0)
+[ 1097.909732] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1097.910530] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1097.910555] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1097.910569] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1097.910577] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1097.910585] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.910593] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.910601] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.910661] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1097.910796] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1097.920394] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=2 (loads 15667200/0)
+[ 1097.920521] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1097.921024] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=1 (loads 15667200/15667200)
+[ 1097.921049] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1097.921257] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1097.921271] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1097.921281] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1097.921289] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1097.921297] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.921305] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.921313] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.921363] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1097.921495] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1097.921981] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1097.921992] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1097.922001] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1097.922009] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1097.922016] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.922025] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.922032] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.922084] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1097.922199] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1097.923768] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1097.924195] qcom-iris aa00000.video-codec: Iris1 v154: reserved 32640 mb/f at 60 fps; aggregate 1958400/3916800 mb/s
+[ 1097.925298] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1097.933031] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=2 (loads 31219200/15667200)
+[ 1097.933060] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1097.933875] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1097.933894] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1097.933903] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1097.933939] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1097.933948] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.933956] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.933964] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1097.933992] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1097.934156] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1097.938986] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1097.939213] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1097.939531] qcom-iris aa00000.video-codec: Iris1 v154: reserved 32640 mb/f at 60 fps; aggregate 3902400/3916800 mb/s
+[ 1097.939533] qcom-iris aa00000.video-codec: Iris1 v154: rejecting aggregate load 5860800 mb/s above 3916800 (session 32640 mb/f at 60 fps)
+[ 1097.940582] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1097.941514] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1097.946568] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1097.946955] qcom-iris aa00000.video-codec: Iris1 v154: rejecting aggregate load 5846400 mb/s above 3916800 (session 32640 mb/f at 60 fps)
+[ 1097.948010] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1097.976232] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec HEVC little-endian (0x43564548)
+[ 1097.976254] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) output2 width=3840 height=2160 actual=20 min_host=7 size=12533760
+[ 1097.976261] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb size=12591104
+[ 1097.976264] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb actual=7 min_host=7 queued=7
+[ 1097.990793] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 50135040 instead of calculated 49766400
+[ 1097.990809] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 272368896
+[ 1098.002376] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec HEVC little-endian (0x43564548)
+[ 1098.002393] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) output2 width=3840 height=2160 actual=20 min_host=7 size=12533760
+[ 1098.002399] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb size=12591104
+[ 1098.002403] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb actual=7 min_host=7 queued=7
+[ 1098.003149] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+[ 1098.015408] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 50135040 instead of calculated 49766400
+[ 1098.015423] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 272368896
+[ 1098.028093] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+[ 1098.170719] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[ 1098.179184] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[ 1098.202760] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1098.219789] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1099.005949] qcom-iris aa00000.video-codec: Iris1 v140: measured input 102 fps (qbuf 102, timestamps 60), voting 113 fps (down windows 0)
+[ 1099.033849] qcom-iris aa00000.video-codec: Iris1 v140: measured input 98 fps (qbuf 98, timestamps 61), voting 108 fps (down windows 0)
+[ 1100.018225] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 113 fps (down windows 1)
+[ 1100.047134] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 108 fps (down windows 1)
+[ 1101.031691] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 113 fps (down windows 2)
+[ 1101.059577] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 108 fps (down windows 2)
+[ 1102.044938] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1102.072269] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1103.059307] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 101 fps (down windows 0)
+[ 1103.087153] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1104.071781] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 101 fps (down windows 1)
+[ 1104.099522] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1104.695222] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[ 1104.695248] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[ 1104.700383] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[ 1104.700403] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[ 1104.724383] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[ 1104.724421] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[ 1104.728316] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1104.733759] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[ 1104.733784] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[ 1104.743867] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1138.503388] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1138.503395] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1138.503399] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1138.511147] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1138.511154] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1138.511159] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1138.524543] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=1 (loads 0/0)
+[ 1138.524619] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1138.525413] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1138.525432] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1138.525444] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1138.525461] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1138.525473] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.525483] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.525493] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.525551] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1138.525685] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1138.534872] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=2 (loads 15667200/0)
+[ 1138.534961] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1138.535668] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1138.535684] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1138.535692] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1138.535701] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1138.535709] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.535716] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.535724] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.535778] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1138.535923] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1138.539196] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1138.539617] qcom-iris aa00000.video-codec: Iris1 v154: reserved 32640 mb/f at 60 fps; aggregate 1958400/3916800 mb/s
+[ 1138.540705] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1138.548095] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1138.548436] qcom-iris aa00000.video-codec: Iris1 v154: reserved 32640 mb/f at 60 fps; aggregate 3902400/3916800 mb/s
+[ 1138.549249] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1138.549257] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1138.549263] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1138.550925] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1138.551800] qcom-iris aa00000.video-codec: Iris1 v57: preparing SM8150 system resources before SESSION_INIT
+[ 1138.551805] qcom-iris aa00000.video-codec: Iris1 v57: enabling firmware error/fatal debug queue
+[ 1138.551810] qcom-iris aa00000.video-codec: Iris1 v57: disabling codec power-plane collapse before SESSION_INIT
+[ 1138.578625] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=1 (loads 15552000/15552000)
+[ 1138.578675] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1138.579450] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1138.579473] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1138.579483] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1138.579503] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1138.579511] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.579520] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.579527] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.579579] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1138.579751] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1138.582028] qcom-iris aa00000.video-codec: Iris1 v144: decoder codec=HEVC little-endian (0x43564548) assigned core=2 (loads 31219200/15552000)
+[ 1138.582089] qcom-iris aa00000.video-codec: Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES
+[ 1138.582833] qcom-iris aa00000.video-codec: Iris1 v58: SESSION_PROPERTY_INFO properties=1 property=0x202001 payload=192 bytes
+[ 1138.582850] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[0] type=0x1 size=6266880 region=0 hold=4 min=1 actual=32 contiguous=0 align=256
+[ 1138.582860] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[1] type=0x2 size=12591104 region=0 hold=18 min=32 actual=32 contiguous=0 align=4096
+[ 1138.582868] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[2] type=0x3 size=12533760 region=0 hold=18 min=4 actual=4 contiguous=0 align=256
+[ 1138.582876] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[3] type=0x6 size=50135040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.582884] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[4] type=0x7 size=20789760 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.582892] qcom-iris aa00000.video-codec: Iris1 v58: bufreq[5] type=0x5 size=119040 region=0 hold=1 min=1 actual=1 contiguous=1 align=256
+[ 1138.582948] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 9 using exact firmware size 119040 instead of calculated 397568
+[ 1138.583086] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 274339072
+[ 1138.595966] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1138.596409] qcom-iris aa00000.video-codec: Iris1 v154: rejecting aggregate load 5846400 mb/s above 3916800 (session 32640 mb/f at 60 fps)
+[ 1138.597452] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1138.597641] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec HEVC little-endian (0x43564548)
+[ 1138.597652] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) output2 width=3840 height=2160 actual=20 min_host=7 size=12533760
+[ 1138.597658] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb size=12591104
+[ 1138.597661] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb actual=7 min_host=7 queued=7
+[ 1138.598562] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=OUTPUT state=1 substate=0x0 load_resources=0
+[ 1138.598941] qcom-iris aa00000.video-codec: Iris1 v154: rejecting aggregate load 5846400 mb/s above 3916800 (session 32640 mb/f at 60 fps)
+[ 1138.599984] qcom-iris aa00000.video-codec: Iris1 v64: HFI 4xx buffer minimum=7 (raw hold=7 min=0)
+[ 1138.606929] qcom-iris aa00000.video-codec: Iris1 v65: applying first capture config for codec HEVC little-endian (0x43564548)
+[ 1138.606947] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) output2 width=3840 height=2160 actual=20 min_host=7 size=12533760
+[ 1138.606953] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb size=12591104
+[ 1138.606957] qcom-iris aa00000.video-codec: Iris1 v65: codec=HEVC little-endian (0x43564548) internal dpb actual=7 min_host=7 queued=7
+[ 1138.609040] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 50135040 instead of calculated 49766400
+[ 1138.609056] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 272368896
+[ 1138.621117] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+[ 1138.621783] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 3 using exact firmware size 50135040 instead of calculated 49766400
+[ 1138.621792] qcom-iris aa00000.video-codec: Iris1 v145: buffer type 10 using exact firmware size 20789760 instead of calculated 272368896
+[ 1138.631438] qcom-iris aa00000.video-codec: Iris1 v107: session_start plane=CAPTURE state=2 substate=0xa1 load_resources=1
+[ 1138.806908] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[ 1138.816371] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=2 substate=0xa9 streamoff=1
+[ 1138.837978] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1138.848835] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1139.628633] qcom-iris aa00000.video-codec: Iris1 v140: measured input 99 fps (qbuf 99, timestamps 60), voting 109 fps (down windows 0)
+[ 1139.634190] qcom-iris aa00000.video-codec: Iris1 v140: measured input 101 fps (qbuf 101, timestamps 61), voting 112 fps (down windows 0)
+[ 1140.642070] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 109 fps (down windows 1)
+[ 1140.647485] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 61), voting 112 fps (down windows 1)
+[ 1141.655337] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 109 fps (down windows 2)
+[ 1141.661942] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 112 fps (down windows 2)
+[ 1142.669056] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1142.674491] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 99 fps (down windows 0)
+[ 1143.682755] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 101 fps (down windows 0)
+[ 1143.688136] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 101 fps (down windows 0)
+[ 1144.696094] qcom-iris aa00000.video-codec: Iris1 v140: measured input 91 fps (qbuf 91, timestamps 60), voting 101 fps (down windows 0)
+[ 1144.701700] qcom-iris aa00000.video-codec: Iris1 v140: measured input 90 fps (qbuf 90, timestamps 60), voting 101 fps (down windows 1)
+[ 1145.331117] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[ 1145.331141] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[ 1145.336697] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[ 1145.336717] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[ 1145.342201] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=OUTPUT state=4 substate=0x80 streamoff=1
+[ 1145.342214] qcom-iris aa00000.video-codec: Iris1 v107: sending SESSION_FLUSH plane=OUTPUT type=0x1000004 pending=0
+[ 1145.353092] qcom-iris aa00000.video-codec: Iris1 v107: SESSION_FLUSH done plane=OUTPUT type=0x1000004 ret=0 pending=0
+[ 1145.353112] qcom-iris aa00000.video-codec: Iris1 v107: session_stop plane=CAPTURE state=3 substate=0x80 streamoff=1
+[ 1145.369455] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources
+[ 1145.369789] qcom-iris aa00000.video-codec: Iris1 v135: released stopped-session DMA and HFI resources

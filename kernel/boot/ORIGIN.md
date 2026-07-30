@@ -12,6 +12,6 @@ UKI selected by rEFInd's `PreviousBoot` record on the validated tablet's
 - Command line: `root=PARTLABEL=linux rw fw_devlink=permissive modprobe.blacklist=venus_core,qcom_iris`
 
 The separately supplied module tree contains 762 modules built for this exact
-kernel release. Its Iris module is the v140 artifact; Iris is not built into
-the UKI.
-
+kernel release. Its Iris module is the v154 artifact (SHA-256
+`406f6da1283d3f8ff4e406c1c9a9116dbea8c70a17f3e0bb716d452152009230`);
+Iris is not built into the UKI.
