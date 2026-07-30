@@ -3,7 +3,7 @@ set -eu
 
 release_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 expected_kernel='6.14.11-nabu-iris1+'
-expected_hash='ee0701b2acdd1d9509ffc00f2304687a56021f22bee11661cc8fdfb200da6ccb'
+expected_hash='406f6da1283d3f8ff4e406c1c9a9116dbea8c70a17f3e0bb716d452152009230'
 module_src="${release_dir}/kernel/qcom-iris.ko"
 module_dir="/lib/modules/${expected_kernel}/kernel/drivers/media/platform/qcom/iris"
 module_dst="${module_dir}/qcom-iris.ko"
@@ -37,7 +37,7 @@ mkdir -p "${module_dir}"
 if [ -e "${module_dst}" ]; then
     old_hash=$(sha256sum "${module_dst}" | cut -d ' ' -f 1)
     old_short=$(printf '%s' "${old_hash}" | cut -c 1-8)
-    backup="${module_dst}.pre-v140-${old_short}"
+    backup="${module_dst}.pre-v154-${old_short}"
     if [ "${old_hash}" != "${expected_hash}" ] && [ ! -e "${backup}" ]; then
         cp -a "${module_dst}" "${backup}"
         echo "Backed up previous module to ${backup}"

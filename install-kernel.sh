@@ -4,7 +4,7 @@ set -eu
 release_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 expected_kernel='6.14.11-nabu-iris1+'
 expected_uki_hash='591e388018e911375391c6ce5ba19b6276d91d8d7088e54468b67f4d398d2926'
-expected_module_hash='ee0701b2acdd1d9509ffc00f2304687a56021f22bee11661cc8fdfb200da6ccb'
+expected_module_hash='406f6da1283d3f8ff4e406c1c9a9116dbea8c70a17f3e0bb716d452152009230'
 expected_firmware_hash='9d4af65d7ede845e900f1b29ff425b7a8e2947056e695e246e58a2091445a085'
 uki_src="${release_dir}/kernel/boot/6.14.11-nabu-iris1-v44-hwctrl-trigger-current.efi"
 modules_src="${release_dir}/kernel/modules-root/lib/modules/${expected_kernel}"
@@ -70,7 +70,7 @@ case "$(modinfo -F vermagic "${modules_src}/kernel/drivers/media/platform/qcom/i
 esac
 
 esp_ubuntu="${esp_mount}/EFI/ubuntu"
-uki_dst="${esp_ubuntu}/6.14.11-nabu-iris1-v140-drmprime.efi"
+uki_dst="${esp_ubuntu}/6.14.11-nabu-iris1-v154-drmprime.efi"
 if [ -e "${uki_dst}" ]; then
     installed_hash=$(sha256sum "${uki_dst}" | cut -d ' ' -f 1)
     if [ "${installed_hash}" != "${expected_uki_hash}" ]; then
@@ -84,7 +84,7 @@ old_module="${modules_dst}/kernel/drivers/media/platform/qcom/iris/qcom-iris.ko"
 if [ -e "${old_module}" ]; then
     old_hash=$(sha256sum "${old_module}" | cut -d ' ' -f 1)
     old_short=$(printf '%s' "${old_hash}" | cut -c 1-8)
-    backup="${old_module}.pre-v140-${old_short}"
+    backup="${old_module}.pre-v154-${old_short}"
     if [ "${old_hash}" != "${expected_module_hash}" ] && [ ! -e "${backup}" ]; then
         cp -a "${old_module}" "${backup}"
         echo "Backed up previous Iris module to ${backup}"
@@ -120,6 +120,6 @@ systemctl enable qcom-iris-autoload.service
 
 sha256sum "${uki_dst}" "${old_module}" "${firmware_dst}"
 echo "Installed a new rEFInd entry without replacing existing EFI files."
-echo "Reboot, select 6.14.11-nabu-iris1-v140-drmprime.efi, then verify:"
+echo "Reboot, select 6.14.11-nabu-iris1-v154-drmprime.efi, then verify:"
 echo "  uname -a"
 echo "  sha256sum ${old_module}"

@@ -1,0 +1,603 @@
+[   0.002][v][cplayer] mpv v0.41.0 Copyright © 2000-2025 mpv/MPlayer/mplayer2 projects
+[   0.002][v][cplayer] libplacebo version: v7.360.0
+[   0.002][v][cplayer] FFmpeg version: 8.0.1-3ubuntu2
+[   0.002][v][cplayer] FFmpeg library versions:
+[   0.002][v][cplayer]    libavcodec      62.11.100
+[   0.002][v][cplayer]    libavdevice     62.1.100
+[   0.002][v][cplayer]    libavfilter     11.4.100
+[   0.002][v][cplayer]    libavformat     62.3.100
+[   0.002][v][cplayer]    libavutil       60.8.100
+[   0.002][v][cplayer]    libswresample   6.1.100
+[   0.002][v][cplayer]    libswscale      9.1.100
+[   0.002][v][cplayer] Configuration: -Dpython.bytecompile=-1 -Dlibmpv=true -Dbuild-date=false -Dcdda=enabled -Ddvdnav=enabled -Ddvbin=enabled -Dprefix=/usr -Dlibdir=lib/aarch64-linux-gnu -Dlocalstatedir=/var -Dsysconfdir=/etc -Dbuildtype=plain -Dwrap_mode=nodownload
+[   0.002][v][cplayer] List of enabled features: alsa cdda cplugins cuda-hwaccel cuda-interop dmabuf-interop-gl dmabuf-wayland drm dvbin dvdnav egl egl-drm egl-wayland egl-x11 ffmpeg ffnvcodec gbm gl glibc-thread-name glob glob-posix gpl iconv jack javascript jpeg lcms2 libarchive libass libavdevice libbluray libdl libplacebo linux-fstatfs lua52 memfd-create memrchr pipewire posix posix-shm ppoll pthread-condattr-setclock pulse rubberband rubberband-3 sixel sndio sndio-1-9 uchardet vaapi vaapi-drm vaapi-wayland vaapi-x11 vdpau vector vk-khr-display vt.h vulkan wayland wayland-protocols-1-32 wayland-protocols-1-38 wayland-protocols-1-39 wayland-protocols-1-41 wayland-protocols-1-44 wayland-protocols-1-47 x11 x11-clipboard xv zimg zimg-st428 zlib
+[   0.002][v][cplayer] Command line options: '--hwdec=v4l2m2m' '--hwdec-codecs=h264,hevc,vp9' '--vo=dmabuf-wayland' '--video-sync=display-resample' '--interpolation=no' '--no-terminal' '--load-scripts=no' '--audio=no' '--log-file=/home/cfm880/qcom/mpv-iris-vp9-v154.log' '/home/cfm880/qcom/Big_Buck_Bunny_1080_10s_10MB.webm'
+[   0.002][v][cplayer] mpv v0.41.0 Copyright © 2000-2025 mpv/MPlayer/mplayer2 projects
+[   0.002][v][cplayer] libplacebo version: v7.360.0
+[   0.002][v][cplayer] FFmpeg version: 8.0.1-3ubuntu2
+[   0.002][v][cplayer] FFmpeg library versions:
+[   0.002][v][cplayer]    libavcodec      62.11.100
+[   0.002][v][cplayer]    libavdevice     62.1.100
+[   0.002][v][cplayer]    libavfilter     11.4.100
+[   0.002][v][cplayer]    libavformat     62.3.100
+[   0.002][v][cplayer]    libavutil       60.8.100
+[   0.002][v][cplayer]    libswresample   6.1.100
+[   0.003][v][cplayer]    libswscale      9.1.100
+[   0.003][v][cplayer] Configuration: -Dpython.bytecompile=-1 -Dlibmpv=true -Dbuild-date=false -Dcdda=enabled -Ddvdnav=enabled -Ddvbin=enabled -Dprefix=/usr -Dlibdir=lib/aarch64-linux-gnu -Dlocalstatedir=/var -Dsysconfdir=/etc -Dbuildtype=plain -Dwrap_mode=nodownload
+[   0.003][v][cplayer] List of enabled features: alsa cdda cplugins cuda-hwaccel cuda-interop dmabuf-interop-gl dmabuf-wayland drm dvbin dvdnav egl egl-drm egl-wayland egl-x11 ffmpeg ffnvcodec gbm gl glibc-thread-name glob glob-posix gpl iconv jack javascript jpeg lcms2 libarchive libass libavdevice libbluray libdl libplacebo linux-fstatfs lua52 memfd-create memrchr pipewire posix posix-shm ppoll pthread-condattr-setclock pulse rubberband rubberband-3 sixel sndio sndio-1-9 uchardet vaapi vaapi-drm vaapi-wayland vaapi-x11 vdpau vector vk-khr-display vt.h vulkan wayland wayland-protocols-1-32 wayland-protocols-1-38 wayland-protocols-1-39 wayland-protocols-1-41 wayland-protocols-1-44 wayland-protocols-1-47 x11 x11-clipboard xv zimg zimg-st428 zlib
+[   0.003][d][global] home path: '' -> '/home/cfm880/.config/mpv'
+[   0.003][d][global] user path: '~~home/' -> '/home/cfm880/.config/mpv'
+[   0.003][d][global] user path: '~~old_home/' -> '/home/cfm880/.mpv'
+[   0.003][d][global] config path: 'encoding-profiles.conf' -/-> '/home/cfm880/.config/mpv/encoding-profiles.conf'
+[   0.003][d][global] config path: 'encoding-profiles.conf' -/-> '/home/cfm880/.mpv/encoding-profiles.conf'
+[   0.003][d][global] config path: 'encoding-profiles.conf' -/-> '/etc/mpv/encoding-profiles.conf'
+[   0.003][d][global] config path: 'mpv.conf' -> '/home/cfm880/.config/mpv/mpv.conf'
+[   0.003][d][global] config path: 'config' -/-> '/home/cfm880/.config/mpv/config'
+[   0.003][d][global] config path: 'mpv.conf' -/-> '/home/cfm880/.mpv/mpv.conf'
+[   0.003][d][global] config path: 'config' -/-> '/home/cfm880/.mpv/config'
+[   0.003][d][global] config path: 'mpv.conf' -> '/etc/mpv/mpv.conf'
+[   0.003][d][global] config path: 'config' -/-> '/etc/mpv/config'
+[   0.003][v][cplayer] Reading config file /etc/mpv/mpv.conf
+[   0.003][v][ifo_dvdnav] Opening /etc/mpv/mpv.conf
+[   0.003][v][bdmv/bluray] Opening /etc/mpv/mpv.conf
+[   0.003][v][file] Opening /etc/mpv/mpv.conf
+[   0.003][d][file] resize stream to 131072 bytes, drop 0 bytes
+[   0.003][d][file] Stream opened successfully.
+[   0.003][v][cplayer] Applying profile 'default'...
+[   0.003][v][cplayer] Setting option 'hwdec' = 'vaapi' (flags = 4)
+[   0.003][v][cplayer] Reading config file /home/cfm880/.config/mpv/mpv.conf
+[   0.003][v][ifo_dvdnav] Opening /home/cfm880/.config/mpv/mpv.conf
+[   0.003][v][bdmv/bluray] Opening /home/cfm880/.config/mpv/mpv.conf
+[   0.003][v][file] Opening /home/cfm880/.config/mpv/mpv.conf
+[   0.003][d][file] resize stream to 131072 bytes, drop 0 bytes
+[   0.003][d][file] Stream opened successfully.
+[   0.003][v][cplayer] Applying profile 'default'...
+[   0.003][v][cplayer] Setting option 'hwdec' = 'v4l2m2m-copy' (flags = 4)
+[   0.003][v][cplayer] Setting option 'hwdec-codecs' = 'h264,hevc' (flags = 4)
+[   0.003][v][cplayer] Setting option 'hwdec-software-fallback' = 'yes' (flags = 4)
+[   0.003][v][cplayer] Setting option 'hwdec' = 'v4l2m2m' (flags = 8)
+[   0.003][v][cplayer] Setting option 'hwdec-codecs' = 'h264,hevc,vp9' (flags = 8)
+[   0.003][v][cplayer] Setting option 'vo' = 'dmabuf-wayland' (flags = 8)
+[   0.003][v][cplayer] Setting option 'video-sync' = 'display-resample' (flags = 8)
+[   0.003][v][cplayer] Setting option 'interpolation' = 'no' (flags = 8)
+[   0.003][v][cplayer] Setting option 'terminal' = 'no' (flags = 8)
+[   0.003][v][cplayer] Setting option 'load-scripts' = 'no' (flags = 8)
+[   0.003][v][cplayer] Setting option 'audio' = 'no' (flags = 8)
+[   0.003][v][cplayer] Setting option 'log-file' = '/home/cfm880/qcom/mpv-iris-vp9-v154.log' (flags = 8)
+[   0.004][d][global] config path: 'input.conf' -/-> '/home/cfm880/.config/mpv/input.conf'
+[   0.004][d][global] config path: 'input.conf' -/-> '/home/cfm880/.mpv/input.conf'
+[   0.004][d][global] config path: 'input.conf' -/-> '/etc/mpv/input.conf'
+[   0.004][d][osc] Loading lua script @osc.lua...
+[   0.004][d][ytdl_hook] Loading lua script @ytdl_hook.lua...
+[   0.004][d][stats] Loading lua script @stats.lua...
+[   0.005][d][console] Loading lua script @console.lua...
+[   0.005][d][auto_profiles] Loading lua script @auto_profiles.lua...
+[   0.005][d][ytdl_hook] loading mp.defaults
+[   0.005][d][select] Loading lua script @select.lua...
+[   0.005][d][osc] loading mp.defaults
+[   0.006][d][positioning] Loading lua script @positioning.lua...
+[   0.006][d][stats] loading mp.defaults
+[   0.006][d][commands] Loading lua script @commands.lua...
+[   0.006][d][context_menu] Loading lua script @context_menu.lua...
+[   0.006][d][console] loading mp.defaults
+[   0.006][d][select] loading mp.defaults
+[   0.006][d][auto_profiles] loading mp.defaults
+[   0.006][d][ytdl_hook] loading @ytdl_hook.lua
+[   0.007][v][clipboard/wayland] Registered interface wl_seat at version 8
+[   0.007][v][clipboard/wayland] Compositor doesn't support the ext_data_control_manager_v1 protocol!
+[   0.007][v][clipboard/wayland] Deregistering seat 0x10
+[   0.007][v][clipboard/x11] Stopping init due to suspected wayland environment
+[   0.007][v][clipboard] Initialized vo clipboard backend.
+[   0.007][v][cplayer] Waiting for scripts...
+[   0.007][d][context_menu] loading mp.defaults
+[   0.008][d][commands] loading mp.defaults
+[   0.008][d][ytdl_hook] reading options for ytdl_hook
+[   0.008][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/home/cfm880/.config/mpv/script-opts/ytdl_hook.conf'
+[   0.008][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/home/cfm880/.mpv/script-opts/ytdl_hook.conf'
+[   0.008][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/etc/mpv/script-opts/ytdl_hook.conf'
+[   0.008][d][ytdl_hook] script-opts/ytdl_hook.conf not found.
+[   0.008][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/ytdl_hook.conf'
+[   0.008][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/home/cfm880/.mpv/lua-settings/ytdl_hook.conf'
+[   0.008][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/etc/mpv/lua-settings/ytdl_hook.conf'
+[   0.008][d][ytdl_hook] lua-settings/ytdl_hook.conf not found.
+[   0.008][d][osc] loading @osc.lua
+[   0.008][d][stats] loading @stats.lua
+[   0.008][d][commands] loading @commands.lua
+[   0.009][d][console] loading @console.lua
+[   0.009][d][context_menu] loading @context_menu.lua
+[   0.009][d][auto_profiles] loading @auto_profiles.lua
+[   0.009][d][positioning] loading mp.defaults
+[   0.010][d][select] loading @select.lua
+[   0.010][d][commands] reading options for commands
+[   0.010][d][global] config path: 'script-opts/commands.conf' -/-> '/home/cfm880/.config/mpv/script-opts/commands.conf'
+[   0.010][d][global] config path: 'script-opts/commands.conf' -/-> '/home/cfm880/.mpv/script-opts/commands.conf'
+[   0.010][d][global] config path: 'script-opts/commands.conf' -/-> '/etc/mpv/script-opts/commands.conf'
+[   0.010][d][commands] script-opts/commands.conf not found.
+[   0.010][d][global] config path: 'lua-settings/commands.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/commands.conf'
+[   0.010][d][global] config path: 'lua-settings/commands.conf' -/-> '/home/cfm880/.mpv/lua-settings/commands.conf'
+[   0.010][d][global] config path: 'lua-settings/commands.conf' -/-> '/etc/mpv/lua-settings/commands.conf'
+[   0.010][d][commands] lua-settings/commands.conf not found.
+[   0.010][d][cplayer] Run command: define-section, flags=64, args=[name="input_commands", contents="", flags="default"]
+[   0.010][d][cplayer] Run command: enable-section, flags=64, args=[name="input_commands", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.010][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_commands", contents="", flags="force"]
+[   0.011][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_commands", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.012][d][select] reading options for select
+[   0.012][d][global] config path: 'script-opts/select.conf' -/-> '/home/cfm880/.config/mpv/script-opts/select.conf'
+[   0.012][d][global] config path: 'script-opts/select.conf' -/-> '/home/cfm880/.mpv/script-opts/select.conf'
+[   0.012][d][global] config path: 'script-opts/select.conf' -/-> '/etc/mpv/script-opts/select.conf'
+[   0.012][d][select] script-opts/select.conf not found.
+[   0.012][d][global] config path: 'lua-settings/select.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/select.conf'
+[   0.012][d][global] config path: 'lua-settings/select.conf' -/-> '/home/cfm880/.mpv/lua-settings/select.conf'
+[   0.012][d][global] config path: 'lua-settings/select.conf' -/-> '/etc/mpv/lua-settings/select.conf'
+[   0.012][d][select] lua-settings/select.conf not found.
+[   0.012][d][context_menu] reading options for context_menu
+[   0.012][d][global] config path: 'script-opts/context_menu.conf' -/-> '/home/cfm880/.config/mpv/script-opts/context_menu.conf'
+[   0.012][d][global] config path: 'script-opts/context_menu.conf' -/-> '/home/cfm880/.mpv/script-opts/context_menu.conf'
+[   0.012][d][global] config path: 'script-opts/context_menu.conf' -/-> '/etc/mpv/script-opts/context_menu.conf'
+[   0.012][d][context_menu] script-opts/context_menu.conf not found.
+[   0.012][d][global] config path: 'lua-settings/context_menu.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/context_menu.conf'
+[   0.012][d][global] config path: 'lua-settings/context_menu.conf' -/-> '/home/cfm880/.mpv/lua-settings/context_menu.conf'
+[   0.012][d][global] config path: 'lua-settings/context_menu.conf' -/-> '/etc/mpv/lua-settings/context_menu.conf'
+[   0.012][d][context_menu] lua-settings/context_menu.conf not found.
+[   0.013][d][cplayer] Run command: define-section, flags=64, args=[name="input_select", contents="", flags="default"]
+[   0.013][d][cplayer] Run command: enable-section, flags=64, args=[name="input_select", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.013][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_select", contents="", flags="force"]
+[   0.013][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_select", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.013][d][auto_profiles] Destroying client handle...
+[   0.014][d][positioning] loading @positioning.lua
+[   0.015][d][positioning] reading options for positioning
+[   0.015][d][global] config path: 'script-opts/positioning.conf' -/-> '/home/cfm880/.config/mpv/script-opts/positioning.conf'
+[   0.015][d][global] config path: 'script-opts/positioning.conf' -/-> '/home/cfm880/.mpv/script-opts/positioning.conf'
+[   0.015][d][global] config path: 'script-opts/positioning.conf' -/-> '/etc/mpv/script-opts/positioning.conf'
+[   0.015][d][positioning] script-opts/positioning.conf not found.
+[   0.015][d][global] config path: 'lua-settings/positioning.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/positioning.conf'
+[   0.015][d][global] config path: 'lua-settings/positioning.conf' -/-> '/home/cfm880/.mpv/lua-settings/positioning.conf'
+[   0.015][d][global] config path: 'lua-settings/positioning.conf' -/-> '/etc/mpv/lua-settings/positioning.conf'
+[   0.015][d][positioning] lua-settings/positioning.conf not found.
+[   0.015][d][cplayer] Run command: define-section, flags=64, args=[name="input_positioning", contents="", flags="default"]
+[   0.016][d][cplayer] Run command: enable-section, flags=64, args=[name="input_positioning", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.016][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_positioning", contents="", flags="force"]
+[   0.016][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_positioning", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.017][d][console] reading options for console
+[   0.017][d][global] config path: 'script-opts/console.conf' -/-> '/home/cfm880/.config/mpv/script-opts/console.conf'
+[   0.017][d][global] config path: 'script-opts/console.conf' -/-> '/home/cfm880/.mpv/script-opts/console.conf'
+[   0.017][d][global] config path: 'script-opts/console.conf' -/-> '/etc/mpv/script-opts/console.conf'
+[   0.017][d][console] script-opts/console.conf not found.
+[   0.017][d][global] config path: 'lua-settings/console.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/console.conf'
+[   0.017][d][global] config path: 'lua-settings/console.conf' -/-> '/home/cfm880/.mpv/lua-settings/console.conf'
+[   0.017][d][global] config path: 'lua-settings/console.conf' -/-> '/etc/mpv/lua-settings/console.conf'
+[   0.017][d][console] lua-settings/console.conf not found.
+[   0.018][d][cplayer] Run command: define-section, flags=64, args=[name="input_console", contents="", flags="default"]
+[   0.018][d][cplayer] Run command: enable-section, flags=64, args=[name="input_console", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.018][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_console", contents="", flags="force"]
+[   0.018][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_console", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.019][d][stats] reading options for stats
+[   0.019][d][global] config path: 'script-opts/stats.conf' -/-> '/home/cfm880/.config/mpv/script-opts/stats.conf'
+[   0.019][d][global] config path: 'script-opts/stats.conf' -/-> '/home/cfm880/.mpv/script-opts/stats.conf'
+[   0.019][d][global] config path: 'script-opts/stats.conf' -/-> '/etc/mpv/script-opts/stats.conf'
+[   0.019][d][stats] script-opts/stats.conf not found.
+[   0.019][d][global] config path: 'lua-settings/stats.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/stats.conf'
+[   0.019][d][global] config path: 'lua-settings/stats.conf' -/-> '/home/cfm880/.mpv/lua-settings/stats.conf'
+[   0.019][d][global] config path: 'lua-settings/stats.conf' -/-> '/etc/mpv/lua-settings/stats.conf'
+[   0.019][d][stats] lua-settings/stats.conf not found.
+[   0.021][d][cplayer] Run command: define-section, flags=64, args=[name="input_stats", contents="", flags="default"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="input_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.022][d][cplayer] Run command: define-section, flags=64, args=[name="showhide", contents="mouse_move script-binding osc/__keybinding1\nmouse_leave script-binding osc/__keybinding2\n", flags="force"]
+[   0.022][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_stats", contents="", flags="force"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.022][d][cplayer] Run command: define-section, flags=64, args=[name="showhide_wc", contents="mouse_move script-binding osc/__keybinding3\nmouse_leave script-binding osc/__keybinding4\n", flags="force"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="showhide", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="showhide_wc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.022][d][cplayer] Run command: define-section, flags=64, args=[name="input", contents="mbtn_left script-binding osc/__keybinding5\nmbtn_mid script-binding osc/__keybinding6\nmbtn_right script-binding osc/__keybinding7\nshift+mbtn_left script-binding osc/__keybinding8\nwheel_up script-binding osc/__keybinding9\nwheel_down script-binding osc/__keybinding10\nmbtn_left_dbl ignore\nshift+mbtn_left_dbl ignore\nmbtn_right_dbl ignore\n", flags="force"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="input", flags=""]
+[   0.022][d][cplayer] Run command: define-section, flags=64, args=[name="window-controls", contents="mbtn_left script-binding osc/__keybinding11\n", flags="force"]
+[   0.022][d][cplayer] Run command: enable-section, flags=64, args=[name="window-controls", flags=""]
+[   0.023][d][osc] reading options for osc
+[   0.023][d][global] config path: 'script-opts/osc.conf' -/-> '/home/cfm880/.config/mpv/script-opts/osc.conf'
+[   0.023][d][global] config path: 'script-opts/osc.conf' -/-> '/home/cfm880/.mpv/script-opts/osc.conf'
+[   0.023][d][global] config path: 'script-opts/osc.conf' -/-> '/etc/mpv/script-opts/osc.conf'
+[   0.023][d][osc] script-opts/osc.conf not found.
+[   0.023][d][global] config path: 'lua-settings/osc.conf' -/-> '/home/cfm880/.config/mpv/lua-settings/osc.conf'
+[   0.023][d][global] config path: 'lua-settings/osc.conf' -/-> '/home/cfm880/.mpv/lua-settings/osc.conf'
+[   0.023][d][global] config path: 'lua-settings/osc.conf' -/-> '/etc/mpv/lua-settings/osc.conf'
+[   0.023][d][osc] lua-settings/osc.conf not found.
+[   0.025][v][cplayer] Set property: user-data/osc/visibility="auto" -> 1
+[   0.025][d][cplayer] Run command: disable-section, flags=64, args=[name="input"]
+[   0.025][d][cplayer] Run command: disable-section, flags=64, args=[name="window-controls"]
+[   0.025][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   0.025][v][cplayer] Done loading scripts.
+[   0.025][d][global] state path: 'watch_later' -> '/home/cfm880/.local/state/mpv/watch_later'
+[   0.025][v][cplayer] Running hook: auto_profiles/on_before_start_file
+[   0.025][v][cplayer] Failed sending hook command auto_profiles/on_before_start_file. Removing hook.
+[   0.025][d][global] state path: 'watch_later' -> '/home/cfm880/.local/state/mpv/watch_later'
+[   0.026][v][cplayer] Running hook: auto_profiles/on_load
+[   0.026][v][cplayer] Failed sending hook command auto_profiles/on_load. Removing hook.
+[   0.026][v][cplayer] Running hook: ytdl_hook/on_load
+[   0.026][v][cplayer] Running hook: ytdl_hook/on_load
+[   0.026][v][ytdl_hook] playlist hook
+[   0.026][v][ifo_dvdnav] Opening /home/cfm880/qcom/Big_Buck_Bunny_1080_10s_10MB.webm
+[   0.026][v][bdmv/bluray] Opening /home/cfm880/qcom/Big_Buck_Bunny_1080_10s_10MB.webm
+[   0.027][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   0.027][d][osc] osc_init
+[   0.027][v][file] Opening /home/cfm880/qcom/Big_Buck_Bunny_1080_10s_10MB.webm
+[   0.027][d][file] resize stream to 131072 bytes, drop 0 bytes
+[   0.027][d][file] Stream opened successfully.
+[   0.027][v][demux] Trying demuxers for level=normal.
+[   0.027][d][demux] Trying demuxer: directory (force-level: normal)
+[   0.027][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   0.027][d][global] config path: 'fonts' -/-> '/home/cfm880/.config/mpv/fonts'
+[   0.027][d][global] config path: 'fonts' -/-> '/home/cfm880/.mpv/fonts'
+[   0.027][d][global] config path: 'fonts' -/-> '/etc/mpv/fonts'
+[   0.027][d][osd/libass] ASS library version: 0x1704000 (runtime 0x1704000)
+[   0.027][d][demux] Trying demuxer: disc (force-level: normal)
+[   0.027][d][demux] Trying demuxer: edl (force-level: normal)
+[   0.027][v][osd/libass] libass API version: 0x1704000
+[   0.027][v][osd/libass] libass source: tarball: 0.17.4
+[   0.027][d][demux] Trying demuxer: cue (force-level: normal)
+[   0.027][d][demux] Trying demuxer: rawaudio (force-level: normal)
+[   0.027][d][demux] Trying demuxer: rawvideo (force-level: normal)
+[   0.027][d][demux] Trying demuxer: mkv (force-level: normal)
+[   0.028][d][mkv] Found the head...
+[   0.028][d][mkv] + a segment...
+[   0.028][d][mkv] Parsing seek head...
+[   0.028][d][mkv] |+ segment information...
+[   0.028][d][mkv] float 10000.000000
+[   0.028][d][mkv] | + muxing app: Lavf58.14.100
+[   0.028][d][mkv] | + writing app: Lavf58.14.100
+[   0.028][d][mkv] | + timecode scale: 1000000
+[   0.028][d][mkv] | + duration: 10.000s
+[   0.028][d][mkv] |+ segment tracks...
+[   0.028][d][mkv] | + a track...
+[   0.028][d][mkv] |  + Track number: 1
+[   0.028][d][mkv] |  + Track type: Video
+[   0.028][d][mkv] |  + Video track
+[   0.028][d][mkv] |   + Pixel width: 1920
+[   0.028][d][mkv] |   + Pixel height: 1080
+[   0.028][v][osd/libass] Shaper: FriBidi 1.0.16 (SIMPLE) HarfBuzz-ng 12.3.2 (COMPLEX)
+[   0.028][d][mkv] |    + ChromaLocation: mpeg2/4/h264
+[   0.028][d][mkv] |  + Codec ID: V_VP9
+[   0.028][d][global] config path: 'subfont.ttf' -/-> '/home/cfm880/.config/mpv/subfont.ttf'
+[   0.028][d][global] config path: 'subfont.ttf' -/-> '/home/cfm880/.mpv/subfont.ttf'
+[   0.028][d][global] config path: 'subfont.ttf' -/-> '/etc/mpv/subfont.ttf'
+[   0.028][d][global] config path: 'fonts.conf' -/-> '/home/cfm880/.config/mpv/fonts.conf'
+[   0.028][d][mkv] |  + Language: und
+[   0.028][d][mkv] |  + Default duration: 33.333ms ( = 30.000 fps)
+[   0.028][d][global] config path: 'fonts.conf' -/-> '/home/cfm880/.mpv/fonts.conf'
+[   0.028][d][global] config path: 'fonts.conf' -/-> '/etc/mpv/fonts.conf'
+[   0.028][v][osd/libass] Setting up fonts...
+[   0.028][d][mkv] |+ found cluster
+[   0.028][v][mkv] Deferring reading cues.
+[   0.028][v][mkv] All headers are parsed!
+[   0.029][v][demux] Detected file format: Matroska
+[   0.029][v][cplayer] Opening done: /home/cfm880/qcom/Big_Buck_Bunny_1080_10s_10MB.webm
+[   0.067][v][osd/libass] Using font provider fontconfig
+[   0.068][v][osd/libass] Done.
+[   0.068][d][cplayer] Run command: define-section, flags=64, args=[name="input_osc", contents="", flags="default"]
+[   0.068][d][cplayer] Run command: enable-section, flags=64, args=[name="input_osc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.068][v][find_files] Loading external files in /home/cfm880/qcom/
+[   0.070][d][global] config path: 'sub' -/-> '/home/cfm880/.config/mpv/sub'
+[   0.070][d][global] config path: 'sub' -/-> '/home/cfm880/.mpv/sub'
+[   0.070][d][global] config path: 'sub' -/-> '/etc/mpv/sub'
+[   0.070][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_osc", contents="", flags="force"]
+[   0.070][v][cplayer] Running hook: auto_profiles/on_preloaded
+[   0.070][v][cplayer] Failed sending hook command auto_profiles/on_preloaded. Removing hook.
+[   0.070][v][cplayer] Running hook: ytdl_hook/on_preloaded
+[   0.070][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_osc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.070][v][mkv] select track 0
+[   0.070][i][cplayer] ● Video  --vid=1  (vp9 1920x1080 30 fps) [default]
+[   0.070][i][display-tags] File tags:
+[   0.070][i][display-tags]  Artist: Blender Foundation 2008, Janus Bager Kristensen 2013
+[   0.070][i][display-tags]  Comment: Creative Commons Attribution 3.0 - http://bbb3d.renderfarming.net
+[   0.070][i][display-tags]  Composer: Sacha Goedegebure
+[   0.070][i][display-tags]  Genre: Animation
+[   0.070][i][display-tags]  Title: Big Buck Bunny, Sunflower version
+[   0.070][v][vo/dmabuf-wayland/none] Initializing GPU context 'wldmabuf'
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wl_compositor at version 6
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wl_shm at version 1
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wl_output at version 4
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wl_data_device_manager at version 3
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wl_subcompositor at version 1
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface xdg_wm_base at version 6
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wp_viewporter at version 1
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface wp_fractional_scale_manager_v1 at version 1
+[   0.071][v][vo/dmabuf-wayland/wayland] Registered interface zwp_tablet_manager_v2 at version 1
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface wl_seat at version 8
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface zwp_linux_dmabuf_v1 at version 4
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface wp_single_pixel_buffer_manager_v1 at version 1
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface zwp_text_input_manager_v3 at version 1
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface wp_presentation at version 2
+[   0.072][v][vo/dmabuf-wayland/wayland] Registered interface xdg_activation_v1 at version 1
+[   0.073][v][vo/dmabuf-wayland/wayland] Registered interface zwp_idle_inhibit_manager_v1 at version 1
+[   0.075][v][vo/dmabuf-wayland/wayland] Registered interface wp_color_manager_v1 at version 2
+[   0.075][v][vo/dmabuf-wayland/wayland] Registered interface wp_fifo_manager_v1 at version 1
+[   0.075][v][vo/dmabuf-wayland/wayland] Registered interface wp_cursor_shape_manager_v1 at version 2
+[   0.075][v][vo/dmabuf-wayland/wayland] Registered interface wp_color_representation_manager_v1 at version 1
+[   0.075][v][vo/dmabuf-wayland/wayland] Compositor doesn't support the wp_content_type_manager_v1 protocol!
+[   0.075][v][vo/dmabuf-wayland/wayland] Compositor doesn't support the zxdg_decoration_manager_v1 protocol!
+[   0.082][v][vo/dmabuf-wayland/wayland] Registered output unknown unknown (DSI-1) (0x3):
+[   0.082][v][vo/dmabuf-wayland/wayland] 	x: 0px, y: 0px
+[   0.082][v][vo/dmabuf-wayland/wayland] 	w: 1600px (148mm), h: 2560px (236mm)
+[   0.082][v][vo/dmabuf-wayland/wayland] 	transform: 0
+[   0.082][v][vo/dmabuf-wayland/wayland] 	scale: 2.000000
+[   0.082][v][vo/dmabuf-wayland/wayland] 	Hz: 119.999000
+[   0.082][v][vo/dmabuf-wayland/wayland] Adding tablet 0xffff7000dde0
+[   0.082][d][vo/dmabuf-wayland/wayland] Querying available drm format and modifier pairs from tranche on device '57984'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB4H(0000000000000000)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB4H(0500000000000001)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB4H(0500000000000003)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB4H(00ffffffffffffff)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB4H(0000000000000000)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB4H(0500000000000001)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB4H(0500000000000003)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB4H(00ffffffffffffff)'
+[   0.082][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB48(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB48(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB48(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB48(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB48(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB48(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR30(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR30(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR30(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR30(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR30(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR30(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR30(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR30(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB30(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB30(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB30(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB30(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR24(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR24(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AR24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB24(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB24(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'AB24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR24(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR24(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XR24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB24(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB24(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'XB24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'RG16(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'RG16(0500000000000001)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'RG16(0500000000000003)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'RG16(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU12(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU12(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU16(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU16(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YU24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV12(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV12(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV16(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV16(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV24(0000000000000000)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YV24(00ffffffffffffff)'
+[   0.089][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S010(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S010(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S210(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S210(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S410(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S410(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S012(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S012(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S212(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S212(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S412(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S412(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S016(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S016(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S216(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S216(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S416(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'S416(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV12(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV12(0500000000000001)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV12(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV21(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV21(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P010(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P010(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P012(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P012(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P016(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'P016(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV16(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV16(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV61(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV61(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV24(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV24(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV42(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'NV42(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YUYV(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YUYV(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YVYU(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'YVYU(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'UYVY(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'UYVY(00ffffffffffffff)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'VYUY(0000000000000000)'
+[   0.090][d][vo/dmabuf-wayland/wayland] Compositor supports drm format: 'VYUY(00ffffffffffffff)'
+[   0.090][v][vo/dmabuf-wayland/wayland] Compositor supports parametric image description creator.
+[   0.090][v][vo/dmabuf-wayland/wayland] Preferred surface feedback received:
+[   0.090][v][vo/dmabuf-wayland/wayland] transfer: gamma2.2, primaries: bt.709
+[   0.090][v][vo/dmabuf-wayland/wayland] transfer: min_luma=0.200000, max_luma=80.000000, ref_luma=80.000000
+[   0.090][v][vo/dmabuf-wayland/wayland] target: min_luma=0.200000, max_luma=80.000000, max_cll=0.000000, max_fall=0.000000
+[   0.090][v][vo/dmabuf-wayland/wayland]         raw prims: red.x=0.640000,   red.y=0.330000,
+[   0.090][v][vo/dmabuf-wayland/wayland]                    green.x=0.300000, green.y=0.600000,
+[   0.090][v][vo/dmabuf-wayland/wayland]                    blue.x=0.150000,  blue.y=0.060000,
+[   0.090][v][vo/dmabuf-wayland/wayland]                    white.x=0.312700, white.y=0.329000
+[   0.090][v][vo/dmabuf-wayland/wayland] Obtained preferred fractional scale, 2.000000, from the compositor.
+[   0.090][v][vo/dmabuf-wayland] Loading hwdec driver 'vaapi'
+[   0.090][v][vo/dmabuf-wayland/vaapi] Trying to open a x11 VA display...
+[   0.090][v][vo/dmabuf-wayland/vaapi] Trying to open a wayland VA display...
+[   0.114][v][vo/dmabuf-wayland/vaapi/vaapi] libva: VA-API version 1.23.0
+[   0.114][v][vo/dmabuf-wayland/vaapi/vaapi] libva: Trying to open /usr/lib/aarch64-linux-gnu/dri/msm_drv_video.so
+[   0.115][v][vo/dmabuf-wayland/vaapi/vaapi] libva: va_openDriver() returns -1
+[   0.115][v][vo/dmabuf-wayland] Loading failed.
+[   0.115][v][vo/dmabuf-wayland] Loading hwdec driver 'drmprime'
+[   0.115][v][vo/dmabuf-wayland/drmprime] Using DRM device: /dev/dri/renderD128
+[   0.115][d][ffmpeg] DRM: Opened DRM device /dev/dri/renderD128: driver msm version 1.12.0.
+[   0.123][v][vo/dmabuf-wayland] Assuming 119.999000 FPS for display sync.
+[   0.123][v][vd] Container reported FPS: 30.000000
+[   0.123][v][vd] Codec list:
+[   0.123][v][vd]     vp9 - Google VP9
+[   0.123][v][vd]     vp9_v4l2m2m (vp9) - V4L2 mem2mem VP9 decoder wrapper
+[   0.123][v][vd] Opening decoder vp9
+[   0.123][v][vd] Looking at hwdec vp9_v4l2m2m-v4l2m2m...
+[   0.123][v][vd] Trying hardware decoding via vp9_v4l2m2m-v4l2m2m.
+[   0.123][v][vd] Using underlying hw-decoder 'vp9_v4l2m2m'
+[   0.123][v][vd] Requesting 4 threads for decoding.
+[   0.124][v][vd] Pixel formats supported by decoder: drm_prime nv12
+[   0.124][v][vd] Codec profile: unknown (0xffffff9d)
+[   0.124][v][vd] Requesting pixfmt 'drm_prime' from decoder.
+[   0.124][v][ffmpeg/video] vp9_v4l2m2m: V4L2 decoder output: DRM PRIME (exported DMA-BUF)
+[   0.124][v][ffmpeg/video] vp9_v4l2m2m: Using device /dev/video0
+[   0.124][v][ffmpeg/video] vp9_v4l2m2m: driver 'iris_driver' on card 'Iris Decoder' in mplane mode
+[   0.124][v][ffmpeg/video] vp9_v4l2m2m: requesting formats: output=VP90/none capture=NV12/nv12
+[   0.162][v][vd] Selected decoder: vp9 - Google VP9
+[   0.162][v][vf] User filter list:
+[   0.162][v][vf]   (empty)
+[   0.162][v][cplayer] Starting playback...
+[   0.164][d][global] config path: 'fonts' -/-> '/home/cfm880/.config/mpv/fonts'
+[   0.164][d][global] config path: 'fonts' -/-> '/home/cfm880/.mpv/fonts'
+[   0.164][d][global] config path: 'fonts' -/-> '/etc/mpv/fonts'
+[   0.164][d][osd/libass] ASS library version: 0x1704000 (runtime 0x1704000)
+[   0.164][v][osd/libass] libass API version: 0x1704000
+[   0.164][v][osd/libass] libass source: tarball: 0.17.4
+[   0.164][v][osd/libass] Shaper: FriBidi 1.0.16 (SIMPLE) HarfBuzz-ng 12.3.2 (COMPLEX)
+[   0.164][d][global] config path: 'subfont.ttf' -/-> '/home/cfm880/.config/mpv/subfont.ttf'
+[   0.164][d][global] config path: 'subfont.ttf' -/-> '/home/cfm880/.mpv/subfont.ttf'
+[   0.164][d][global] config path: 'subfont.ttf' -/-> '/etc/mpv/subfont.ttf'
+[   0.164][d][global] config path: 'fonts.conf' -/-> '/home/cfm880/.config/mpv/fonts.conf'
+[   0.164][d][global] config path: 'fonts.conf' -/-> '/home/cfm880/.mpv/fonts.conf'
+[   0.164][d][global] config path: 'fonts.conf' -/-> '/etc/mpv/fonts.conf'
+[   0.164][v][osd/libass] Setting up fonts...
+[   0.181][v][osd/libass] Using font provider fontconfig
+[   0.181][v][osd/libass] Done.
+[   0.181][d][osc] osc_init
+[   0.221][i][vd] Using hardware decoding (v4l2m2m).
+[   0.221][v][vd] Decoder format: 1920x1080 [0:1] drm_prime[nv12] auto/auto/auto/auto/auto CL=unknown crop=1920x1080+0+0 A=none
+[   0.221][v][vd] Using container aspect ratio.
+[   0.221][v][vf] [in] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.221][v][vf] [userdeint] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.221][v][vf] [userdeint] (disabled)
+[   0.221][v][vf] [autovflip] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.221][v][vf] [autovflip] (disabled)
+[   0.221][v][vf] [autorotate] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.221][v][vf] [autorotate] (disabled)
+[   0.221][v][vf] [convert] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.222][v][hwupload] hwdec 'drmprime' does not report hwframe constraints. Using static metadata.
+[   0.222][d][hwupload] looking at format drm_prime/nv12
+[   0.222][d][hwupload]   supports:
+[   0.222][d][hwupload] looking at format drm_prime/yuv420p
+[   0.222][d][hwupload]   supports:
+[   0.222][d][hwupload] looking at format drm_prime/nv16
+[   0.222][d][hwupload]   supports:
+[   0.222][d][hwupload] looking at format drm_prime/p010
+[   0.222][d][hwupload]   supports:
+[   0.222][d][hwupload] looking at format drm_prime/p210
+[   0.222][d][hwupload]   supports:
+[   0.222][v][vf] [out] 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.222][i][cplayer] VO: [dmabuf-wayland] 1920x1080 drm_prime[nv12]
+[   0.222][v][cplayer] VO: Description: Wayland dmabuf video output
+[   0.222][v][vo/dmabuf-wayland] reconfig to 1920x1080 drm_prime[nv12] bt.709/bt.709/bt.1886/limited/display CL=mpeg2/4/h264 crop=1920x1080+0+0 A=none
+[   0.223][v][vo/dmabuf-wayland/wayland] Reconfiguring!
+[   0.223][d][vo/dmabuf-wayland] max content size: 1600x2560
+[   0.223][d][vo/dmabuf-wayland] monitor size: 1600x2560
+[   0.223][v][vo/dmabuf-wayland] Window size: 1920x1080 (Borders: l=0 t=0 r=0 b=0)
+[   0.223][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.223][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1920x1080
+[   0.223][v][vo/dmabuf-wayland] Video scale: 1.000000/1.000000
+[   0.223][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.223][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.228][v][vo/dmabuf-wayland] Window size: 1600x900 (Borders: l=0 t=0 r=0 b=0)
+[   0.229][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.229][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1600x900
+[   0.229][v][vo/dmabuf-wayland] Video scale: 0.833333/0.833333
+[   0.229][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.229][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.229][v][vo/dmabuf-wayland] Window size: 1600x900 (Borders: l=0 t=0 r=0 b=0)
+[   0.229][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.229][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1600x900
+[   0.229][v][vo/dmabuf-wayland] Video scale: 0.833333/0.833333
+[   0.229][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.229][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.229][v][vo/dmabuf-wayland/wayland] Generating image creator params:
+[   0.229][v][vo/dmabuf-wayland/wayland] primaries: bt.709, transfer: bt.1886
+[   0.229][v][vo/dmabuf-wayland/wayland] Setting color representation:
+[   0.229][v][vo/dmabuf-wayland/wayland]   Coefficients: bt.709, Range: limited
+[   0.229][v][vo/dmabuf-wayland/wayland]   Chroma location: mpeg2/4/h264
+[   0.268][d][vo/dmabuf-wayland] max content size: 1600x2560
+[   0.268][d][vo/dmabuf-wayland] monitor size: 1600x2560
+[   0.268][v][vo/dmabuf-wayland/wayland] Surface entered output unknown unknown (DSI-1) (0x3), scale = 2.000000, refresh rate = 119.999000 Hz
+[   0.268][v][vo/dmabuf-wayland] Window size: 1920x1080 (Borders: l=0 t=0 r=0 b=0)
+[   0.268][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.268][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1920x1080
+[   0.268][v][vo/dmabuf-wayland] Video scale: 1.000000/1.000000
+[   0.268][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.268][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.268][v][cplayer] first video frame after restart shown
+[   0.268][d][cplayer] starting video playback
+[   0.269][v][cplayer] playback restart complete @ 0.000000, audio=eof, video=playing
+[   0.274][v][vo/dmabuf-wayland] Window size: 1600x900 (Borders: l=0 t=0 r=0 b=0)
+[   0.275][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.275][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1600x900
+[   0.275][v][vo/dmabuf-wayland] Video scale: 0.833333/0.833333
+[   0.275][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.275][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.275][v][vo/dmabuf-wayland] Window size: 1600x900 (Borders: l=0 t=0 r=0 b=0)
+[   0.275][v][vo/dmabuf-wayland] Video source: 1920x1080 (1:1)
+[   0.275][v][vo/dmabuf-wayland] Video display: (0, 0) 1920x1080 -> (0, 0) 1600x900
+[   0.275][v][vo/dmabuf-wayland] Video scale: 0.833333/0.833333
+[   0.275][v][vo/dmabuf-wayland] OSD borders: l=0 t=0 r=0 b=0
+[   0.275][v][vo/dmabuf-wayland] Video borders: l=0 t=0 r=0 b=0
+[   0.275][v][vo/dmabuf-wayland/wayland] Enabling idle inhibitor
+[   0.279][v][cplayer] Video sync mode enabled.
+[   0.314][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   0.319][d][osc] osc_init
+[   0.320][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   0.328][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   0.352][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   0.461][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   1.161][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   2.494][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   4.738][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   4.845][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   7.544][d][vo/dmabuf-wayland/wayland] Presentation was done with a copy.
+[   8.772][v][mkv] EOF reached.
+[   9.838][v][vf] filter input EOF
+[   9.838][v][vf] filter output EOF
+[   9.871][v][cplayer] video EOF reached
+[   9.871][d][cplayer] video EOF (status=4)
+[   9.871][v][cplayer] EOF code: 1  
+[   9.871][d][vd] Uninit decoder.
+[   9.880][v][vo/dmabuf-wayland/wayland] Disabling the idle inhibitor
+[   9.893][d][cplayer] Terminating demuxers...
+[   9.893][d][osc] osc_init
+[   9.893][d][cplayer] Done terminating demuxers.
+[   9.893][v][cplayer] finished playback, success (reason 0)
+[   9.893][v][cplayer] Running hook: ytdl_hook/on_after_end_file
+[   9.897][d][cplayer] Run command: del, flags=64, args=[name="user-data/mpv/ytdl/json-subprocess-result"]
+[   9.897][i][cplayer] Exiting... (End of file)
+[   9.897][d][cplayer] Run command: del, flags=64, args=[name="user-data/mpv/console"]
+[   9.897][d][positioning] Destroying client handle...
+[   9.897][d][console] Destroying client handle...
+[   9.898][d][ytdl_hook] Destroying client handle...
+[   9.898][d][commands] Destroying client handle...
+[   9.899][d][stats] Destroying client handle...
+[   9.900][d][context_menu] Destroying client handle...
+[   9.901][d][select] Destroying client handle...
+[   9.902][v][cplayer] Set property: user-data/osc/margins={"b":0,"l":0,"t":0,"r":0} -> 1
+[   9.902][d][cplayer] Run command: del, flags=64, args=[name="user-data/osc"]
+[   9.910][d][osc] Destroying client handle...
+[   9.951][v][vo/dmabuf-wayland/wayland] Deregistering output unknown unknown (DSI-1) (0x3)
+[   9.952][v][vo/dmabuf-wayland/wayland] Deregistering seat 0x10
+[   9.953][v][vo/dmabuf-wayland/wayland] Removing tablet 0xffff7000dde0
