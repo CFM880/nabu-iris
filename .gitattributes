@@ -1,2 +1,6 @@
-*.patch -whitespace
-validation/*.log -whitespace
+* text=auto
+*.c text eol=lf
+*.h text eol=lf
+*.dts text eol=lf
+*.dtsi text eol=lf
+Makefile text eol=lf

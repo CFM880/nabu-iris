@@ -1,60 +1,0 @@
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/cfm880/qcom/test-jellyfin-4k-hevc-80m.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2mp41
-    encoder         : Lavf61.1.100
-  Duration: 00:00:29.95, start: 0.000000, bitrate: 78753 kb/s
-  Stream #0:0[0x1](und): Video: hevc (Main), 1 reference frame (hvc1 / 0x31637668), yuv420p(tv, bt709/bt709/unknown, progressive, left), 3840x2160 [SAR 1:1 DAR 16:9], 78750 kb/s, 60 fps, 60 tbr, 15360 tbn (default)
-    Metadata:
-      handler_name    : VideoHandler
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc61.3.100 hevc_videotoolbox
-[out#0/null @ 0xaaaaea53da40] No explicit maps, mapping streams automatically...
-[vost#0:0/wrapped_avframe @ 0xaaaaea53db90] Created video stream from input stream 0:0
-[hevc_v4l2m2m @ 0xaaaaea522d40] Using device /dev/video0
-[hevc_v4l2m2m @ 0xaaaaea522d40] driver 'iris_driver' on card 'Iris Decoder' in mplane mode
-[hevc_v4l2m2m @ 0xaaaaea522d40] requesting formats: output=HEVC/none capture=NV12/yuv420p
-Stream mapping:
-  Stream #0:0 -> #0:0 (hevc (hevc_v4l2m2m) -> wrapped_avframe (native))
-[vost#0:0/wrapped_avframe @ 0xaaaaea53db90] Starting thread...
-[vf#0:0 @ 0xaaaaea53e2d0] Starting thread...
-[vist#0:0/hevc @ 0xaaaaea526a20] [dec:hevc_v4l2m2m @ 0xaaaaea522980] Starting thread...
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0] Starting thread...
-Press [q] to stop, [?] for help
-[graph -1 input from stream 0:0 @ 0xffff74002de0] w:3840 h:2160 pixfmt:nv12 tb:1/15360 fr:60/1 sar:1/1 csp:bt709 range:tv
-Output #0, null, to 'pipe:':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2mp41
-    encoder         : Lavf62.3.100
-  Stream #0:0(und): Video: wrapped_avframe, 1 reference frame, nv12(tv, bt709/bt709/unknown, progressive, left), 3840x2160 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 60 fps, 60 tbn (default)
-    Metadata:
-      encoder         : Lavc62.11.100 wrapped_avframe
-      handler_name    : VideoHandler
-      vendor_id       : [0][0][0][0]
-[out#0/null @ 0xaaaaea53da40] Starting thread...
-frame=   33 fps=0.0 q=-0.0 size=N/A time=00:00:00.55 bitrate=N/A speed= 1.1x elapsed=0:00:00.50    frame=   78 fps= 78 q=-0.0 size=N/A time=00:00:01.30 bitrate=N/A speed= 1.3x elapsed=0:00:01.00    frame=  123 fps= 82 q=-0.0 size=N/A time=00:00:02.05 bitrate=N/A speed=1.36x elapsed=0:00:01.50    frame=  168 fps= 84 q=-0.0 size=N/A time=00:00:02.80 bitrate=N/A speed= 1.4x elapsed=0:00:02.00    frame=  213 fps= 85 q=-0.0 size=N/A time=00:00:03.55 bitrate=N/A speed=1.42x elapsed=0:00:02.50    frame=  258 fps= 86 q=-0.0 size=N/A time=00:00:04.30 bitrate=N/A speed=1.43x elapsed=0:00:03.00    frame=  303 fps= 86 q=-0.0 size=N/A time=00:00:05.05 bitrate=N/A speed=1.44x elapsed=0:00:03.50    frame=  348 fps= 87 q=-0.0 size=N/A time=00:00:05.80 bitrate=N/A speed=1.45x elapsed=0:00:04.00    frame=  393 fps= 87 q=-0.0 size=N/A time=00:00:06.55 bitrate=N/A speed=1.45x elapsed=0:00:04.50    frame=  438 fps= 87 q=-0.0 size=N/A time=00:00:07.30 bitrate=N/A speed=1.46x elapsed=0:00:05.00    frame=  483 fps= 88 q=-0.0 size=N/A time=00:00:08.05 bitrate=N/A speed=1.46x elapsed=0:00:05.50    frame=  528 fps= 88 q=-0.0 size=N/A time=00:00:08.80 bitrate=N/A speed=1.46x elapsed=0:00:06.00    frame=  573 fps= 88 q=-0.0 size=N/A time=00:00:09.55 bitrate=N/A speed=1.47x elapsed=0:00:06.50    [vf#0:0 @ 0xaaaaea53e2d0] Filtergraph returned EOF, finishing
-[vf#0:0 @ 0xaaaaea53e2d0] All consumers returned EOF
-[vost#0:0/wrapped_avframe @ 0xaaaaea53db90] [enc:wrapped_avframe @ 0xaaaaea53deb0] Encoder thread received EOF
-[vost#0:0/wrapped_avframe @ 0xaaaaea53db90] Terminating thread with return code 0 (success)
-[out#0/null @ 0xaaaaea53da40] All streams finished
-[out#0/null @ 0xaaaaea53da40] Terminating thread with return code 0 (success)
-[vf#0:0 @ 0xaaaaea53e2d0] Terminating thread with return code 0 (success)
-[vist#0:0/hevc @ 0xaaaaea526a20] [dec:hevc_v4l2m2m @ 0xaaaaea522980] Decoder returned EOF, finishing
-[vist#0:0/hevc @ 0xaaaaea526a20] [dec:hevc_v4l2m2m @ 0xaaaaea522980] Terminating thread with return code 0 (success)
-[vist#0:0/hevc @ 0xaaaaea526a20] All consumers of this stream are done
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0] All consumers are done
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0] Terminating thread with return code 0 (success)
-[out#0/null @ 0xaaaaea53da40] Output file #0 (pipe:):
-[out#0/null @ 0xaaaaea53da40]   Output stream #0:0 (video): 600 frames encoded; 600 packets muxed (249600 bytes); 
-[out#0/null @ 0xaaaaea53da40]   Total: 600 packets (249600 bytes) muxed
-[out#0/null @ 0xaaaaea53da40] video:244KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
-frame=  600 fps= 88 q=-0.0 Lsize=N/A time=00:00:10.00 bitrate=N/A speed=1.47x elapsed=0:00:06.80    
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0] Input file #0 (/home/cfm880/qcom/test-jellyfin-4k-hevc-80m.mp4):
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0]   Input stream #0:0 (video): 622 packets read (98995239 bytes); 602 frames decoded; 0 decode errors; 
-[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0xaaaaea51e7d0]   Total: 622 packets (98995239 bytes) demuxed
-[AVIOContext @ 0xaaaaea526fc0] Statistics: 99038664 bytes read, 2 seeks
-
-Exiting with exit code 0
