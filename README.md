@@ -23,10 +23,11 @@ Linux 内核中的原始相对路径，可以复制到指定的内核基线后�
 | 内核基线 | `5181e1358ddd6ea8028e841d928942373e6aebc8` |
 | 源码快照 | `8cb100324c8bfff19938cd855e9a5a2276d582a4` |
 | 源码文件 | 65 个，位于 `kernel-overlay/` |
-| 解码格式 | H.264、HEVC、VP9 Profile 0 |
+| 解码格式 | H.264；HEVC Main/Main10；VP9 Profile 0/Profile 2 |
 
-源码快照包含 decode-order 输出、DMA-BUF reservation fence，以及 H.264/HEVC
-共用的 `cached_capture` 模块参数。详细来源见 [SOURCE.md](SOURCE.md)。
+源码快照包含 decode-order 输出、DMA-BUF reservation fence、HFI Gen1
+TP10-UBWC/P010 10-bit 输出，以及 H.264/HEVC 共用的 `cached_capture` 模块参数。
+详细来源见 [SOURCE.md](SOURCE.md)。
 
 ## 目录
 

@@ -80,6 +80,21 @@ static u32 iris_yuv_buffer_size_nv12(struct iris_inst *inst)
 	return ALIGN(y_plane + uv_plane, PIXELS_4K);
 }
 
+static u32 iris_yuv_buffer_size_p010(struct iris_inst *inst)
+{
+	u32 y_plane, uv_plane, y_stride, uv_stride, y_scanlines, uv_scanlines;
+	struct v4l2_format *f = inst->fmt_dst;
+
+	y_stride = ALIGN(f->fmt.pix_mp.width * 2, Y_STRIDE_ALIGN);
+	uv_stride = ALIGN(f->fmt.pix_mp.width * 2, UV_STRIDE_ALIGN);
+	y_scanlines = ALIGN(f->fmt.pix_mp.height, Y_SCANLINE_ALIGN);
+	uv_scanlines = ALIGN((f->fmt.pix_mp.height + 1) >> 1, UV_SCANLINE_ALIGN);
+	y_plane = y_stride * y_scanlines;
+	uv_plane = uv_stride * uv_scanlines;
+
+	return ALIGN(y_plane + uv_plane, PIXELS_4K);
+}
+
 /*
  * QC08C:
  * Compressed Macro-tile format for NV12.
@@ -199,6 +214,39 @@ static u32 iris_yuv_buffer_size_qc08c(struct iris_inst *inst)
 	return ALIGN(y_meta_plane + y_plane + uv_meta_plane + uv_plane, PIXELS_4K);
 }
 
+/*
+ * TP10 UBWC is the firmware-owned DPB used while linear P010 is exposed on
+ * OUTPUT2.  The layout matches the legacy Venus HFI contract used by VPU5.
+ */
+static u32 iris_yuv_buffer_size_qc10c(struct iris_inst *inst)
+{
+	u32 y_stride, uv_stride, y_scanlines, uv_scanlines;
+	u32 y_plane, uv_plane, y_meta_stride, y_meta_scanlines;
+	u32 uv_meta_stride, uv_meta_scanlines, y_meta_plane, uv_meta_plane;
+	struct v4l2_format *f = inst->fmt_dst;
+	u32 extradata = SZ_16K;
+	u32 size;
+
+	y_stride = ALIGN(f->fmt.pix_mp.width * 4 / 3, 256);
+	uv_stride = ALIGN(f->fmt.pix_mp.width * 4 / 3, 256);
+	y_scanlines = ALIGN(f->fmt.pix_mp.height, 16);
+	uv_scanlines = ALIGN((f->fmt.pix_mp.height + 1) >> 1, 16);
+	y_plane = ALIGN(y_stride * y_scanlines, SZ_4K);
+	uv_plane = ALIGN(uv_stride * uv_scanlines, SZ_4K);
+
+	y_meta_stride = ALIGN(DIV_ROUND_UP(f->fmt.pix_mp.width, 48), 64);
+	y_meta_scanlines = ALIGN(DIV_ROUND_UP(f->fmt.pix_mp.height, 4), 16);
+	y_meta_plane = ALIGN(y_meta_stride * y_meta_scanlines, SZ_4K);
+	uv_meta_stride = ALIGN(DIV_ROUND_UP((f->fmt.pix_mp.width + 1) >> 1, 24), 64);
+	uv_meta_scanlines = ALIGN(DIV_ROUND_UP((f->fmt.pix_mp.height + 1) >> 1, 4), 16);
+	uv_meta_plane = ALIGN(uv_meta_stride * uv_meta_scanlines, SZ_4K);
+
+	size = y_plane + uv_plane + y_meta_plane + uv_meta_plane;
+	size += max(extradata + SZ_8K, y_stride * 48);
+
+	return ALIGN(size, SZ_4K);
+}
+
 static u32 iris_dec_bitstream_buffer_size(struct iris_inst *inst)
 {
 	struct platform_inst_caps *caps = inst->core->iris_platform_data->inst_caps;
@@ -261,8 +309,12 @@ int iris_get_buffer_size(struct iris_inst *inst,
 		case BUF_INPUT:
 			return iris_dec_bitstream_buffer_size(inst);
 		case BUF_OUTPUT:
+			if (inst->fmt_dst->fmt.pix_mp.pixelformat == V4L2_PIX_FMT_P010)
+				return iris_yuv_buffer_size_p010(inst);
 			return iris_yuv_buffer_size_nv12(inst);
 		case BUF_DPB:
+			if (inst->fmt_dst->fmt.pix_mp.pixelformat == V4L2_PIX_FMT_P010)
+				return iris_yuv_buffer_size_qc10c(inst);
 			return iris_yuv_buffer_size_qc08c(inst);
 		default:
 			return 0;

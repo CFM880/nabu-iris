@@ -237,6 +237,15 @@ static const struct iris_fmt iris_vdec_formats[] = {
 	},
 };
 
+static bool iris_vdec_p010_supported(struct iris_inst *inst)
+{
+	/*
+	 * P010 is wired through the HFI Gen1 raw-format contract below.  HFI
+	 * Gen2 still advertises an 8-bit-only BIT_DEPTH capability.
+	 */
+	return !inst->core->iris_platform_data->core_arch;
+}
+
 static const struct iris_fmt *
 find_format(struct iris_inst *inst, u32 pixfmt, u32 type)
 {
@@ -281,9 +290,12 @@ int iris_vdec_enum_fmt(struct iris_inst *inst, struct v4l2_fmtdesc *f)
 		f->flags = V4L2_FMT_FLAG_COMPRESSED | V4L2_FMT_FLAG_DYN_RESOLUTION;
 		break;
 	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
-		if (f->index)
+		if (f->index == 0)
+			f->pixelformat = V4L2_PIX_FMT_NV12;
+		else if (f->index == 1 && iris_vdec_p010_supported(inst))
+			f->pixelformat = V4L2_PIX_FMT_P010;
+		else
 			return -EINVAL;
-		f->pixelformat = V4L2_PIX_FMT_NV12;
 		break;
 	default:
 		return -EINVAL;
@@ -312,7 +324,9 @@ int iris_vdec_try_fmt(struct iris_inst *inst, struct v4l2_format *f)
 		}
 		break;
 	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
-		if (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_NV12) {
+		if (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_NV12 &&
+		    (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_P010 ||
+		     !iris_vdec_p010_supported(inst))) {
 			f_inst = inst->fmt_dst;
 			f->fmt.pix_mp.pixelformat = f_inst->fmt.pix_mp.pixelformat;
 			f->fmt.pix_mp.width = f_inst->fmt.pix_mp.width;
@@ -385,6 +399,12 @@ int iris_vdec_s_fmt(struct iris_inst *inst, struct v4l2_format *f)
 		/* Update capture format based on new ip w/h */
 		output_fmt->fmt.pix_mp.width = ALIGN(f->fmt.pix_mp.width, 128);
 		output_fmt->fmt.pix_mp.height = ALIGN(f->fmt.pix_mp.height, 32);
+		output_fmt->fmt.pix_mp.plane_fmt[0].bytesperline =
+			ALIGN(f->fmt.pix_mp.width *
+			      (output_fmt->fmt.pix_mp.pixelformat == V4L2_PIX_FMT_P010 ? 2 : 1),
+			      128);
+		output_fmt->fmt.pix_mp.plane_fmt[0].sizeimage =
+			iris_get_buffer_size(inst, BUF_OUTPUT);
 		inst->buffers[BUF_OUTPUT].size = iris_get_buffer_size(inst, BUF_OUTPUT);
 
 		inst->crop.left = 0;
@@ -395,13 +415,17 @@ int iris_vdec_s_fmt(struct iris_inst *inst, struct v4l2_format *f)
 	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
 		fmt = inst->fmt_dst;
 		fmt->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
-		if (fmt->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_NV12)
+		if (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_NV12 &&
+		    (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_P010 ||
+		     !iris_vdec_p010_supported(inst)))
 			return -EINVAL;
 		fmt->fmt.pix_mp.pixelformat = f->fmt.pix_mp.pixelformat;
 		fmt->fmt.pix_mp.width = ALIGN(f->fmt.pix_mp.width, 128);
 		fmt->fmt.pix_mp.height = ALIGN(f->fmt.pix_mp.height, 32);
 		fmt->fmt.pix_mp.num_planes = 1;
-		fmt->fmt.pix_mp.plane_fmt[0].bytesperline = ALIGN(f->fmt.pix_mp.width, 128);
+		fmt->fmt.pix_mp.plane_fmt[0].bytesperline =
+			ALIGN(f->fmt.pix_mp.width *
+			      (f->fmt.pix_mp.pixelformat == V4L2_PIX_FMT_P010 ? 2 : 1), 128);
 		fmt->fmt.pix_mp.plane_fmt[0].sizeimage = iris_get_buffer_size(inst, BUF_OUTPUT);
 		inst->buffers[BUF_OUTPUT].min_count = iris_vpu_buf_count(inst, BUF_OUTPUT);
 		inst->buffers[BUF_OUTPUT].size = fmt->fmt.pix_mp.plane_fmt[0].sizeimage;
@@ -423,7 +447,9 @@ int iris_vdec_validate_format(struct iris_inst *inst, u32 pixelformat)
 {
 	const struct iris_fmt *fmt = NULL;
 
-	if (pixelformat != V4L2_PIX_FMT_NV12) {
+	if (pixelformat != V4L2_PIX_FMT_NV12 &&
+	    (pixelformat != V4L2_PIX_FMT_P010 ||
+	     !iris_vdec_p010_supported(inst))) {
 		fmt = find_format(inst, pixelformat, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
 		if (!fmt)
 			return -EINVAL;

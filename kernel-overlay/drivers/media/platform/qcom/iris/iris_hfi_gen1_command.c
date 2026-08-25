@@ -703,15 +703,19 @@ iris_hfi_gen1_packet_session_set_property(struct hfi_session_set_property_pkt *p
 	}
 	case HFI_PROPERTY_PARAM_UNCOMPRESSED_PLANE_ACTUAL_CONSTRAINTS_INFO: {
 		struct hfi_uncompressed_plane_actual_constraints_info *info = prop_data;
+		u32 stride_multiple;
+
+		stride_multiple = inst->fmt_dst->fmt.pix_mp.pixelformat ==
+			V4L2_PIX_FMT_P010 ? 256 : 128;
 
 		info->buffer_type = HFI_BUFFER_OUTPUT2;
 		info->num_planes = 2;
-		info->plane_format[0].stride_multiples = 128;
+		info->plane_format[0].stride_multiples = stride_multiple;
 		info->plane_format[0].max_stride = 8192;
 		info->plane_format[0].min_plane_buffer_height_multiple = 32;
 		info->plane_format[0].buffer_alignment = 256;
 		if (info->num_planes > 1) {
-			info->plane_format[1].stride_multiples = 128;
+			info->plane_format[1].stride_multiples = stride_multiple;
 			info->plane_format[1].max_stride = 8192;
 			info->plane_format[1].min_plane_buffer_height_multiple = 16;
 			info->plane_format[1].buffer_alignment = 256;
@@ -1040,20 +1044,23 @@ static int iris_hfi_gen1_set_raw_format(struct iris_inst *inst, u32 plane)
 		pixelformat = inst->fmt_dst->fmt.pix_mp.pixelformat;
 		if (iris_split_mode_enabled(inst)) {
 			fmt.buffer_type = HFI_BUFFER_OUTPUT;
-			fmt.format = pixelformat == V4L2_PIX_FMT_NV12 ?
-				HFI_COLOR_FORMAT_NV12_UBWC : 0;
+			fmt.format = pixelformat == V4L2_PIX_FMT_P010 ?
+				HFI_COLOR_FORMAT_YUV420_TP10_UBWC :
+				HFI_COLOR_FORMAT_NV12_UBWC;
 
 			ret = hfi_gen1_set_property(inst, ptype, &fmt, sizeof(fmt));
 			if (ret)
 				return ret;
 
 			fmt.buffer_type = HFI_BUFFER_OUTPUT2;
-			fmt.format = pixelformat == V4L2_PIX_FMT_NV12 ? HFI_COLOR_FORMAT_NV12 : 0;
+			fmt.format = pixelformat == V4L2_PIX_FMT_P010 ?
+				HFI_COLOR_FORMAT_P010 : HFI_COLOR_FORMAT_NV12;
 
 			ret = hfi_gen1_set_property(inst, ptype, &fmt, sizeof(fmt));
 		} else {
 			fmt.buffer_type = HFI_BUFFER_OUTPUT;
-			fmt.format = pixelformat == V4L2_PIX_FMT_NV12 ? HFI_COLOR_FORMAT_NV12 : 0;
+			fmt.format = pixelformat == V4L2_PIX_FMT_P010 ?
+				HFI_COLOR_FORMAT_P010 : HFI_COLOR_FORMAT_NV12;
 
 			ret = hfi_gen1_set_property(inst, ptype, &fmt, sizeof(fmt));
 		}
@@ -1071,15 +1078,19 @@ static int iris_hfi_gen1_set_format_constraints(struct iris_inst *inst, u32 plan
 {
 	const u32 ptype = HFI_PROPERTY_PARAM_UNCOMPRESSED_PLANE_ACTUAL_CONSTRAINTS_INFO;
 	struct hfi_uncompressed_plane_actual_constraints_info pconstraint;
+	u32 stride_multiple;
+
+	stride_multiple = inst->fmt_dst->fmt.pix_mp.pixelformat ==
+		V4L2_PIX_FMT_P010 ? 256 : 128;
 
 	pconstraint.buffer_type = HFI_BUFFER_OUTPUT2;
 	pconstraint.num_planes = 2;
-	pconstraint.plane_format[0].stride_multiples = 128;
+	pconstraint.plane_format[0].stride_multiples = stride_multiple;
 	pconstraint.plane_format[0].max_stride = 8192;
 	pconstraint.plane_format[0].min_plane_buffer_height_multiple = 32;
 	pconstraint.plane_format[0].buffer_alignment = 256;
 
-	pconstraint.plane_format[1].stride_multiples = 128;
+	pconstraint.plane_format[1].stride_multiples = stride_multiple;
 	pconstraint.plane_format[1].max_stride = 8192;
 	pconstraint.plane_format[1].min_plane_buffer_height_multiple = 16;
 	pconstraint.plane_format[1].buffer_alignment = 256;
@@ -1141,15 +1152,16 @@ static int iris_hfi_gen1_set_multistream(struct iris_inst *inst, u32 plane)
 	int ret;
 
 	if (iris_split_mode_enabled(inst)) {
-		multi.buffer_type = HFI_BUFFER_OUTPUT;
-		multi.enable = 0;
+		/* Keep one output enabled throughout the split-mode transition. */
+		multi.buffer_type = HFI_BUFFER_OUTPUT2;
+		multi.enable = 1;
 
 		ret = hfi_gen1_set_property(inst, ptype, &multi, sizeof(multi));
 		if (ret)
 			return ret;
 
-		multi.buffer_type = HFI_BUFFER_OUTPUT2;
-		multi.enable = 1;
+		multi.buffer_type = HFI_BUFFER_OUTPUT;
+		multi.enable = 0;
 
 		ret = hfi_gen1_set_property(inst, ptype, &multi, sizeof(multi));
 	} else {
@@ -1248,6 +1260,13 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 		return -EINVAL;
 	}
 
+	/*
+	 * SM8150 refreshes sequence-dependent requirements immediately before
+	 * applying the capture sizes/counts and issuing SESSION_CONTINUE. */
+	ret = iris_hfi_gen1_get_buffer_requirements(inst);
+	if (ret)
+		return ret;
+
 	frame.buffer_type = HFI_BUFFER_OUTPUT2;
 	frame.width = inst->fmt_src->fmt.pix_mp.width;
 	frame.height = inst->fmt_src->fmt.pix_mp.height;
@@ -1258,7 +1277,7 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 
 	count.type = HFI_BUFFER_OUTPUT2;
 	count.count_actual = output2_count;
-	count.count_min_host = dpb_count;
+	count.count_min_host = output2_count;
 
 	ret = hfi_gen1_set_property(inst, count_ptype, &count, sizeof(count));
 	if (ret)
@@ -1283,7 +1302,8 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	 * SESSION_CONTINUE unless the host restores both OUTPUT and OUTPUT2.
 	 */
 	size.type = HFI_BUFFER_OUTPUT;
-	size.size = iris_vpu_buf_size(inst, BUF_DPB);
+	size.size = inst->fw_buffer_sizes[BUF_DPB] ?:
+		iris_vpu_buf_size(inst, BUF_DPB);
 
 	dev_info(inst->core->dev,
 		 "Iris1 v65: codec=%p4cc internal dpb size=%u\n",
@@ -1298,10 +1318,9 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	 * DPB, while OUTPUT2 is the client-visible linear capture stream.
 	 * The initial configuration uses VIDEO_MAX_FRAME before firmware has
 	 * reported the sequence requirements.  Before SESSION_CONTINUE,
-	 * replace that placeholder with the exact number of DPBs which
-	 * iris_create_internal_buffers() is about to allocate and queue.
-	 * Qualcomm's downstream driver performs the same update immediately
-	 * before setting its internal output buffers.
+	 * replace that placeholder with the exact minimum number of DPBs which
+	 * iris_create_internal_buffers() is about to allocate and queue.  The
+	 * downstream SM8150 driver makes the same adjustment for split-mode DPBs.
 	 */
 	count.type = HFI_BUFFER_OUTPUT;
 	count.count_actual = dpb_count;

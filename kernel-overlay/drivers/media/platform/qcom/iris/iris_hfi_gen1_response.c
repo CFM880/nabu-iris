@@ -11,6 +11,7 @@
 #include "iris_hfi_gen1.h"
 #include "iris_hfi_gen1_defines.h"
 #include "iris_instance.h"
+#include "iris_utils.h"
 #include "iris_vb2.h"
 #include "iris_vdec.h"
 #include "iris_vpu_buffer.h"
@@ -134,7 +135,8 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 
 	pixmp_op->width = ALIGN(event.width, 128);
 	pixmp_op->height = ALIGN(event.height, 32);
-	pixmp_op->plane_fmt[0].bytesperline = ALIGN(event.width, 128);
+	pixmp_op->plane_fmt[0].bytesperline =
+		ALIGN(event.width * (pixmp_op->pixelformat == V4L2_PIX_FMT_P010 ? 2 : 1), 128);
 	pixmp_op->plane_fmt[0].sizeimage = iris_get_buffer_size(inst, BUF_OUTPUT);
 
 	matrix_coeff =  FIELD_GET(GENMASK(7, 0), event.colour_space);
@@ -191,7 +193,11 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 	dst_q = v4l2_m2m_get_dst_vq(inst->m2m_ctx);
 	dst_q->min_reqbufs_allocation = inst->buffers[BUF_OUTPUT].min_count;
 
-	if (event.bit_depth || !event.pic_struct) {
+	if ((event.bit_depth != HFI_BIT_DEPTH_8 &&
+	     event.bit_depth != HFI_BIT_DEPTH_10) ||
+	    (event.bit_depth == HFI_BIT_DEPTH_10 &&
+	     pixmp_op->pixelformat != V4L2_PIX_FMT_P010) ||
+	    !event.pic_struct) {
 		dev_err(core->dev, "unsupported content, bit depth: %x, pic_struct = %x\n",
 			event.bit_depth, event.pic_struct);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
@@ -721,6 +727,19 @@ iris_hfi_gen1_session_property_info(struct iris_inst *inst, void *packet)
 			 req->contiguous, req->alignment);
 
 		switch (req->type) {
+		case HFI_BUFFER_OUTPUT:
+			/*
+			 * In decoder split mode OUTPUT is the firmware-owned UBWC
+			 * DPB.  VIDEO.IR.1.2 reports its exact allocation size and
+			 * validates BUFFER_SIZE_ACTUAL strictly at SESSION_CONTINUE;
+			 * the generic layout helper includes newer-HFI tail padding
+			 * and can therefore be larger than the VPU5 requirement.
+			 */
+			if (inst->domain != DECODER ||
+			    !iris_split_mode_enabled(inst))
+				continue;
+			buffer_type = BUF_DPB;
+			break;
 		case HFI_BUFFER_INTERNAL_PERSIST_1:
 			buffer_type = BUF_PERSIST;
 			break;
