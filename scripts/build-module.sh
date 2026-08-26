@@ -26,7 +26,10 @@ fi
 export ARCH CROSS_COMPILE
 
 make -C "$kernel_tree" O="$output_dir" olddefconfig
-make -C "$kernel_tree" O="$output_dir" M=drivers/media/platform/qcom/iris modules
+module_output="$output_dir/drivers/media/platform/qcom/iris"
+mkdir -p "$module_output"
+make -C "$kernel_tree" O="$output_dir" \
+    M=drivers/media/platform/qcom/iris MO="$module_output" modules
 
 module="$output_dir/drivers/media/platform/qcom/iris/qcom-iris.ko"
 test -f "$module"
