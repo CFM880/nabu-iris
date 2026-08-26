@@ -73,10 +73,14 @@ CONFIG_VIDEO_QCOM_IRIS=m
 ./scripts/build-module.sh ./linux ./linux/out
 ```
 
+脚本直接使用本仓库 `kernel-overlay/drivers/media/platform/qcom/iris/` 中的源码构建
+外置模块，不需要把 Iris 目录软链接或再次复制进内核源码树。因此日常模块开发只需
+修改 overlay 中的一份源码；`apply-overlay.sh` 用于完整内核及 DTB 集成。
+
 生成物位于：
 
 ```text
-linux/out/drivers/media/platform/qcom/iris/qcom-iris.ko
+linux/out/drivers/media/platform/qcom/iris-overlay/qcom-iris.ko
 ```
 
 仅当该模块与正在运行的内核版本、配置及符号完全匹配时，才可以安装它。完整内核
@@ -84,7 +88,7 @@ linux/out/drivers/media/platform/qcom/iris/qcom-iris.ko
 
 ## 运行配置
 
-`system/qcom-iris.conf` 同时启用固件启动和 H.264/HEVC cacheable CAPTURE：
+`system/qcom-iris.conf` 同时启用固件启动和 H.264/HEVC/VP9 cacheable CAPTURE：
 
 ```sh
 sudo install -m 0644 system/qcom-iris.conf /etc/modprobe.d/qcom-iris.conf

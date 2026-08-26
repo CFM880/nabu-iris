@@ -13,7 +13,8 @@ script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 overlay_dir=$(dirname -- "$script_dir")/kernel-overlay
 kernel_tree=$1
 
-if [ ! -f "$kernel_tree/Makefile" ] || [ ! -d "$kernel_tree/.git" ]; then
+if [ ! -f "$kernel_tree/Makefile" ] ||
+   ! git -C "$kernel_tree" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     echo "not a Linux Git worktree: $kernel_tree" >&2
     exit 1
 fi
