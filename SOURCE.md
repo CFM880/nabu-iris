@@ -22,6 +22,7 @@ It contains:
 - legacy Venus coordination needed by Iris1;
 - decode-order output, session recovery and aggregate-load handling;
 - DMA-BUF reservation fences and generation-safe capture reuse;
+- legacy VPU5 VP9 completion of filled DROP_FRAME/DATACORRUPT capture buffers;
 - the unified `cached_capture` option for H.264, HEVC and VP9.
 
 No generated patch files or build artifacts are part of the current source layout.
