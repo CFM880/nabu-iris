@@ -50,6 +50,7 @@ done
 cp -a "$overlay_dir/." "$kernel_tree/"
 echo "installed nabu-iris source overlay into $kernel_tree"
 echo "Iris DTB target: qcom/sm8150-xiaomi-nabu-iris.dtb"
+echo "config fragment: config/nabu-iris.config"
 if [ -f "$kernel_tree/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-camera.dtsi" ]; then
     echo "combined DTB target: qcom/sm8150-xiaomi-nabu-iris-camera.dtb"
 fi

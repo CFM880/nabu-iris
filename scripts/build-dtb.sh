@@ -10,6 +10,7 @@ fi
 kernel_tree=$(CDPATH= cd -- "$1" && pwd)
 mkdir -p "$2"
 output_dir=$(CDPATH= cd -- "$2" && pwd)
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 dts_dir=$kernel_tree/arch/arm64/boot/dts/qcom
 
 if [ ! -f "$dts_dir/sm8150-xiaomi-nabu-iris.dts" ]; then
@@ -31,6 +32,7 @@ fi
 : "${CROSS_COMPILE:=aarch64-linux-gnu-}"
 export ARCH CROSS_COMPILE
 
+"$script_dir/merge-config.sh" "$kernel_tree" "$output_dir"
 make -C "$kernel_tree" O="$output_dir" olddefconfig
 make -C "$kernel_tree" O="$output_dir" "qcom/$dtb"
 

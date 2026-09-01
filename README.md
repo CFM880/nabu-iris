@@ -34,6 +34,7 @@ H.264/HEVC/VP9 共用的 `cached_capture` 模块参数。
 
 ```text
 kernel-overlay/   按 Linux 源码路径组织的直接源码
+config/           可合并到现有 .config 的 Iris Kconfig fragment
 scripts/          覆盖层安装与模块构建辅助脚本
 system/           可选的 modprobe 与 systemd 配置
 firmware/         已验证的 Venus 固件及来源说明
@@ -89,6 +90,19 @@ qcom/sm8150-xiaomi-nabu-iris-camera.dtb
 ```
 
 启动时应选用对应的派生 DTB，原始 nabu DTB 不包含这些追加节点。
+
+## 配置追加模式
+
+仓库使用 `config/nabu-iris.config` 保存 Iris 所需选项，不覆盖主
+`arch/arm64/configs/sm8150.config`。应用源码覆盖层后，可以将 fragment 合并进
+已有内核输出配置：
+
+```sh
+./scripts/merge-config.sh ./linux ./linux/out
+```
+
+`build-dtb.sh` 会自动执行这一步。相机和 Iris fragment 可以依次合并，顺序不会
+改变最终配置。
 
 ## 构建 Iris 模块
 

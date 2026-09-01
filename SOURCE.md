@@ -29,6 +29,8 @@ No generated patch files or build artifacts are part of the current source layou
 The original full-file copies of `sm8150.dtsi` and `sm8150-xiaomi-nabu.dts` were
 replaced by `sm8150-xiaomi-nabu-iris.dts/.dtsi`; the derived board DTS preserves
 the same Iris nodes without overwriting either base DTS file.
+Iris Kconfig selections live in `config/nabu-iris.config` and are merged into an
+existing build `.config`; no board defconfig is replaced.
 When importing a new upstream snapshot, update the Linux source worktree first, resynchronize
 all changed files as one coherent overlay, and then rebase the nabu-specific commits; do not
 hand-maintain a second patch series.
