@@ -22,7 +22,7 @@ Linux 内核中的原始相对路径，可以复制到指定的内核基线后�
 | SoC / VPU | SM8150 / Iris1 (legacy VPU5) |
 | 内核基线 | `5181e1358ddd6ea8028e841d928942373e6aebc8` |
 | 源码快照 | `8cb100324c8bfff19938cd855e9a5a2276d582a4` |
-| 源码文件 | 65 个，位于 `kernel-overlay/` |
+| 源码文件 | 66 个，位于 `kernel-overlay/` |
 | 解码格式 | H.264；HEVC Main/Main10；VP9 Profile 0/Profile 2 |
 
 源码快照包含 decode-order 输出、DMA-BUF reservation fence、HFI Gen1
@@ -42,7 +42,7 @@ LICENSES/         覆盖层中 SPDX 标识对应的许可证文本
 
 ## 放入内核树
 
-准备一个位于精确基线、且工作树干净的 Linux 源码树：
+准备一个位于精确基线的 Linux 源码树：
 
 ```sh
 git clone https://gitlab.postmarketos.org/soc/qualcomm-sm8150/linux.git linux
@@ -50,13 +50,45 @@ git -C linux checkout 5181e1358ddd6ea8028e841d928942373e6aebc8
 ./scripts/apply-overlay.sh ./linux
 ```
 
-脚本只是复制直接源码文件，不执行 `git apply`。为避免误覆盖其他工作，它会验证
-目标提交和工作树状态。复制完成后可以用普通 Git diff 审查全部变化：
+脚本只是复制直接源码文件，不执行 `git apply`。它允许目标树存在不重叠的覆盖层，
+例如 `nabu-camera`；如果 Iris 的目标路径已被其他工作修改，脚本会停止。复制完成后
+可以用普通 Git diff 审查全部变化：
 
 ```sh
 git -C linux status --short
 git -C linux diff --stat
 ```
+
+## 设备树追加模式
+
+仓库不再覆盖 `sm8150.dtsi`，也不修改原始
+`sm8150-xiaomi-nabu.dts`。Iris 设备树使用派生板级文件：
+
+```text
+sm8150-xiaomi-nabu-iris.dts
+  ├─ include sm8150-xiaomi-nabu.dts
+  └─ include sm8150-xiaomi-nabu-iris.dtsi
+```
+
+应用覆盖层后，可使用已有内核输出目录构建派生 DTB：
+
+```sh
+./scripts/build-dtb.sh ./linux ./linux/out
+```
+
+仅安装 Iris 覆盖层时生成：
+
+```text
+qcom/sm8150-xiaomi-nabu-iris.dtb
+```
+
+如果同一内核树还安装了 `nabu-camera`，脚本会自动构建同时包含两者的：
+
+```text
+qcom/sm8150-xiaomi-nabu-iris-camera.dtb
+```
+
+启动时应选用对应的派生 DTB，原始 nabu DTB 不包含这些追加节点。
 
 ## 构建 Iris 模块
 

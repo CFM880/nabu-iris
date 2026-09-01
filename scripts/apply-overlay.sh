@@ -25,13 +25,32 @@ if [ "$current" != "$expected_base" ]; then
     exit 1
 fi
 
-if ! git -C "$kernel_tree" diff --quiet ||
-   ! git -C "$kernel_tree" diff --cached --quiet ||
-   [ -n "$(git -C "$kernel_tree" ls-files --others --exclude-standard)" ]; then
-    echo "target worktree is not clean: $kernel_tree" >&2
-    exit 1
-fi
+# Permit unrelated overlays (notably nabu-camera), but never overwrite a
+# target path carrying unknown local changes. Reapplying the same overlay is
+# idempotent.
+find "$overlay_dir" -type f -print | sort | while IFS= read -r source; do
+    relative=${source#"$overlay_dir"/}
+    target=$kernel_tree/$relative
+
+    if [ -f "$target" ] && cmp -s "$source" "$target"; then
+        continue
+    fi
+
+    if git -C "$kernel_tree" ls-files --error-unmatch "$relative" >/dev/null 2>&1; then
+        if ! git -C "$kernel_tree" diff --quiet HEAD -- "$relative"; then
+            echo "refusing to overwrite locally changed path: $relative" >&2
+            exit 1
+        fi
+    elif [ -e "$target" ]; then
+        echo "refusing to overwrite untracked path: $relative" >&2
+        exit 1
+    fi
+done
 
 cp -a "$overlay_dir/." "$kernel_tree/"
 echo "installed nabu-iris source overlay into $kernel_tree"
+echo "Iris DTB target: qcom/sm8150-xiaomi-nabu-iris.dtb"
+if [ -f "$kernel_tree/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-camera.dtsi" ]; then
+    echo "combined DTB target: qcom/sm8150-xiaomi-nabu-iris-camera.dtb"
+fi
 git -C "$kernel_tree" status --short

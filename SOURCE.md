@@ -15,7 +15,7 @@ Subsequent nabu-specific fixes are maintained directly in this repository and ar
 by its Git history; therefore the current overlay is not byte-identical to `snapshot`.
 It contains:
 
-- nabu and SM8150 device-tree integration;
+- append-only nabu and SM8150 device-tree integration using a derived DTB;
 - SM8150 video clock changes;
 - media Kconfig/Makefile integration;
 - the complete `drivers/media/platform/qcom/iris/` source directory;
@@ -26,6 +26,9 @@ It contains:
 - the unified `cached_capture` option for H.264, HEVC and VP9.
 
 No generated patch files or build artifacts are part of the current source layout.
+The original full-file copies of `sm8150.dtsi` and `sm8150-xiaomi-nabu.dts` were
+replaced by `sm8150-xiaomi-nabu-iris.dts/.dtsi`; the derived board DTS preserves
+the same Iris nodes without overwriting either base DTS file.
 When importing a new upstream snapshot, update the Linux source worktree first, resynchronize
 all changed files as one coherent overlay, and then rebase the nabu-specific commits; do not
 hand-maintain a second patch series.
