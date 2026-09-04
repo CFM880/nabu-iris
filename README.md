@@ -91,6 +91,21 @@ qcom/sm8150-xiaomi-nabu-iris-camera.dtb
 
 启动时应选用对应的派生 DTB，原始 nabu DTB 不包含这些追加节点。
 
+SM8150 v2 的 Iris 时钟 OPP 必须与 Qualcomm 下游 VideoCC 电压表逐档对应：
+
+```text
+200 MHz  MIN_SVS
+240 MHz  LOW_SVS
+338 MHz  SVS
+365 MHz  SVS_L1
+444 MHz  NOM
+533 MHz  TURBO
+```
+
+不能省略 338 MHz 后再把更高频率整体映射到较低电压。例如 533 MHz 只投票到
+`NOM` 时，VCODEC0 GDSC 会报告上电成功，但 `VIDEO_CC_MVS0_CORE_CLK` 的 OFF
+状态位无法清除。派生 DTB 中的 `venus_opp_table` 已按上述硬件电压表修正。
+
 ## 配置追加模式
 
 仓库使用 `config/nabu-iris.config` 保存 Iris 所需选项，不覆盖主

@@ -76,19 +76,24 @@
 				required-opps = <&rpmhpd_opp_low_svs>;
 			};
 
+			opp-338000000 {
+				opp-hz = /bits/ 64 <338000000>;
+				required-opps = <&rpmhpd_opp_svs>;
+			};
+
 			opp-365000000 {
 				opp-hz = /bits/ 64 <365000000>;
-				required-opps = <&rpmhpd_opp_svs>;
+				required-opps = <&rpmhpd_opp_svs_l1>;
 			};
 
 			opp-444000000 {
 				opp-hz = /bits/ 64 <444000000>;
-				required-opps = <&rpmhpd_opp_svs_l1>;
+				required-opps = <&rpmhpd_opp_nom>;
 			};
 
 			opp-533000000 {
 				opp-hz = /bits/ 64 <533000000>;
-				required-opps = <&rpmhpd_opp_nom>;
+				required-opps = <&rpmhpd_opp_turbo>;
 			};
 		};
 	};
