@@ -47,7 +47,10 @@ find "$overlay_dir" -type f -print | sort | while IFS= read -r source; do
     fi
 done
 
-cp -a "$overlay_dir/." "$kernel_tree/"
+# Do not preserve source timestamps here.  An overlay checkout can be older
+# than objects in an existing O= build, in which case make would silently keep
+# stale objects after the source content changed.
+cp -R "$overlay_dir/." "$kernel_tree/"
 echo "installed nabu-iris source overlay into $kernel_tree"
 echo "Iris DTB target: qcom/sm8150-xiaomi-nabu-iris.dtb"
 echo "config fragment: config/nabu-iris.config"
