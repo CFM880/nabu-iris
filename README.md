@@ -22,7 +22,7 @@ Linux 内核中的原始相对路径，可以复制到指定的内核基线后�
 | SoC / VPU | SM8150 / Iris1 (legacy VPU5) |
 | 内核基线 | `5181e1358ddd6ea8028e841d928942373e6aebc8` |
 | 源码快照 | `8cb100324c8bfff19938cd855e9a5a2276d582a4` |
-| 源码文件 | 66 个，位于 `kernel-overlay/` |
+| 源码文件 | 62 个，位于 `kernel-overlay/` |
 | 解码格式 | H.264；HEVC Main/Main10；VP9 Profile 0/Profile 2 |
 
 源码快照包含 decode-order 输出、DMA-BUF reservation fence、HFI Gen1

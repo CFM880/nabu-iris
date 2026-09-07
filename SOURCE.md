@@ -19,7 +19,6 @@ It contains:
 - SM8150 video clock changes;
 - media Kconfig/Makefile integration;
 - the complete `drivers/media/platform/qcom/iris/` source directory;
-- legacy Venus coordination needed by Iris1;
 - decode-order output, session recovery and aggregate-load handling;
 - DMA-BUF reservation fences and generation-safe capture reuse;
 - legacy VPU5 VP9 completion of filled DROP_FRAME/DATACORRUPT capture buffers;
