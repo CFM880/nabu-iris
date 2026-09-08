@@ -133,6 +133,17 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 	pixmp_ip->width = event.width;
 	pixmp_ip->height = event.height;
 
+	/* The bitstream, not the initial userspace hint, determines bit depth.
+	 * Publish P010 with the source-change event so clients can allocate the
+	 * correct CAPTURE layout before resuming a Main10/Profile 2 stream.
+	 */
+	if (core->iris_platform_data->legacy_vpu5 &&
+	    event.bit_depth == HFI_BIT_DEPTH_10 &&
+	    pixmp_op->pixelformat != V4L2_PIX_FMT_P010) {
+		pixmp_op->pixelformat = V4L2_PIX_FMT_P010;
+		inst->capture_format_changed = true;
+	}
+
 	pixmp_op->width = ALIGN(event.width, 128);
 	pixmp_op->height = ALIGN(event.height, 32);
 	pixmp_op->plane_fmt[0].bytesperline =
@@ -207,6 +218,10 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 					    struct hfi_msg_event_notify_pkt *pkt)
 {
+	u32 width = inst->fmt_dst->fmt.pix_mp.width;
+	u32 height = inst->fmt_dst->fmt.pix_mp.height;
+	u32 size = inst->buffers[BUF_OUTPUT].size;
+	bool initial = !inst->fw_min_count;
 	struct hfi_session_flush_pkt flush_pkt;
 	u32 num_properties_changed;
 	int ret;
@@ -220,17 +235,45 @@ static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 	case HFI_EVENT_DATA_SEQUENCE_CHANGED_INSUFFICIENT_BUF_RESOURCES:
 		break;
 	default:
+		dev_err(inst->core->dev, "invalid sequence-change resource status %#x\n",
+			pkt->event_data1);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
 		return;
 	}
 
 	num_properties_changed = pkt->event_data2;
 	if (!num_properties_changed) {
+		dev_err(inst->core->dev, "sequence-change event has no properties\n");
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
 		return;
 	}
 
 	iris_hfi_gen1_read_changed_params(inst, pkt);
+
+	/* A client may start CAPTURE before the first sequence notification.
+	 * If its allocation already fits, this is initialization, not a DRC
+	 * drain. Flushing here manufactures LAST before the first picture and
+	 * races clients which resume an unchanged format with DECODER_CMD_START.
+	 */
+	if (inst->core->iris_platform_data->legacy_vpu5 && initial &&
+	    inst->state == IRIS_INST_STREAMING &&
+	    width == inst->fmt_dst->fmt.pix_mp.width &&
+	    height == inst->fmt_dst->fmt.pix_mp.height &&
+	    size >= inst->buffers[BUF_OUTPUT].size &&
+	    vb2_get_num_buffers(v4l2_m2m_get_dst_vq(inst->m2m_ctx)) >=
+		inst->buffers[BUF_OUTPUT].min_count &&
+	    inst->fw_min_count <= inst->buffers[BUF_DPB].min_count) {
+		ret = inst->core->hfi_ops->session_resume_drc(inst,
+						V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+		if (ret) {
+			iris_inst_change_state(inst, IRIS_INST_ERROR);
+			return;
+		}
+		iris_inst_change_sub_state(inst, IRIS_INST_SUB_DRC |
+			IRIS_INST_SUB_FIRST_IPSC | IRIS_INST_SUB_INPUT_PAUSE, 0);
+		iris_vdec_src_change(inst);
+		return;
+	}
 
 	/*
 	 * Drop the VP9 high-IOVA placeholder now that the sequence is known,
@@ -242,6 +285,8 @@ static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 
 	if (inst->state != IRIS_INST_ERROR && !(inst->sub_state & IRIS_INST_SUB_FIRST_IPSC)) {
 
+		if (!inst->flush_responses_pending)
+			reinit_completion(&inst->flush_completion);
 		flush_pkt.shdr.hdr.size = sizeof(struct hfi_session_flush_pkt);
 		flush_pkt.shdr.hdr.pkt_type = HFI_CMD_SESSION_FLUSH;
 		flush_pkt.shdr.session_id = inst->session_id;
@@ -259,6 +304,17 @@ iris_hfi_gen1_sys_event_notify(struct iris_core *core, void *packet)
 {
 	struct hfi_msg_event_notify_pkt *pkt = packet;
 	struct iris_inst *instance;
+
+	/* An event for a closed or unknown session is not a core failure.
+	 * Only an explicit system-error event may reset every live session.
+	 */
+	if (pkt->event_id != HFI_EVENT_SYS_ERROR) {
+		dev_warn(core->dev,
+			 "ignoring event for unknown session: event=%#x session=%#x data=%#x,%#x\n",
+			 pkt->event_id, pkt->shdr.session_id,
+			 pkt->event_data1, pkt->event_data2);
+		return;
+	}
 
 	if (pkt->event_id == HFI_EVENT_SYS_ERROR) {
 		u32 sfr_size;
@@ -442,6 +498,10 @@ static void iris_hfi_gen1_session_etb_done(struct iris_inst *inst, void *packet)
 		 pkt->shdr.error_type);
 
 	if (pkt->shdr.error_type == HFI_ERR_SESSION_UNSUPPORTED_STREAM) {
+		dev_err(inst->core->dev,
+			"firmware rejected %p4cc stream: input tag=%u error=%#x (format hint %ux%u)\n",
+			&inst->codec, pkt->input_tag, pkt->shdr.error_type,
+			inst->fmt_src->fmt.pix_mp.width, inst->fmt_src->fmt.pix_mp.height);
 		buf->flags = V4L2_BUF_FLAG_ERROR;
 		iris_vb2_queue_error(inst);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
@@ -560,6 +620,17 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 
 	buf->data_offset = offset;
 	buf->data_size = filled_len;
+	if (inst->domain == DECODER && buf->type == BUF_OUTPUT && filled_len &&
+	    inst->codec == V4L2_PIX_FMT_VP9 &&
+	    (uncom_pkt->frame_width != inst->crop.width ||
+	     uncom_pkt->frame_height != inst->crop.height))
+		dev_info_ratelimited(core->dev,
+			"VP9 output geometry: frame=%ux%u origin=%u,%u crop=%ux%u capture=%ux%u tag=%u flags=%#x\n",
+			uncom_pkt->frame_width, uncom_pkt->frame_height,
+			uncom_pkt->start_x_coord, uncom_pkt->start_y_coord,
+			inst->crop.width, inst->crop.height,
+			inst->fmt_dst->fmt.pix_mp.width, inst->fmt_dst->fmt.pix_mp.height,
+			output_tag, hfi_flags);
 
 	if (filled_len) {
 		timestamp_us = timestamp_hi;

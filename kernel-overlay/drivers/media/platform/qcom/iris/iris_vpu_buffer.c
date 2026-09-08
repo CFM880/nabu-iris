@@ -1447,6 +1447,12 @@ static u32 internal_buffer_count(struct iris_inst *inst,
 static inline int iris_vpu_dpb_count(struct iris_inst *inst)
 {
 	if (iris_split_mode_enabled(inst)) {
+		/* Before sequence discovery, match the conservative OUTPUT count
+		 * sent to HFI. CAPTURE may start before firmware reports its DPB
+		 * minimum; the linear OUTPUT2 count is independent of this pool.
+		 */
+		if (!inst->fw_min_count && inst->core->iris_platform_data->legacy_vpu5)
+			return VIDEO_MAX_FRAME;
 		return inst->fw_min_count ?
 			inst->fw_min_count : inst->buffers[BUF_OUTPUT].min_count;
 	}

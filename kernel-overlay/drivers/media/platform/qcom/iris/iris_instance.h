@@ -111,6 +111,7 @@ struct iris_inst {
 	struct platform_inst_fw_cap	fw_caps[INST_FW_CAP_MAX];
 	struct iris_buffers		buffers[BUF_TYPE_MAX];
 	u32				fw_buffer_sizes[BUF_TYPE_MAX];
+	bool				capture_format_changed;
 	u32				fw_min_count;
 	enum iris_inst_state		state;
 	enum iris_inst_sub_state	sub_state;

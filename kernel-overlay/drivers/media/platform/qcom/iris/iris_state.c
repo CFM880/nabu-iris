@@ -53,8 +53,13 @@ int iris_inst_change_state(struct iris_inst *inst,
 	if (inst->state == request_state)
 		return 0;
 
-	if (request_state == IRIS_INST_ERROR)
+	if (request_state == IRIS_INST_ERROR) {
+		dev_err(inst->core->dev,
+			"session %#x entered ERROR from state %u substate %#x at %pS\n",
+			inst->session_id, inst->state, inst->sub_state,
+			__builtin_return_address(0));
 		goto change_state;
+	}
 
 	if (!iris_allow_inst_state_change(inst, request_state))
 		return -EINVAL;

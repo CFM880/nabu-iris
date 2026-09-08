@@ -180,7 +180,8 @@ int iris_vdec_inst_init(struct iris_inst *inst)
 		goto error_free_formats;
 	}
 
-	inst->fw_min_count = MIN_BUFFERS;
+	/* Zero means no sequence requirements have been received yet. */
+	inst->fw_min_count = inst->core->iris_platform_data->legacy_vpu5 ? 0 : MIN_BUFFERS;
 
 	f = inst->fmt_src;
 	f->type = V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
@@ -331,6 +332,7 @@ int iris_vdec_enum_fmt(struct iris_inst *inst, struct v4l2_fmtdesc *f)
 
 int iris_vdec_try_fmt(struct iris_inst *inst, struct v4l2_format *f)
 {
+	const struct platform_inst_caps *caps = inst->core->iris_platform_data->inst_caps;
 	struct v4l2_pix_format_mplane *pixmp = &f->fmt.pix_mp;
 	struct v4l2_m2m_ctx *m2m_ctx = inst->m2m_ctx;
 	const struct iris_fmt *fmt;
@@ -347,6 +349,14 @@ int iris_vdec_try_fmt(struct iris_inst *inst, struct v4l2_format *f)
 			f->fmt.pix_mp.height = f_inst->fmt.pix_mp.height;
 			f->fmt.pix_mp.pixelformat = f_inst->fmt.pix_mp.pixelformat;
 		}
+		/* OUTPUT dimensions are hints until the first source-change event.
+		 * Return supported allocation dimensions instead of accepting an
+		 * out-of-range hint here and rejecting it later at REQBUFS.
+		 */
+		pixmp->width = clamp(pixmp->width, caps->min_frame_width,
+				     caps->max_frame_width);
+		pixmp->height = clamp(pixmp->height, caps->min_frame_height,
+				      caps->max_frame_height);
 		break;
 	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
 		if (f->fmt.pix_mp.pixelformat != V4L2_PIX_FMT_NV12 &&
@@ -754,6 +764,29 @@ int iris_vdec_start_cmd(struct iris_inst *inst)
 
 	dst_vq = v4l2_m2m_get_dst_vq(inst->m2m_ctx);
 
+	if (inst->capture_format_changed) {
+		dev_err(inst->core->dev, "CAPTURE format changed; reallocate before START\n");
+		return -EINVAL;
+	}
+
+	/* START on an already running decoder is a no-op. In particular the
+	 * initial source-change event need not have drained an early CAPTURE.
+	 */
+	if (inst->state == IRIS_INST_STREAMING &&
+	    !(inst->sub_state & (IRIS_INST_SUB_DRC | IRIS_INST_SUB_DRAIN)))
+		return 0;
+
+	/* A same-size source change can resume via START without STREAMOFF.
+	 * Wait until the legacy output flush has returned its DPBs before
+	 * requeueing them; otherwise a late flush completion strands the pool.
+	 */
+	if (inst->core->iris_platform_data->legacy_vpu5 &&
+	    inst->flush_responses_pending) {
+		ret = iris_wait_for_session_response(inst, true);
+		if (ret)
+			return ret;
+	}
+
 	if (inst->sub_state & IRIS_INST_SUB_DRC &&
 	    inst->sub_state & IRIS_INST_SUB_DRC_LAST) {
 		vb2_clear_last_buffer_dequeued(dst_vq);
@@ -805,7 +838,21 @@ int iris_vdec_start_cmd(struct iris_inst *inst)
 		return -EBUSY;
 	}
 
-	return iris_inst_change_sub_state(inst, clear_sub_state, 0);
+	ret = iris_inst_change_sub_state(inst, clear_sub_state, 0);
+	if (ret)
+		return ret;
+	inst->last_buffer_dequeued = false;
+
+	if (inst->core->iris_platform_data->legacy_vpu5 &&
+	    inst->state == IRIS_INST_STREAMING) {
+		ret = iris_queue_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+		if (!ret)
+			ret = iris_queue_deferred_buffers(inst, BUF_OUTPUT);
+		if (!ret)
+			ret = iris_queue_deferred_buffers(inst, BUF_INPUT);
+	}
+
+	return ret;
 }
 
 int iris_vdec_stop_cmd(struct iris_inst *inst)

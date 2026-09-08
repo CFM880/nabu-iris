@@ -1250,10 +1250,21 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	u32 dpb_count, output2_count;
 	int ret;
 
+	if (inst->capture_format_changed) {
+		ret = iris_hfi_gen1_set_raw_format(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+		if (ret)
+			return ret;
+		ret = iris_hfi_gen1_set_format_constraints(inst,
+						    V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+		if (ret)
+			return ret;
+		inst->capture_format_changed = false;
+	}
+
 	dpb_count = iris_vpu_buf_count(inst, BUF_DPB);
 	output2_count = vb2_get_num_buffers(dst_q);
 
-	if (!dpb_count || output2_count < dpb_count) {
+	if (!dpb_count || !output2_count) {
 		dev_err(inst->core->dev,
 			"Iris1 v64: invalid first capture counts: codec=%p4cc output2=%u dpb=%u\n",
 			&inst->codec, output2_count, dpb_count);
@@ -1379,17 +1390,20 @@ static int iris_hfi_gen1_session_set_config_params(struct iris_inst *inst, u32 p
 	/*
 	 * The initial input configuration already describes both decoder
 	 * output streams.  VIDEO.IR.1.2 accepts the duplicate configuration
-	 * after the first H.264 sequence change, but fatally asserts when the
-	 * same input/count/multistream properties are resent for HEVC or VP9.
+	 * for some H.264 streams, but replaying input/count/multistream properties
+	 * after sequence discovery can invalidate the firmware's output setup.
 	 * Downstream configures the capture format before streaming and does
 	 * not replay the complete input property list at capture STREAMON.
 	 * Update only the client-visible output2 geometry/count/size and the
 	 * firmware-owned DPB count after the sequence-change event.
 	 */
 	if (inst->domain == DECODER && V4L2_TYPE_IS_CAPTURE(plane) &&
-	    (inst->codec == V4L2_PIX_FMT_HEVC ||
+	    ((core->iris_platform_data->legacy_vpu5 &&
+	      inst->codec == V4L2_PIX_FMT_H264) ||
+	     inst->codec == V4L2_PIX_FMT_HEVC ||
 	     inst->codec == V4L2_PIX_FMT_VP9) &&
-	    inst->sub_state & IRIS_INST_SUB_FIRST_IPSC) {
+	    (core->iris_platform_data->legacy_vpu5 ||
+	     inst->sub_state & IRIS_INST_SUB_FIRST_IPSC)) {
 		dev_info(inst->core->dev,
 			 "Iris1 v65: applying first capture config for codec %p4cc\n",
 			 &inst->codec);

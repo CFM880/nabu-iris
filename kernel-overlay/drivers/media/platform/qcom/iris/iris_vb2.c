@@ -511,6 +511,8 @@ void iris_vb2_buf_queue(struct vb2_buffer *vb2)
 
 exit:
 	if (ret) {
+		dev_err_ratelimited(inst->core->dev, "QBUF failed: type=%u index=%u ret=%d\n",
+				   vb2->type, vb2->index, ret);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
 		v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_ERROR);
 	}
