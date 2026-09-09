@@ -144,6 +144,17 @@ int iris_hfi_pm_suspend(struct iris_core *core)
 {
 	int ret;
 
+	/*
+	 * The legacy VPU5 power-collapse sequence is not implemented, so
+	 * iris_vpu_prepare_pc() deliberately returns -EAGAIN to keep the
+	 * controller powered.  This is fine for runtime PM, but the system
+	 * sleep path reuses this callback through pm_runtime_force_suspend()
+	 * and the PM core treats any nonzero return as fatal: keep the
+	 * controller powered and succeed so s2idle is not aborted.
+	 */
+	if (core->iris_platform_data->legacy_vpu5)
+		return 0;
+
 	ret = iris_vpu_prepare_pc(core);
 	if (ret) {
 		pm_runtime_mark_last_busy(core->dev);
@@ -170,6 +181,15 @@ int iris_hfi_pm_resume(struct iris_core *core)
 {
 	const struct iris_hfi_command_ops *ops = core->hfi_ops;
 	int ret;
+
+	/*
+	 * Nothing was powered off while suspended on legacy VPU5, so there is
+	 * nothing to bring back up.  Re-running the power-on/firmware-boot
+	 * sequence over an already running VPU would restart the hardware out
+	 * from under live sessions.
+	 */
+	if (core->iris_platform_data->legacy_vpu5)
+		return 0;
 
 	ret = iris_vpu_power_on(core);
 	if (ret)
