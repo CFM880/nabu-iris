@@ -35,61 +35,52 @@ H.264/HEVC/VP9 共用的 `cached_capture` 模块参数。
 ```text
 kernel-overlay/   按 Linux 源码路径组织的直接源码
 config/           可合并到现有 .config 的 Iris Kconfig fragment
-scripts/          覆盖层安装与模块构建辅助脚本
+scripts/          运行时辅助脚本（模块加载）
 system/           可选的 modprobe 与 systemd 配置
 firmware/         已验证的 Venus 固件及来源说明
 LICENSES/         覆盖层中 SPDX 标识对应的许可证文本
 ```
 
-## 放入内核树
+## 统一构建（nabu-main）
 
-准备一个位于精确基线的 Linux 源码树：
+本仓库不再自带覆盖层安装、配置合并或模块构建脚本。跨仓的统一构建由同级的
+`nabu-main` 负责：它 reset 到基线内核、应用本仓 `kernel-overlay`、生成组合 DTS、
+合并 `config/nabu-iris.config` 并构建模块，全部通过根目录的 `nabu-module.toml`
+声明：
+
+```toml
+[provides]
+overlay = "kernel-overlay"
+dtsi    = ["arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi"]
+config  = ["config/nabu-iris.config"]
+
+[build]
+kernel_targets = ["drivers/media/platform/qcom/iris/qcom-iris.ko"]
+```
+
+在内核基线 `5181e1358ddd6ea8028e841d928942373e6aebc8` 上，于 `nabu-main` 运行：
 
 ```sh
-git clone https://gitlab.postmarketos.org/soc/qualcomm-sm8150/linux.git linux
-git -C linux checkout 5181e1358ddd6ea8028e841d928942373e6aebc8
-./scripts/apply-overlay.sh ./linux
+make apply      # reset linux，应用 overlay/patch
+make compose    # 由各模块 dtsi 生成组合 DTS
+make config     # 合并 fragment 并固定统一 release
+make build      # 构建 Image、模块与 DTB
+make collect    # 收集产物到 artifacts/<product>/
 ```
 
-脚本只是复制直接源码文件，不执行 `git apply`。它允许目标树存在不重叠的覆盖层，
-例如 `nabu-camera`；如果 Iris 的目标路径已被其他工作修改，脚本会停止。复制完成后
-可以用普通 Git diff 审查全部变化：
+## 设备树
 
-```sh
-git -C linux status --short
-git -C linux diff --stat
+仓库不再覆盖 `sm8150.dtsi`，也不修改原始 `sm8150-xiaomi-nabu.dts`，只提供
+`arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi` 片段。组合 DTB 不再手写，
+由 `nabu-main compose` 按产品顺序自动生成：
+
+```dts
+#include "sm8150-xiaomi-nabu.dts"
+#include "sm8150-xiaomi-nabu-iris.dtsi"
+...
 ```
 
-## 设备树追加模式
-
-仓库不再覆盖 `sm8150.dtsi`，也不修改原始
-`sm8150-xiaomi-nabu.dts`。Iris 设备树使用派生板级文件：
-
-```text
-sm8150-xiaomi-nabu-iris.dts
-  ├─ include sm8150-xiaomi-nabu.dts
-  └─ include sm8150-xiaomi-nabu-iris.dtsi
-```
-
-应用覆盖层后，可使用已有内核输出目录构建派生 DTB：
-
-```sh
-./scripts/build-dtb.sh ./linux ./linux/out
-```
-
-仅安装 Iris 覆盖层时生成：
-
-```text
-qcom/sm8150-xiaomi-nabu-iris.dtb
-```
-
-如果同一内核树还安装了 `nabu-camera`，脚本会自动构建同时包含两者的：
-
-```text
-qcom/sm8150-xiaomi-nabu-iris-camera.dtb
-```
-
-启动时应选用对应的派生 DTB，原始 nabu DTB 不包含这些追加节点。
+启动时使用 `nabu-main` 生成的组合 DTB，原始 nabu DTB 不包含这些追加节点。
 
 SM8150 v2 的 Iris 时钟 OPP 必须与 Qualcomm 下游 VideoCC 电压表逐档对应：
 
@@ -106,44 +97,17 @@ SM8150 v2 的 Iris 时钟 OPP 必须与 Qualcomm 下游 VideoCC 电压表逐档�
 `NOM` 时，VCODEC0 GDSC 会报告上电成功，但 `VIDEO_CC_MVS0_CORE_CLK` 的 OFF
 状态位无法清除。派生 DTB 中的 `venus_opp_table` 已按上述硬件电压表修正。
 
-## 配置追加模式
+## 配置
 
 仓库使用 `config/nabu-iris.config` 保存 Iris 所需选项，不覆盖主
-`arch/arm64/configs/sm8150.config`。应用源码覆盖层后，可以将 fragment 合并进
-已有内核输出配置：
-
-```sh
-./scripts/merge-config.sh ./linux ./linux/out
-```
-
-`build-dtb.sh` 会自动执行这一步。相机和 Iris fragment 可以依次合并，顺序不会
-改变最终配置。
+`arch/arm64/configs/sm8150.config`。`nabu-main config` 会把它与其它模块的
+fragment 一起合并进统一的内核 `.config`，顺序不会改变最终配置。
 
 ## 构建 Iris 模块
 
-目标内核树需要已有可工作的 `.config`，并启用：
-
-```text
-CONFIG_MEDIA_SUPPORT=y
-CONFIG_VIDEO_DEV=y
-CONFIG_VIDEO_QCOM_IRIS=m
-```
-
-然后运行：
-
-```sh
-./scripts/build-module.sh ./linux ./linux/out
-```
-
-脚本直接使用本仓库 `kernel-overlay/drivers/media/platform/qcom/iris/` 中的源码构建
-外置模块，不需要把 Iris 目录软链接或再次复制进内核源码树。因此日常模块开发只需
-修改 overlay 中的一份源码；`apply-overlay.sh` 用于完整内核及 DTB 集成。
-
-生成物位于：
-
-```text
-linux/out/drivers/media/platform/qcom/iris-overlay/qcom-iris.ko
-```
+`nabu-main build` 在统一的 `out/` 中构建
+`drivers/media/platform/qcom/iris/qcom-iris.ko`，并保证它与其它 nabu 模块共用同一
+kernel release；产物由 `nabu-main collect` 收集到 `nabu-main/artifacts/<product>/`。
 
 仅当该模块与正在运行的内核版本、配置及符号完全匹配时，才可以安装它。完整内核
 和 DTB 的构建、签名、启动配置因发行版而异，不由本仓库自动修改。

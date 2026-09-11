@@ -1,0 +1,26 @@
+schema = 1
+
+[module]
+name        = "nabu-iris"
+description = "Iris/Venus video decoder (SM8150 legacy VPU5)"
+requires    = []
+
+[provides]
+overlay      = "kernel-overlay"
+dtsi         = ["arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi"]
+config       = ["config/nabu-iris.config"]
+systemd      = ["system/qcom-iris-autoload.service"]
+modules_load = ["system/qcom-iris.conf"]
+firmware     = ["firmware/venus.mbn"]
+
+[build]
+kernel_targets = ["drivers/media/platform/qcom/iris/qcom-iris.ko"]
+
+[artifacts]
+"qcom-iris.ko" = "out:drivers/media/platform/qcom/iris/qcom-iris.ko"
+
+[install]
+"qcom-iris.ko"                      = "/lib/modules/@release@/kernel/drivers/media/platform/qcom/iris/qcom-iris.ko"
+"systemd/qcom-iris-autoload.service" = "/etc/systemd/system/qcom-iris-autoload.service"
+"modules_load/qcom-iris.conf"        = "/etc/modprobe.d/qcom-iris.conf"
+"firmware/venus.mbn"                 = "/lib/firmware/qcom/sm8150/xiaomi/nabu/venus.mbn"
