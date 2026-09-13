@@ -421,6 +421,7 @@ int iris_close(struct file *filp)
 	iris_check_num_queued_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
 	iris_remove_session(inst);
 	mutex_unlock(&inst->lock);
+	iris_run_pending_core_recovery(inst->core);
 	if (inst->domain == DECODER)
 		iris_vdec_inst_deinit(inst);
 	else if (inst->domain == ENCODER)

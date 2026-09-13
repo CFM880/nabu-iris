@@ -72,6 +72,7 @@ enum domain_type {
  * @core_init_done: structure of signal completion for system response
  * @intr_status: interrupt status
  * @sys_error_handler: a delayed work for handling system fatal error
+ * @recovery_pending: a fatal session error needs a core power-cycle
  * @instances: a list_head of all instances
  * @inst_fw_caps_dec: an array of supported instance capabilities by decoder
  * @inst_fw_caps_enc: an array of supported instance capabilities by encoder
@@ -119,6 +120,7 @@ struct iris_core {
 	struct llcc_slice_desc			*llcc_slices[2];
 	bool					llcc_active;
 	bool					syscache_set;
+	bool					recovery_pending;
 	/* encoder and decoder have overlapping caps, so two different arrays are required */
 	struct platform_inst_fw_cap		inst_fw_caps_dec[INST_FW_CAP_MAX];
 	struct platform_inst_fw_cap		inst_fw_caps_enc[INST_FW_CAP_MAX];

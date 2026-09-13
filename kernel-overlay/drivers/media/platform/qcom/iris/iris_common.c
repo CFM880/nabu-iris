@@ -336,6 +336,53 @@ cleanup:
 	return ret;
 }
 
+/*
+ * A fatal session error (for example an unsupported stream) can leave the
+ * firmware refusing every later SESSION_INIT until the VPU is power-cycled.
+ * The firmware does not raise HFI_EVENT_SYS_ERROR in that case, so remember
+ * that recovery is needed and run it once the last session has gone away.
+ */
+void iris_request_core_recovery(struct iris_inst *inst)
+{
+	struct iris_core *core = inst->core;
+
+	mutex_lock(&core->lock);
+	core->recovery_pending = true;
+	mutex_unlock(&core->lock);
+}
+
+void iris_run_pending_core_recovery(struct iris_core *core)
+{
+	struct iris_inst *instance;
+	bool busy = false;
+
+	mutex_lock(&core->lock);
+	if (!core->recovery_pending) {
+		mutex_unlock(&core->lock);
+		return;
+	}
+
+	list_for_each_entry(instance, &core->instances, list) {
+		if (instance->hfi_session_opened) {
+			busy = true;
+			break;
+		}
+	}
+
+	if (busy) {
+		mutex_unlock(&core->lock);
+		return;
+	}
+
+	core->recovery_pending = false;
+	mutex_unlock(&core->lock);
+
+	dev_info(core->dev,
+		 "Iris1 v155: power-cycling core after fatal session error\n");
+	iris_core_deinit(core);
+	iris_core_init(core);
+}
+
 int iris_reserve_core_load(struct iris_inst *inst, u32 frame_rate)
 {
 	struct iris_core *core = inst->core;

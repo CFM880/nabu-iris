@@ -10,6 +10,7 @@
 
 #include "iris_hfi_gen1.h"
 #include "iris_hfi_gen1_defines.h"
+#include "iris_common.h"
 #include "iris_instance.h"
 #include "iris_utils.h"
 #include "iris_vb2.h"
@@ -381,6 +382,7 @@ iris_hfi_gen1_event_session_error(struct iris_inst *inst, struct hfi_msg_event_n
 			pkt->shdr.session_id);
 		iris_vb2_queue_error(inst);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
+		iris_request_core_recovery(inst);
 		break;
 	}
 }
@@ -505,6 +507,7 @@ static void iris_hfi_gen1_session_etb_done(struct iris_inst *inst, void *packet)
 		buf->flags = V4L2_BUF_FLAG_ERROR;
 		iris_vb2_queue_error(inst);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
+		iris_request_core_recovery(inst);
 	}
 
 	if (!(buf->attr & BUF_ATTR_QUEUED))
