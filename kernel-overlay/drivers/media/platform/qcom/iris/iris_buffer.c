@@ -862,6 +862,8 @@ int iris_vb2_buffer_done(struct iris_inst *inst, struct iris_buffer *buf)
 
 	if (V4L2_TYPE_IS_CAPTURE(type)) {
 		vb2_set_plane_payload(vb2, 0, buf->data_size);
+		vbuf->field = inst->interlaced ?
+			V4L2_FIELD_INTERLACED : V4L2_FIELD_NONE;
 		vbuf->sequence = inst->sequence_cap++;
 		iris_get_ts_metadata(inst, buf->timestamp, vbuf);
 	} else {

@@ -474,7 +474,9 @@ void iris_vb2_buf_queue(struct vb2_buffer *vb2)
 	}
 
 	if (vbuf->field == V4L2_FIELD_ANY)
-		vbuf->field = V4L2_FIELD_NONE;
+		vbuf->field = V4L2_TYPE_IS_CAPTURE(vb2->vb2_queue->type) &&
+			       inst->interlaced ?
+			       V4L2_FIELD_INTERLACED : V4L2_FIELD_NONE;
 
 	m2m_ctx = inst->m2m_ctx;
 
@@ -490,7 +492,8 @@ void iris_vb2_buf_queue(struct vb2_buffer *vb2)
 		     inst->sub_state & IRIS_INST_SUB_DRAIN_LAST)) {
 			vbuf->flags |= V4L2_BUF_FLAG_LAST;
 			vbuf->sequence = inst->sequence_cap++;
-			vbuf->field = V4L2_FIELD_NONE;
+			vbuf->field = inst->interlaced ?
+				V4L2_FIELD_INTERLACED : V4L2_FIELD_NONE;
 			vb2_set_plane_payload(vb2, 0, 0);
 			v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
 			if (!v4l2_m2m_has_stopped(m2m_ctx)) {

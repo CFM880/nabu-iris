@@ -208,12 +208,19 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 	if ((event.bit_depth != HFI_BIT_DEPTH_8 &&
 	     event.bit_depth != HFI_BIT_DEPTH_10) ||
 	    (event.bit_depth == HFI_BIT_DEPTH_10 &&
-	     pixmp_op->pixelformat != V4L2_PIX_FMT_P010) ||
-	    !event.pic_struct) {
+	     pixmp_op->pixelformat != V4L2_PIX_FMT_P010)) {
 		dev_err(core->dev, "unsupported content, bit depth: %x, pic_struct = %x\n",
 			event.bit_depth, event.pic_struct);
 		iris_inst_change_state(inst, IRIS_INST_ERROR);
 	}
+
+	/*
+	 * The firmware weaves both fields into a single frame and reports
+	 * progressive_only == 0 for interlaced streams. Accept it and mark the
+	 * CAPTURE buffers as interlaced so clients do not treat the weaved
+	 * frame as progressive.
+	 */
+	inst->interlaced = !event.pic_struct;
 }
 
 static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,

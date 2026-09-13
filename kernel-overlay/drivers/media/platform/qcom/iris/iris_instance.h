@@ -47,6 +47,7 @@ struct iris_fmt {
  * @fw_caps: array of supported instance firmware capabilities
  * @buffers: array of different iris buffers
  * @fw_min_count: minimnum count of buffers needed by fw
+ * @interlaced: current stream is interlaced (both fields in one frame)
  * @state: instance state
  * @sub_state: instance sub state
  * @hfi_session_opened: whether this instance owns an active firmware session
@@ -113,6 +114,7 @@ struct iris_inst {
 	u32				fw_buffer_sizes[BUF_TYPE_MAX];
 	bool				capture_format_changed;
 	u32				fw_min_count;
+	bool				interlaced;
 	enum iris_inst_state		state;
 	enum iris_inst_sub_state	sub_state;
 	bool				hfi_session_opened;
