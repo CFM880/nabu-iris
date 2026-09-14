@@ -19,9 +19,6 @@
 #include "iris_vpu_buffer.h"
 
 #define DEFAULT_CODEC_ALIGNMENT 16
-#define IRIS1_TIMESTAMP_DISCONTINUITY_NS	NSEC_PER_SEC
-#define IRIS1_SEEK_TIMESTAMP_WINDOW_NS	(5ULL * NSEC_PER_SEC)
-#define IRIS1_SEEK_HOLD_FRAMES		30
 #define IRIS1_MAX_4K_MBPF		NUM_MBS_PER_FRAME(2176, 4096)
 
 int iris_vdec_recycle_pending_output(struct iris_inst *inst)
@@ -102,69 +99,32 @@ void iris_vdec_clear_pending_output(struct iris_inst *inst)
 	inst->pending_output = NULL;
 }
 
-static int iris_vdec_track_input_timestamp(struct iris_inst *inst, u64 timestamp)
+/*
+ * Restart the input-rate measurement window after a stream discontinuity.
+ *
+ * Seek handling is owned by the userspace driver, which tears the whole V4L2
+ * session down and reopens it at a boundary, so the kernel must not infer
+ * seeks from timestamps or drop output frames.  A coded-timestamp jump is
+ * still worth noticing for one reason only: keeping the power/clock vote from
+ * averaging across two unrelated timelines.  Output is never filtered here.
+ */
+static void iris_vdec_track_input_timestamp(struct iris_inst *inst, u64 timestamp)
 {
 	u64 delta;
-	int ret;
 
 	if (!inst->core->iris_platform_data->legacy_vpu5)
-		return 0;
+		return;
 
 	if (inst->input_timestamp_valid) {
 		delta = timestamp > inst->last_input_timestamp ?
 			timestamp - inst->last_input_timestamp :
 			inst->last_input_timestamp - timestamp;
-		if (delta > IRIS1_TIMESTAMP_DISCONTINUITY_NS) {
+		if (delta > NSEC_PER_SEC)
 			iris_vdec_reset_rate_window(inst);
-			inst->seek_timestamp = timestamp;
-			inst->seek_timestamp_pending = true;
-			inst->seek_hold_frames = IRIS1_SEEK_HOLD_FRAMES;
-			dev_info(inst->core->dev,
-				 "Iris1 v136: input timestamp discontinuity %llu -> %llu ns; filtering stale output\n",
-				 inst->last_input_timestamp, timestamp);
-			ret = iris_vdec_recycle_pending_output(inst);
-			if (ret)
-				return ret;
-		}
 	}
 
 	inst->last_input_timestamp = timestamp;
 	inst->input_timestamp_valid = true;
-
-	return 0;
-}
-
-bool iris_vdec_discard_stale_frame(struct iris_inst *inst, u64 timestamp)
-{
-	u64 delta;
-
-	if (!inst->seek_timestamp_pending)
-		return false;
-
-	/*
-	 * A frame decoded from pre-seek input carries a timestamp strictly
-	 * before the seek anchor even when it lands within the window, because
-	 * the anchor is the first post-seek compressed-input timestamp.  Accept
-	 * only new-epoch frames at or after the anchor; anything older would be
-	 * delivered after the seek and trigger an invalid old/new-epoch
-	 * transition in the consumer.
-	 */
-	if (timestamp >= inst->seek_timestamp) {
-		delta = timestamp - inst->seek_timestamp;
-		if (delta <= IRIS1_SEEK_TIMESTAMP_WINDOW_NS) {
-			dev_info(inst->core->dev,
-				 "Iris1 v136: output synchronized at %llu ns after seek anchor %llu ns\n",
-				 timestamp, inst->seek_timestamp);
-			inst->seek_timestamp_pending = false;
-			return false;
-		}
-	}
-
-	dev_info(inst->core->dev,
-		 "Iris1 v136: recycling stale output timestamp %llu ns (seek anchor %llu ns)\n",
-		 timestamp, inst->seek_timestamp);
-
-	return true;
 }
 
 int iris_vdec_inst_init(struct iris_inst *inst)
@@ -536,10 +496,8 @@ int iris_vdec_streamon_input(struct iris_inst *inst)
 
 	inst->streamoff_pending = false;
 	inst->input_timestamp_valid = false;
-	inst->seek_timestamp_pending = false;
 	inst->corrupt_output_drops = 0;
 	inst->pending_output = NULL;
-	inst->seek_hold_frames = 0;
 	inst->frame_rate = MAXIMUM_FPS;
 	inst->frame_rate_down_count = 0;
 
@@ -676,11 +634,8 @@ int iris_vdec_qbuf(struct iris_inst *inst, struct vb2_v4l2_buffer *vbuf)
 		return 0;
 	}
 
-	if (buf->type == BUF_INPUT) {
-		ret = iris_vdec_track_input_timestamp(inst, buf->timestamp);
-		if (ret)
-			return ret;
-	}
+	if (buf->type == BUF_INPUT)
+		iris_vdec_track_input_timestamp(inst, buf->timestamp);
 
 	/*
 	 * QBUF arrival can be bursty and, once the decoder or the consumer is

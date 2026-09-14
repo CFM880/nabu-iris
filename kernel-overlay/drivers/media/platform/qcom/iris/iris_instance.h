@@ -76,12 +76,9 @@ struct iris_fmt {
  * @streamoff_pending: a vb2 STREAMOFF is flushing or stopping this session
  * @start_streaming_rollback_type: queue whose failed STREAMON is being rolled back
  * @last_input_timestamp: most recent compressed-input timestamp
- * @seek_timestamp: first compressed-input timestamp after a discontinuity
  * @input_timestamp_valid: whether last_input_timestamp has been initialized
- * @seek_timestamp_pending: discard old-epoch output until seek_timestamp arrives
  * @corrupt_output_drops: consecutive corrupt legacy output frames recycled
- * @pending_output: legacy output held to filter stale or hidden VP9 frames
- * @seek_hold_frames: output frames held after a seek before resuming in-place delivery
+ * @pending_output: legacy output held to collapse hidden VP9 superframe frames
  * @display_delay: requested firmware display delay
  * @display_delay_enable: whether the requested display delay is active
  * @surface_fences: pending CPU-write fences attached to exported surfaces
@@ -143,12 +140,9 @@ struct iris_inst {
 	bool				streamoff_pending;
 	u32				start_streaming_rollback_type;
 	u64				last_input_timestamp;
-	u64				seek_timestamp;
 	bool				input_timestamp_valid;
-	bool				seek_timestamp_pending;
 	u32				corrupt_output_drops;
 	struct iris_buffer		*pending_output;
-	u32				seek_hold_frames;
 	u32				display_delay;
 	bool				display_delay_enable;
 	struct list_head		surface_fences;

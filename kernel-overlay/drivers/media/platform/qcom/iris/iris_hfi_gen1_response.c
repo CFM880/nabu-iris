@@ -557,7 +557,6 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 	u64 timestamp_us = 0;
 	bool m2m_stopped;
 	bool recycle_output = false;
-	bool seek_was_pending = false;
 	bool found = false;
 	u32 flags = 0;
 	int ret;
@@ -675,9 +674,6 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 			ret = iris_vdec_complete_pending_output(inst);
 		if (ret)
 			goto error;
-		seek_was_pending = inst->seek_timestamp_pending;
-		if (inst->seek_hold_frames)
-			inst->seek_hold_frames--;
 	}
 
 	if (inst->domain == DECODER && buf->type == BUF_OUTPUT && filled_len) {
@@ -700,8 +696,6 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 				 IRIS1_MAX_CORRUPT_OUTPUT_DROPS);
 		} else {
 			inst->corrupt_output_drops = 0;
-			recycle_output = iris_vdec_discard_stale_frame(inst,
-								timestamp_us);
 		}
 	}
 
@@ -758,11 +752,7 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 
 	if (inst->domain == DECODER && buf->type == BUF_OUTPUT && filled_len &&
 	    inst->core->iris_platform_data->legacy_vpu5 &&
-	    !seek_was_pending &&
-	    (inst->codec == V4L2_PIX_FMT_VP9 ||
-	     (!(hfi_flags & (HFI_BUFFERFLAG_DATACORRUPT |
-			     HFI_BUFFERFLAG_DROP_FRAME)) &&
-	      inst->seek_hold_frames))) {
+	    inst->codec == V4L2_PIX_FMT_VP9) {
 		ret = iris_vdec_hold_output(inst, buf);
 		if (ret)
 			goto error;
