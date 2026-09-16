@@ -1,52 +1,58 @@
 # nabu-iris
 
-Xiaomi Pad 5（`nabu`、SM8150）上的实验性 Qualcomm Iris1/Venus 内核支持。
+**English** | [中文](README.zh.md)
 
-本仓库直接保存内核源码覆盖层，不再发布或要求应用 patch series。源码文件保留
-Linux 内核中的原始相对路径，可以复制到指定的内核基线后直接审查、修改和构建。
+Experimental Qualcomm Iris1/Venus kernel support on the Xiaomi Pad 5 (`nabu`, SM8150).
 
-> 这是实验性代码。刷写内核或替换模块可能导致系统无法启动，请准备可用的恢复方式。
+This repository stores the kernel source overlay directly; it no longer publishes or requires a
+patch series. Source files keep their original relative paths from the Linux kernel, so they can be
+copied onto a chosen kernel baseline and reviewed, modified, and built directly.
 
-## 仓库分工
+> This is experimental code. Flashing a kernel or replacing modules may prevent the system from
+> booting; always prepare a working recovery method.
 
-- `nabu-iris`：nabu 的设备树、视频时钟、Iris/Venus 内核源码和运行配置。
-- [`iris-vaapi`](https://github.com/CFM880/iris-vaapi)：Chrome/FFmpeg 使用的 VA-API 用户态驱动。
-- 预编译 UKI、完整模块树和测试日志不进入源码仓库；需要发布时应作为
-  GitHub Release 资产单独提供。已验证的 Venus 固件作为设备配套文件保留。
+## Repository scope
 
-## 当前源码
+- `nabu-iris`: nabu device tree, video clocks, Iris/Venus kernel source, and runtime configuration.
+- [`iris-vaapi`](https://github.com/CFM880/iris-vaapi): the VA-API userspace driver used by
+  Chrome/FFmpeg.
+- Prebuilt UKIs, full module trees, and test logs are not kept in the source repository; they should
+  be provided separately as GitHub Release assets when needed. The verified Venus firmware is kept
+  as a device support file.
 
-| 项目 | 值 |
+## Current source
+
+| Item | Value |
 |---|---|
-| 已验证设备 | Xiaomi Pad 5 (`nabu`) |
+| Verified device | Xiaomi Pad 5 (`nabu`) |
 | SoC / VPU | SM8150 / Iris1 (legacy VPU5) |
-| 内核基线 | `5181e1358ddd6ea8028e841d928942373e6aebc8` |
-| 源码快照 | `8cb100324c8bfff19938cd855e9a5a2276d582a4` |
-| 源码文件 | 62 个，位于 `kernel-overlay/` |
-| 解码格式 | H.264；HEVC Main/Main10；VP9 Profile 0/Profile 2 |
+| Kernel baseline | `5181e1358ddd6ea8028e841d928942373e6aebc8` |
+| Source snapshot | `8cb100324c8bfff19938cd855e9a5a2276d582a4` |
+| Source files | 62, under `kernel-overlay/` |
+| Decode formats | H.264; HEVC Main/Main10; VP9 Profile 0/Profile 2 |
 
-源码快照包含 decode-order 输出、DMA-BUF reservation fence、HFI Gen1
-TP10-UBWC/P010 10-bit 输出、legacy VP9 有效 DROP_FRAME CAPTURE 回收，以及
-H.264/HEVC/VP9 共用的 `cached_capture` 模块参数。
-详细来源见 [SOURCE.md](SOURCE.md)。
+The source snapshot includes decode-order output, DMA-BUF reservation fences, HFI Gen1
+TP10-UBWC/P010 10-bit output, legacy VP9 valid DROP_FRAME CAPTURE reclamation, and the
+`cached_capture` module parameter shared by H.264/HEVC/VP9.
+See [SOURCE.md](SOURCE.md) for detailed provenance.
 
-## 目录
+## Layout
 
 ```text
-kernel-overlay/   按 Linux 源码路径组织的直接源码
-config/           可合并到现有 .config 的 Iris Kconfig fragment
-scripts/          运行时辅助脚本（模块加载）
-system/           可选的 modprobe 与 systemd 配置
-firmware/         已验证的 Venus 固件及来源说明
-LICENSES/         覆盖层中 SPDX 标识对应的许可证文本
+kernel-overlay/   direct source organized by Linux source paths
+config/           Iris Kconfig fragment that can be merged into an existing .config
+scripts/          runtime helper scripts (module loading)
+system/           optional modprobe and systemd configuration
+firmware/         verified Venus firmware and provenance notes
+LICENSES/         license texts for the SPDX tags in the overlay
 ```
 
-## 统一构建（nabu-main）
+## Unified build (nabu-main)
 
-本仓库不再自带覆盖层安装、配置合并或模块构建脚本。跨仓的统一构建由同级的
-`nabu-main` 负责：它 reset 到基线内核、应用本仓 `kernel-overlay`、生成组合 DTS、
-合并 `config/nabu-iris.config` 并构建模块，全部通过根目录的 `nabu-module.toml`
-声明：
+This repository no longer ships its own overlay installation, config merging, or module build
+scripts. The cross-repository unified build is handled by the sibling `nabu-main`: it resets to the
+baseline kernel, applies this repository's `kernel-overlay`, generates the combined DTS, merges
+`config/nabu-iris.config`, and builds the modules, all declared through the root `nabu-module.toml`:
 
 ```toml
 [provides]
@@ -58,21 +64,22 @@ config  = ["config/nabu-iris.config"]
 kernel_targets = ["drivers/media/platform/qcom/iris/qcom-iris.ko"]
 ```
 
-在内核基线 `5181e1358ddd6ea8028e841d928942373e6aebc8` 上，于 `nabu-main` 运行：
+On kernel baseline `5181e1358ddd6ea8028e841d928942373e6aebc8`, run in `nabu-main`:
 
 ```sh
-make apply      # reset linux，应用 overlay/patch
-make compose    # 由各模块 dtsi 生成组合 DTS
-make config     # 合并 fragment 并固定统一 release
-make build      # 构建 Image、模块与 DTB
-make collect    # 收集产物到 artifacts/<product>/
+make apply      # reset linux, apply overlay/patch
+make compose    # generate the combined DTS from each module's dtsi
+make config     # merge fragments and pin the unified release
+make build      # build Image, modules, and DTB
+make collect    # collect artifacts into artifacts/<product>/
 ```
 
-## 设备树
+## Device tree
 
-仓库不再覆盖 `sm8150.dtsi`，也不修改原始 `sm8150-xiaomi-nabu.dts`，只提供
-`arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi` 片段。组合 DTB 不再手写，
-由 `nabu-main compose` 按产品顺序自动生成：
+The repository no longer overrides `sm8150.dtsi`, nor does it modify the original
+`sm8150-xiaomi-nabu.dts`; it only provides the
+`arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi` fragment. The combined DTB is no longer
+written by hand; it is generated automatically by `nabu-main compose` in product order:
 
 ```dts
 #include "sm8150-xiaomi-nabu.dts"
@@ -80,9 +87,11 @@ make collect    # 收集产物到 artifacts/<product>/
 ...
 ```
 
-启动时使用 `nabu-main` 生成的组合 DTB，原始 nabu DTB 不包含这些追加节点。
+At boot, the combined DTB generated by `nabu-main` is used; the original nabu DTB does not contain
+these appended nodes.
 
-SM8150 v2 的 Iris 时钟 OPP 必须与 Qualcomm 下游 VideoCC 电压表逐档对应：
+The Iris clock OPPs for SM8150 v2 must correspond one-to-one with Qualcomm's downstream VideoCC
+voltage table:
 
 ```text
 200 MHz  MIN_SVS
@@ -93,28 +102,31 @@ SM8150 v2 的 Iris 时钟 OPP 必须与 Qualcomm 下游 VideoCC 电压表逐档�
 533 MHz  TURBO
 ```
 
-不能省略 338 MHz 后再把更高频率整体映射到较低电压。例如 533 MHz 只投票到
-`NOM` 时，VCODEC0 GDSC 会报告上电成功，但 `VIDEO_CC_MVS0_CORE_CLK` 的 OFF
-状态位无法清除。派生 DTB 中的 `venus_opp_table` 已按上述硬件电压表修正。
+You cannot omit 338 MHz and then map the higher frequencies as a whole to a lower voltage. For
+example, when 533 MHz votes only up to `NOM`, the VCODEC0 GDSC reports a successful power-up, but
+the OFF status bit of `VIDEO_CC_MVS0_CORE_CLK` cannot be cleared. The `venus_opp_table` in the
+derived DTB has been corrected according to the hardware voltage table above.
 
-## 配置
+## Configuration
 
-仓库使用 `config/nabu-iris.config` 保存 Iris 所需选项，不覆盖主
-`arch/arm64/configs/sm8150.config`。`nabu-main config` 会把它与其它模块的
-fragment 一起合并进统一的内核 `.config`，顺序不会改变最终配置。
+The repository uses `config/nabu-iris.config` to store the options Iris needs, without overriding
+the main `arch/arm64/configs/sm8150.config`. `nabu-main config` merges it together with the other
+modules' fragments into the unified kernel `.config`; the order does not change the final
+configuration.
 
-## 构建 Iris 模块
+## Building the Iris module
 
-`nabu-main build` 在统一的 `out/` 中构建
-`drivers/media/platform/qcom/iris/qcom-iris.ko`，并保证它与其它 nabu 模块共用同一
-kernel release；产物由 `nabu-main collect` 收集到 `nabu-main/artifacts/<product>/`。
+`nabu-main build` builds `drivers/media/platform/qcom/iris/qcom-iris.ko` in the unified `out/` and
+ensures it shares the same kernel release as the other nabu modules; artifacts are collected by
+`nabu-main collect` into `nabu-main/artifacts/<product>/`.
 
-仅当该模块与正在运行的内核版本、配置及符号完全匹配时，才可以安装它。完整内核
-和 DTB 的构建、签名、启动配置因发行版而异，不由本仓库自动修改。
+You may install this module only if it exactly matches the running kernel's version, configuration,
+and symbols. Building, signing, and boot configuration of the complete kernel and DTB vary by
+distribution and are not modified automatically by this repository.
 
-## 运行配置
+## Runtime configuration
 
-`system/qcom-iris.conf` 同时启用固件启动和 H.264/HEVC/VP9 cacheable CAPTURE：
+`system/qcom-iris.conf` enables both firmware boot and H.264/HEVC/VP9 cacheable CAPTURE:
 
 ```sh
 sudo install -m 0644 system/qcom-iris.conf /etc/modprobe.d/qcom-iris.conf
@@ -123,21 +135,24 @@ sudo modprobe qcom_iris
 cat /sys/module/qcom_iris/parameters/cached_capture
 ```
 
-最后一条应输出 `Y`。Chrome 的用户态驱动安装和验证请转到 `iris-vaapi` 仓库。
+The last command should output `Y`. For Chrome userspace driver installation and verification, go to
+the `iris-vaapi` repository.
 
-## 固件
+## Firmware
 
-仓库保留了已验证的 `firmware/venus.mbn`，其安装路径、来源和 SHA-256 记录在
-`firmware/NOTICE.md`。固件权利归属与内核源码许可证不同，重新分发前请自行确认
-适用条款。
+The repository keeps the verified `firmware/venus.mbn`; its install path, provenance, and SHA-256
+are recorded in `firmware/NOTICE.md`. Firmware rights differ from the kernel source license; check
+the applicable terms before redistributing.
 
-## 旧版 bundle
+## Legacy bundle
 
-`v140-drmprime-v11` tag 和 Git 历史仍保留旧二进制 bundle，便于复现旧测试；它
-不代表当前源码布局，也不建议继续作为安装方式。
+The `v140-drmprime-v11` tag and Git history still retain the old binary bundle for reproducing older
+tests; it does not represent the current source layout and is not recommended as an installation
+method.
 
-## 许可证
+## License
 
-每个内核源码文件以其 SPDX 标识为准。本仓库保留 Linux `COPYING`，并在
-`LICENSES/preferred/` 中提供本快照涉及的 GPL-2.0-only 与 BSD-3-Clause 文本。
-`firmware/venus.mbn` 不适用上述内核源码许可证，详见其 NOTICE。
+Each kernel source file is governed by its own SPDX tag. This repository retains the Linux `COPYING`
+and provides the GPL-2.0-only and BSD-3-Clause texts involved in this snapshot under
+`LICENSES/preferred/`. `firmware/venus.mbn` is not covered by the kernel source licenses above; see
+its NOTICE for details.
