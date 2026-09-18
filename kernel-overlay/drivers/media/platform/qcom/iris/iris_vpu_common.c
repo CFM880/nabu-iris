@@ -701,7 +701,7 @@ int iris_vpu_power_on(struct iris_core *core)
 		goto err;
 	if (core->iris_platform_data->legacy_vpu5)
 		dev_info(core->dev,
-			 "Iris1 v154: retaining maximum clock and interconnect votes until power-off\n");
+			 "Iris1: booting at maximum OPP, runtime scaling follows\n");
 
 	dev_info(core->dev, "vpu power: enabling controller domain and clocks\n");
 	ret = iris_vpu_power_on_controller(core);

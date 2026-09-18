@@ -51,16 +51,6 @@ static int iris_set_interconnects(struct iris_inst *inst)
 	u64 total_bw_ddr = 0;
 	int ret;
 
-	/*
-	 * The legacy VPU5 RPMh path can stop completing active interconnect
-	 * votes when several 4K sessions are running.  iris_vpu_power_on()
-	 * already establishes the maximum video-mem vote before firmware boot,
-	 * so retain that vote until iris_vpu_power_off() removes it.  Runtime
-	 * scaling remains enabled for newer hardware.
-	 */
-	if (core->iris_platform_data->legacy_vpu5)
-		return 0;
-
 	mutex_lock(&core->lock);
 	list_for_each_entry(instance, &core->instances, list) {
 		if (!instance->hfi_session_opened ||
@@ -97,15 +87,6 @@ static int iris_set_clocks(struct iris_inst *inst)
 	struct iris_inst *instance;
 	u64 freq = 0;
 	int ret;
-
-	/*
-	 * iris_vpu_power_on() already selects the maximum OPP for legacy VPU5.
-	 * Changing that OPP while VideoCC/MMCX is active can wedge the RPMh TCS,
-	 * so keep it until iris_vpu_power_off() clears the vote.  Newer hardware
-	 * continues to use per-session runtime clock scaling.
-	 */
-	if (core->iris_platform_data->legacy_vpu5)
-		return 0;
 
 	mutex_lock(&core->lock);
 	list_for_each_entry(instance, &core->instances, list) {
@@ -165,16 +146,6 @@ int iris_scale_power(struct iris_inst *inst)
 
 		pm_runtime_put_autosuspend(core->dev);
 	}
-
-	/*
-	 * Legacy VPU5 holds the maximum OPP and interconnect vote for the whole
-	 * power session, so per-qbuf clock/interconnect scaling is a no-op there
-	 * (iris_set_clocks() and iris_set_interconnects() both return early).
-	 * Skipping the per-qbuf input-buffer scan avoids an O(N) walk on every
-	 * QBUF in the decode path.
-	 */
-	if (core->iris_platform_data->legacy_vpu5)
-		return 0;
 
 	ret = iris_scale_clocks(inst);
 	if (ret)
