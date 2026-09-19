@@ -283,6 +283,10 @@ int iris_open(struct file *filp)
 	if (ret < 0)
 		return ret;
 
+	ret = iris_pc_resume(core);
+	if (ret)
+		dev_warn(core->dev, "failed to resume from power collapse\n");
+
 	ret = iris_core_init(core);
 	if (ret) {
 		dev_err(core->dev, "core init failed\n");
@@ -290,11 +294,16 @@ int iris_open(struct file *filp)
 		return ret;
 	}
 
-	pm_runtime_put_sync(core->dev);
-
+	/*
+	 * Hold the runtime PM reference until iris_close().  Autosuspend may
+	 * only power-collapse the VPU once no session is open, so keep the
+	 * core busy for the whole lifetime of the instance.
+	 */
 	inst = core->iris_platform_data->get_instance();
-	if (!inst)
+	if (!inst) {
+		pm_runtime_put_autosuspend(core->dev);
 		return -ENOMEM;
+	}
 
 	inst->core = core;
 	inst->domain = session_type;
@@ -357,6 +366,7 @@ fail_v4l2_fh_deinit:
 	mutex_destroy(&inst->ctx_q_lock);
 	mutex_destroy(&inst->lock);
 	kfree(inst);
+	pm_runtime_put_autosuspend(core->dev);
 
 	return ret;
 }
@@ -404,6 +414,7 @@ static void iris_check_num_queued_internal_buffers(struct iris_inst *inst, u32 p
 int iris_close(struct file *filp)
 {
 	struct iris_inst *inst = iris_get_inst(filp, NULL);
+	struct iris_core *core = inst->core;
 
 	mutex_lock(&inst->lock);
 	iris_surface_fence_signal_all(inst);
@@ -430,6 +441,8 @@ int iris_close(struct file *filp)
 	mutex_destroy(&inst->lock);
 	kfree(inst);
 	filp->private_data = NULL;
+	pm_runtime_put_autosuspend(core->dev);
+	iris_pc_schedule(core);
 
 	return 0;
 }

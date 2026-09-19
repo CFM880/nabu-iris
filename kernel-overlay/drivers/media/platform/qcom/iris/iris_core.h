@@ -73,6 +73,8 @@ enum domain_type {
  * @intr_status: interrupt status
  * @sys_error_handler: a delayed work for handling system fatal error
  * @recovery_pending: a fatal session error needs a core power-cycle
+ * @vpu_suspended: the VPU was power-collapsed and needs a firmware re-boot
+ * @pc_work: delayed work that power-collapses an idle VPU5
  * @instances: a list_head of all instances
  * @inst_fw_caps_dec: an array of supported instance capabilities by decoder
  * @inst_fw_caps_enc: an array of supported instance capabilities by encoder
@@ -116,11 +118,13 @@ struct iris_core {
 	struct completion			core_init_done;
 	u32					intr_status;
 	struct delayed_work			sys_error_handler;
+	struct delayed_work			pc_work;
 	struct list_head			instances;
 	struct llcc_slice_desc			*llcc_slices[2];
 	bool					llcc_active;
 	bool					syscache_set;
 	bool					recovery_pending;
+	bool					vpu_suspended;
 	/* encoder and decoder have overlapping caps, so two different arrays are required */
 	struct platform_inst_fw_cap		inst_fw_caps_dec[INST_FW_CAP_MAX];
 	struct platform_inst_fw_cap		inst_fw_caps_enc[INST_FW_CAP_MAX];

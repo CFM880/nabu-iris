@@ -237,6 +237,7 @@ static int iris_probe(struct platform_device *pdev)
 
 	INIT_LIST_HEAD(&core->instances);
 	INIT_DELAYED_WORK(&core->sys_error_handler, iris_sys_error_handler);
+	INIT_DELAYED_WORK(&core->pc_work, iris_pc_handler);
 
 	core->reg_base = devm_platform_ioremap_resource(pdev, 0);
 	if (IS_ERR(core->reg_base))
@@ -295,11 +296,8 @@ static int iris_probe(struct platform_device *pdev)
 		goto err_vdev_unreg_enc;
 
 	/*
-	 * The legacy VPU5 power-collapse sequence is not implemented yet:
-	 * iris_vpu_prepare_pc() deliberately returns -EAGAIN to keep the
-	 * controller powered.  Do not let runtime PM retry that unsupported
-	 * transition after every autosuspend delay, since it creates a
-	 * permanent workqueue/printk loop while the device is otherwise idle.
+	 * Legacy VPU5 power collapse is driven by pc_work (idle-triggered), so
+	 * runtime PM must not also try to suspend the core.
 	 */
 	if (core->iris_platform_data->legacy_vpu5)
 		pm_runtime_forbid(core->dev);

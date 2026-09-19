@@ -149,6 +149,9 @@ u32 iris_hfi_get_v4l2_matrix_coefficients(u32 hfi_coefficients);
 int iris_hfi_core_init(struct iris_core *core);
 int iris_hfi_pm_suspend(struct iris_core *core);
 int iris_hfi_pm_resume(struct iris_core *core);
+int iris_pc_resume(struct iris_core *core);
+void iris_pc_schedule(struct iris_core *core);
+void iris_pc_handler(struct work_struct *work);
 
 irqreturn_t iris_hfi_isr(int irq, void *data);
 irqreturn_t iris_hfi_isr_handler(int irq, void *data);

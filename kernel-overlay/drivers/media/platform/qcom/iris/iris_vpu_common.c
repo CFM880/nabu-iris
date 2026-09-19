@@ -70,6 +70,10 @@
 #define CTL_AXI_CLK_HALT			BIT(0)
 #define CTL_CLK_HALT				BIT(1)
 
+/* SM8150 VPU5 exposes the firmware WFI bit in the main wrapper window. */
+#define VPU5_WRAPPER_CPU_STATUS			(VPU5_WRAPPER_BASE_OFFS + 0x2014)
+#define VPU5_CPU_STATUS_WFI			BIT(0)
+
 #define WRAPPER_TZ_QNS4PDXFIFO_RESET		(WRAPPER_TZ_BASE_OFFS + 0x18)
 #define RESET_HIGH				BIT(0)
 
@@ -80,6 +84,7 @@
 
 /* Legacy VPU5 register layout used by SM8150. */
 #define VPU5_CPU_CS_BASE_OFFS			0x000D2000
+#define VPU5_CTRL_STATUS			(VPU5_CPU_CS_BASE_OFFS + 0x4C)
 #define VPU5_CPU_IC_BASE_OFFS			0x000DF000
 #define VPU5_WRAPPER_BASE_OFFS			0x000E0000
 
@@ -294,19 +299,61 @@ int iris_vpu_watchdog(struct iris_core *core, u32 intr_status)
 	return 0;
 }
 
+static bool iris_vpu5_cpu_idle_and_pc_ready(struct iris_core *core)
+{
+	u32 ctrl_status = readl(core->reg_base + VPU5_CTRL_STATUS);
+	u32 cpu_status = readl(core->reg_base + VPU5_WRAPPER_CPU_STATUS);
+
+	return (cpu_status & VPU5_CPU_STATUS_WFI) &&
+	       (ctrl_status & CTRL_STATUS_PC_READY);
+}
+
+static int iris_vpu5_prepare_pc(struct iris_core *core)
+{
+	u32 ctrl_status, cpu_status;
+	bool val;
+	int ret;
+
+	ctrl_status = readl(core->reg_base + VPU5_CTRL_STATUS);
+	cpu_status = readl(core->reg_base + VPU5_WRAPPER_CPU_STATUS);
+	dev_dbg(core->dev, "power collapse: ctrl=%#x cpu=%#x\n",
+		ctrl_status, cpu_status);
+
+	if (ctrl_status & CTRL_STATUS_PC_READY)
+		return 0;
+
+	/*
+	 * Only collapse when the firmware CPU is in WFI with the video core
+	 * idle; otherwise skip.  The caller holds core->lock, so polling an
+	 * unavailable state here would stall every other path, including the
+	 * threaded IRQ the firmware needs to reach idle.
+	 */
+	if (!(cpu_status & VPU5_CPU_STATUS_WFI) ||
+	    !(ctrl_status & CTRL_INIT_IDLE_MSG_BMSK)) {
+		dev_dbg(core->dev, "power collapse: cpu not idle, skip\n");
+		return -EBUSY;
+	}
+
+	ret = core->hfi_ops->sys_pc_prep(core);
+	if (ret)
+		return ret;
+
+	ret = readx_poll_timeout(iris_vpu5_cpu_idle_and_pc_ready, core, val,
+				 val, 1000, 150000);
+	if (ret)
+		dev_warn(core->dev, "power collapse: not ready (%d)\n", ret);
+
+	return ret;
+}
+
 int iris_vpu_prepare_pc(struct iris_core *core)
 {
 	u32 wfi_status, idle_status, pc_ready;
 	u32 ctrl_status, val = 0;
 	int ret;
 
-	/*
-	 * The Iris2 power-collapse sequence below addresses registers that do
-	 * not exist in the SM8150 VPU5 layout.  Keep the controller on while
-	 * bringing up SM8150; streaming power collapse can be added separately.
-	 */
 	if (iris_vpu_uses_legacy_vpu5(core))
-		return -EAGAIN;
+		return iris_vpu5_prepare_pc(core);
 
 	ctrl_status = readl(core->reg_base + CTRL_STATUS);
 	pc_ready = ctrl_status & CTRL_STATUS_PC_READY;

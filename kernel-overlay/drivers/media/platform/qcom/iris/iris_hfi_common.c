@@ -3,12 +3,22 @@
  * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
+#include <linux/module.h>
 #include <linux/pm_runtime.h>
 
 #include "iris_firmware.h"
 #include "iris_core.h"
 #include "iris_hfi_common.h"
 #include "iris_vpu_common.h"
+
+/*
+ * VPU5 idle power collapse, driven by pc_work.  Enabled by default; set
+ * power_collapse=N to pin the VPU powered.
+ */
+static bool power_collapse = true;
+module_param(power_collapse, bool, 0644);
+MODULE_PARM_DESC(power_collapse,
+		 "Allow SM8150 VPU5 idle power collapse (default Y)");
 
 u32 iris_hfi_get_v4l2_color_primaries(u32 hfi_primaries)
 {
@@ -140,19 +150,135 @@ irqreturn_t iris_hfi_isr_handler(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
+/*
+ * SM8150 VPU5 power collapse is driven by pc_work instead of runtime PM: a
+ * delayed work power-collapses the VPU only when no session is open, and the
+ * next user operation resumes it.  Serialising this under core->lock avoids
+ * the runtime-PM race that wedged the firmware on resume.
+ */
+#define IRIS_PC_DELAY_MS	2000
+
+static int iris_pc_enter(struct iris_core *core)
+{
+	int ret;
+
+	ret = iris_vpu_prepare_pc(core);
+	if (ret) {
+		dev_dbg(core->dev, "power collapse: prepare failed %d\n", ret);
+		return ret;
+	}
+
+	ret = iris_set_hw_state(core, false);
+	if (ret)
+		return ret;
+
+	iris_vpu_power_off(core);
+	core->vpu_suspended = true;
+	dev_info(core->dev, "VPU entered power collapse\n");
+
+	return 0;
+}
+
+static int iris_pc_exit(struct iris_core *core)
+{
+	const struct iris_hfi_command_ops *ops = core->hfi_ops;
+	int ret;
+
+	if (!core->vpu_suspended)
+		return 0;
+
+	ret = iris_vpu_power_on(core);
+	if (ret)
+		goto error;
+
+	ret = iris_set_hw_state(core, true);
+	if (ret)
+		goto err_power_off;
+
+	ret = iris_vpu_boot_firmware(core);
+	if (ret)
+		goto err_suspend_hw;
+
+	if (!core->iris_platform_data->legacy_vpu5) {
+		ret = ops->sys_interframe_powercollapse(core);
+		if (ret)
+			goto err_suspend_hw;
+	}
+
+	core->vpu_suspended = false;
+	dev_info(core->dev, "VPU resumed from power collapse\n");
+
+	return 0;
+
+err_suspend_hw:
+	iris_set_hw_state(core, false);
+err_power_off:
+	iris_vpu_power_off(core);
+error:
+	dev_err(core->dev, "failed to resume from power collapse\n");
+
+	return -EBUSY;
+}
+
+int iris_pc_resume(struct iris_core *core)
+{
+	int ret = 0;
+
+	if (!core->iris_platform_data->legacy_vpu5 || !power_collapse)
+		return 0;
+
+	cancel_delayed_work_sync(&core->pc_work);
+
+	mutex_lock(&core->lock);
+	if (core->vpu_suspended)
+		ret = iris_pc_exit(core);
+	mutex_unlock(&core->lock);
+
+	return ret;
+}
+
+void iris_pc_schedule(struct iris_core *core)
+{
+	if (!core->iris_platform_data->legacy_vpu5 || !power_collapse)
+		return;
+
+	if (!list_empty(&core->instances))
+		return;
+
+	queue_delayed_work(system_wq, &core->pc_work,
+			   msecs_to_jiffies(IRIS_PC_DELAY_MS));
+}
+
+void iris_pc_handler(struct work_struct *work)
+{
+	struct iris_core *core =
+		container_of(work, struct iris_core, pc_work.work);
+	int ret;
+
+	mutex_lock(&core->lock);
+	if (!core->vpu_suspended && list_empty(&core->instances)) {
+		ret = iris_pc_enter(core);
+		if (ret)
+			dev_warn(core->dev,
+				 "skip VPU power collapse (%d)\n", ret);
+	}
+	mutex_unlock(&core->lock);
+
+	if (!core->vpu_suspended)
+		iris_pc_schedule(core);
+}
+
 int iris_hfi_pm_suspend(struct iris_core *core)
 {
 	int ret;
 
 	/*
-	 * The legacy VPU5 power-collapse sequence is not implemented, so
-	 * iris_vpu_prepare_pc() deliberately returns -EAGAIN to keep the
-	 * controller powered.  This is fine for runtime PM, but the system
-	 * sleep path reuses this callback through pm_runtime_force_suspend()
-	 * and the PM core treats any nonzero return as fatal: keep the
-	 * controller powered and succeed so s2idle is not aborted.
+	 * Only the system sleep path reaches this callback: runtime PM is
+	 * forbidden on legacy VPU5, and newer hardware keeps its own handling.
+	 * With sessions open the VPU must stay powered, so succeed without
+	 * touching it to avoid aborting s2idle.
 	 */
-	if (core->iris_platform_data->legacy_vpu5)
+	if (!list_empty(&core->instances))
 		return 0;
 
 	ret = iris_vpu_prepare_pc(core);
@@ -167,6 +293,7 @@ int iris_hfi_pm_suspend(struct iris_core *core)
 		goto error;
 
 	iris_vpu_power_off(core);
+	core->vpu_suspended = true;
 
 	return 0;
 
@@ -182,13 +309,7 @@ int iris_hfi_pm_resume(struct iris_core *core)
 	const struct iris_hfi_command_ops *ops = core->hfi_ops;
 	int ret;
 
-	/*
-	 * Nothing was powered off while suspended on legacy VPU5, so there is
-	 * nothing to bring back up.  Re-running the power-on/firmware-boot
-	 * sequence over an already running VPU would restart the hardware out
-	 * from under live sessions.
-	 */
-	if (core->iris_platform_data->legacy_vpu5)
+	if (!core->vpu_suspended)
 		return 0;
 
 	ret = iris_vpu_power_on(core);
@@ -203,9 +324,17 @@ int iris_hfi_pm_resume(struct iris_core *core)
 	if (ret)
 		goto err_suspend_hw;
 
-	ret = ops->sys_interframe_powercollapse(core);
-	if (ret)
-		goto err_suspend_hw;
+	/*
+	 * SM8150 keeps the firmware codec power-plane control disabled (it
+	 * uses the software-controlled GDSC path), matching iris_core_init().
+	 */
+	if (!core->iris_platform_data->legacy_vpu5) {
+		ret = ops->sys_interframe_powercollapse(core);
+		if (ret)
+			goto err_suspend_hw;
+	}
+
+	core->vpu_suspended = false;
 
 	return 0;
 

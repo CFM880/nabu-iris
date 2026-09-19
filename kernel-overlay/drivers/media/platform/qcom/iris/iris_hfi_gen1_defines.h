@@ -123,6 +123,7 @@
 #define HFI_BIT_DEPTH_10				0x20002
 
 #define HFI_MSG_SYS_INIT				0x20001
+#define HFI_MSG_SYS_PC_PREP				0x20002
 #define HFI_MSG_SYS_SESSION_INIT			0x20006
 #define HFI_MSG_SYS_SESSION_END				0x20007
 #define HFI_MSG_SYS_COV					0x20009
@@ -340,6 +341,11 @@ struct hfi_msg_sys_property_info_pkt {
 	u32 num_properties;
 	u32 property;
 	u8 data[];
+};
+
+struct hfi_msg_sys_pc_prep_done_pkt {
+	struct hfi_pkt_hdr hdr;
+	u32 error_type;
 };
 
 struct hfi_msg_session_flush_done_pkt {

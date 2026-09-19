@@ -872,6 +872,10 @@ static const struct iris_hfi_gen1_response_pkt_info pkt_infos[] = {
 	 .pkt_sz = sizeof(struct hfi_msg_sys_init_done_pkt),
 	},
 	{
+	 .pkt = HFI_MSG_SYS_PC_PREP,
+	 .pkt_sz = sizeof(struct hfi_msg_sys_pc_prep_done_pkt),
+	},
+	{
 	 .pkt = HFI_MSG_SYS_PROPERTY_INFO,
 	 .pkt_sz = sizeof(struct hfi_msg_sys_property_info_pkt),
 	},
@@ -949,6 +953,9 @@ static void iris_hfi_gen1_handle_response(struct iris_core *core, void *response
 	switch (hdr->pkt_type) {
 	case HFI_MSG_SYS_INIT:
 		iris_hfi_gen1_sys_init_done(core, hdr);
+		break;
+	case HFI_MSG_SYS_PC_PREP:
+		/* Power-collapse readiness is polled through VPU registers. */
 		break;
 	case HFI_MSG_SYS_PROPERTY_INFO:
 		iris_hfi_gen1_sys_property_info(core, hdr);
