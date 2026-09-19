@@ -81,6 +81,20 @@ static int iris_vote_interconnects(struct iris_inst *inst)
 	return iris_set_interconnects(inst);
 }
 
+static unsigned long iris_vpu_min_freq(struct iris_core *core)
+{
+	struct dev_pm_opp *opp;
+	unsigned long freq = 0;
+
+	opp = dev_pm_opp_find_freq_ceil(core->dev, &freq);
+	if (IS_ERR(opp))
+		return 0;
+
+	dev_pm_opp_put(opp);
+
+	return freq;
+}
+
 static int iris_set_clocks(struct iris_inst *inst)
 {
 	struct iris_core *core = inst->core;
@@ -97,7 +111,16 @@ static int iris_set_clocks(struct iris_inst *inst)
 		freq += instance->power.min_freq;
 	}
 
-	if (freq == core->power.clk_freq) {
+	/*
+	 * With no active session the summed vote is zero.  dev_pm_opp_set_rate(0)
+	 * only drops the CX/bandwidth vote and leaves the clock at the previous
+	 * rate, so idle would stay at whatever the last stream picked.  Request
+	 * the lowest OPP explicitly so an idle VPU sinks to the minimum rate.
+	 */
+	if (!freq)
+		freq = iris_vpu_min_freq(core);
+
+	if (!freq || freq == core->power.clk_freq) {
 		ret = 0;
 		goto unlock;
 	}
@@ -152,6 +175,28 @@ int iris_scale_power(struct iris_inst *inst)
 		return ret;
 
 	return iris_vote_interconnects(inst);
+}
+
+int iris_set_idle_opp(struct iris_core *core)
+{
+	unsigned long freq = iris_vpu_min_freq(core);
+	int ret;
+
+	if (!freq)
+		return 0;
+
+	mutex_lock(&core->lock);
+	if (freq == core->power.clk_freq) {
+		mutex_unlock(&core->lock);
+		return 0;
+	}
+
+	ret = dev_pm_opp_set_rate(core->dev, freq);
+	if (!ret)
+		core->power.clk_freq = freq;
+	mutex_unlock(&core->lock);
+
+	return ret;
 }
 
 int iris_unvote_power(struct iris_inst *inst)

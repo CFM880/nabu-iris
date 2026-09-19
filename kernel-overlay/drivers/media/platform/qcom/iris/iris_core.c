@@ -8,6 +8,7 @@
 
 #include "iris_core.h"
 #include "iris_firmware.h"
+#include "iris_power.h"
 #include "iris_state.h"
 #include "iris_vpu_common.h"
 
@@ -123,7 +124,14 @@ int iris_core_init(struct iris_core *core)
 
 	mutex_unlock(&core->lock);
 
-	return iris_wait_for_system_response(core);
+	ret = iris_wait_for_system_response(core);
+	if (ret)
+		return ret;
+
+	/* The firmware is idle here; drop the VPU to the lowest OPP. */
+	iris_set_idle_opp(core);
+
+	return 0;
 
 error_unload_fw:
 	iris_fw_unload(core);

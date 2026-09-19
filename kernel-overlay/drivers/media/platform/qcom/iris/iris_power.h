@@ -9,9 +9,11 @@
 #include <linux/types.h>
 
 struct iris_inst;
+struct iris_core;
 
 u32 iris_get_operating_fps(struct iris_inst *inst);
 int iris_scale_power(struct iris_inst *inst);
+int iris_set_idle_opp(struct iris_core *core);
 int iris_unvote_power(struct iris_inst *inst);
 
 #endif
