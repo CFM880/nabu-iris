@@ -211,8 +211,9 @@ static void iris_sys_error_handler(struct work_struct *work)
 	struct iris_core *core =
 			container_of(work, struct iris_core, sys_error_handler.work);
 
-	iris_core_deinit(core);
-	iris_core_init(core);
+	iris_core_recover(core);
+	/* This power-cycle already recovered the core; drop any pending flag. */
+	WRITE_ONCE(core->recovery_pending, false);
 }
 
 static int iris_probe(struct platform_device *pdev)

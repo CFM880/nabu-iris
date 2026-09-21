@@ -35,6 +35,17 @@ void iris_core_deinit(struct iris_core *core)
 	pm_runtime_put_sync(core->dev);
 }
 
+/*
+ * Power-cycle the VPU.  The firmware can end up refusing every new session
+ * (or every system command) after a fatal error, and only a full deinit/init
+ * restores it.  Returns the result of the re-initialization.
+ */
+int iris_core_recover(struct iris_core *core)
+{
+	iris_core_deinit(core);
+	return iris_core_init(core);
+}
+
 static int iris_wait_for_system_response(struct iris_core *core)
 {
 	u32 hw_response_timeout_val = core->iris_platform_data->hw_response_timeout;

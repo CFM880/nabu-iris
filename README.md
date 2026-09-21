@@ -138,6 +138,15 @@ cat /sys/module/qcom_iris/parameters/cached_capture
 The last command should output `Y`. For Chrome userspace driver installation and verification, go to
 the `iris-vaapi` repository.
 
+## Error recovery
+
+A fatal session error can leave the firmware refusing every later `SESSION_INIT` (or every system
+command) until the VPU is power-cycled. The driver tracks any session that enters the error state and
+runs a single `iris_core_recover()` (deinit + init) once the last session is gone; it also power-cycles
+a core stuck in `IRIS_CORE_ERROR` on the next open, and runs any pending recovery at the start of a
+new session so a long-lived fd (for example a browser context) recovers without a module reload. See
+`kernel-overlay/drivers/media/platform/qcom/iris/iris_common.c` and `iris_state.c`.
+
 ## Firmware
 
 The repository keeps the verified `firmware/venus.mbn`; its install path, provenance, and SHA-256

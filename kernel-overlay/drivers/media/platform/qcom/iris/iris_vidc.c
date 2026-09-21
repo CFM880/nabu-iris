@@ -288,6 +288,18 @@ int iris_open(struct file *filp)
 		dev_warn(core->dev, "failed to resume from power collapse\n");
 
 	ret = iris_core_init(core);
+	if (ret && core->state == IRIS_CORE_ERROR) {
+		/*
+		 * A previous fatal error can leave the core in IRIS_CORE_ERROR,
+		 * which makes every later iris_core_init() fail with -EINVAL.
+		 * Power-cycle once so a wedged core does not require a module
+		 * reload.
+		 */
+		dev_warn(core->dev,
+			 "core init failed (%d); power-cycling core\n", ret);
+		WRITE_ONCE(core->recovery_pending, false);
+		ret = iris_core_recover(core);
+	}
 	if (ret) {
 		dev_err(core->dev, "core init failed\n");
 		pm_runtime_put_sync(core->dev);

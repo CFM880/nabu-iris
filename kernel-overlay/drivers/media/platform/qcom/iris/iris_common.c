@@ -213,6 +213,15 @@ int iris_hfi_session_open(struct iris_inst *inst)
 	if (inst->hfi_session_opened)
 		return 0;
 
+	/*
+	 * A previous session may have left the firmware refusing new
+	 * SESSION_INITs.  Run any pending core power-cycle before reserving a
+	 * slot so this open starts from a clean VPU.  This lets a long-lived
+	 * fd (for example a browser that keeps its device open across decoder
+	 * contexts) recover without a module reload when one context died.
+	 */
+	iris_run_pending_core_recovery(core);
+
 	mutex_lock(&core->lock);
 	list_for_each_entry(instance, &core->instances, list) {
 		if (!instance->hfi_session_opened)
@@ -242,19 +251,25 @@ int iris_hfi_session_open(struct iris_inst *inst)
 	mutex_unlock(&core->lock);
 
 	ret = hfi_ops->session_open(inst);
-	if (ret) {
-		/* A timeout leaves firmware ownership uncertain until recovery. */
-		if (inst->state == IRIS_INST_ERROR)
-			return ret;
+	if (ret || inst->state == IRIS_INST_ERROR) {
+		if (!ret)
+			ret = -EIO;
+		/*
+		 * A failed or timed-out SESSION_INIT leaves firmware session
+		 * ownership uncertain: the VPU can then refuse every later
+		 * SESSION_INIT until it is power-cycled.  Request recovery and
+		 * release the reserved slot so closing this instance can run
+		 * it, instead of leaking the slot and wedging the core.
+		 */
+		iris_request_core_recovery(inst);
 		goto release_slot;
 	}
 
-	if (inst->state == IRIS_INST_ERROR)
-		return -EIO;
-
 	ret = iris_inst_change_state(inst, IRIS_INST_INIT);
-	if (ret)
-		return ret;
+	if (ret) {
+		iris_request_core_recovery(inst);
+		goto release_slot;
+	}
 
 	return 0;
 
@@ -333,6 +348,14 @@ cleanup:
 			 "failed to remove stopped-session power vote: %d\n",
 			 power_ret);
 
+	/*
+	 * A SESSION_END that is rejected or times out can also leave the
+	 * firmware unwilling to start the next session.  Mirror the open
+	 * failure path so a stuck close still schedules a power-cycle.
+	 */
+	if (ret)
+		iris_request_core_recovery(inst);
+
 	return ret;
 }
 
@@ -344,11 +367,13 @@ cleanup:
  */
 void iris_request_core_recovery(struct iris_inst *inst)
 {
-	struct iris_core *core = inst->core;
-
-	mutex_lock(&core->lock);
-	core->recovery_pending = true;
-	mutex_unlock(&core->lock);
+	/*
+	 * This is reached from paths that already hold core->lock (for
+	 * example the shared SYS_ERROR handler) as well as from inst->lock
+	 * holders, so publish the flag without taking the core lock.  The
+	 * flag is consumed by iris_run_pending_core_recovery().
+	 */
+	WRITE_ONCE(inst->core->recovery_pending, true);
 }
 
 void iris_run_pending_core_recovery(struct iris_core *core)
@@ -357,7 +382,7 @@ void iris_run_pending_core_recovery(struct iris_core *core)
 	bool busy = false;
 
 	mutex_lock(&core->lock);
-	if (!core->recovery_pending) {
+	if (!READ_ONCE(core->recovery_pending)) {
 		mutex_unlock(&core->lock);
 		return;
 	}
@@ -374,13 +399,12 @@ void iris_run_pending_core_recovery(struct iris_core *core)
 		return;
 	}
 
-	core->recovery_pending = false;
+	WRITE_ONCE(core->recovery_pending, false);
 	mutex_unlock(&core->lock);
 
 	dev_info(core->dev,
 		 "Iris1 v155: power-cycling core after fatal session error\n");
-	iris_core_deinit(core);
-	iris_core_init(core);
+	iris_core_recover(core);
 }
 
 int iris_reserve_core_load(struct iris_inst *inst, u32 frame_rate)

@@ -5,6 +5,7 @@
 
 #include <media/v4l2-mem2mem.h>
 
+#include "iris_common.h"
 #include "iris_instance.h"
 
 static bool iris_allow_inst_state_change(struct iris_inst *inst,
@@ -58,6 +59,13 @@ int iris_inst_change_state(struct iris_inst *inst,
 			"session %#x entered ERROR from state %u substate %#x at %pS\n",
 			inst->session_id, inst->state, inst->sub_state,
 			__builtin_return_address(0));
+		/*
+		 * Any session that dies abnormally may have left the firmware
+		 * session state inconsistent, which makes the VPU reject all
+		 * later SESSION_INITs.  Remember that a power-cycle is needed;
+		 * it runs once the last session has gone away.
+		 */
+		iris_request_core_recovery(inst);
 		goto change_state;
 	}
 

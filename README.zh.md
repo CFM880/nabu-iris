@@ -127,6 +127,15 @@ cat /sys/module/qcom_iris/parameters/cached_capture
 
 最后一条应输出 `Y`。Chrome 的用户态驱动安装和验证请转到 `iris-vaapi` 仓库。
 
+## 错误恢复
+
+致命的会话错误可能让固件拒绝后续所有 `SESSION_INIT`（甚至系统命令），必须对 VPU
+重新上下电才能恢复。驱动会记录任何进入错误状态的会话，在最后一个会话消失后执行一次
+`iris_core_recover()`（deinit + init）；若核心停在 `IRIS_CORE_ERROR`，会在下次打开时
+自动 power-cycle；新会话开始前也会先执行挂起的恢复，因此长生命周期 fd（例如浏览器
+的 VA context）无需重载模块即可恢复。实现见
+`kernel-overlay/drivers/media/platform/qcom/iris/iris_common.c` 与 `iris_state.c`。
+
 ## 固件
 
 仓库保留了已验证的 `firmware/venus.mbn`，其安装路径、来源和 SHA-256 记录在
