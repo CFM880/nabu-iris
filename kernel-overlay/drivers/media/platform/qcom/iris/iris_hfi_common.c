@@ -281,8 +281,22 @@ int iris_hfi_pm_suspend(struct iris_core *core)
 	if (!list_empty(&core->instances))
 		return 0;
 
+	/* The idle worker already collapsed the VPU; nothing to power down. */
+	if (core->vpu_suspended)
+		return 0;
+
 	ret = iris_vpu_prepare_pc(core);
 	if (ret) {
+		/*
+		 * Legacy VPU5 refuses collapse when the firmware is not idle
+		 * enough.  s2idle keeps power, so leave the VPU running and let
+		 * suspend proceed instead of aborting it with -EAGAIN.
+		 */
+		if (core->iris_platform_data->legacy_vpu5) {
+			dev_dbg(core->dev,
+				"suspend: keeping VPU powered (%d)\n", ret);
+			return 0;
+		}
 		pm_runtime_mark_last_busy(core->dev);
 		ret = -EAGAIN;
 		goto error;
