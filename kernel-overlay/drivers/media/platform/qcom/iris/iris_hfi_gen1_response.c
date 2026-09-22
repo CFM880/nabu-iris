@@ -223,6 +223,37 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 	inst->interlaced = !event.pic_struct;
 }
 
+/*
+ * Arm a source-change drain on the CAPTURE queue: pause INPUT, flush the
+ * firmware's pending OUTPUT, notify userspace, then wait for it to drain to
+ * LAST.  Used for the firmware-initiated sequence-change event.
+ */
+static void iris_hfi_gen1_arm_drc(struct iris_inst *inst)
+{
+	struct hfi_session_flush_pkt flush_pkt;
+	int ret;
+
+	ret = iris_inst_sub_state_change_drc(inst);
+	if (ret)
+		return;
+
+	if (inst->state != IRIS_INST_ERROR &&
+	    !(inst->sub_state & IRIS_INST_SUB_FIRST_IPSC)) {
+		if (!inst->flush_responses_pending)
+			reinit_completion(&inst->flush_completion);
+		flush_pkt.shdr.hdr.size = sizeof(struct hfi_session_flush_pkt);
+		flush_pkt.shdr.hdr.pkt_type = HFI_CMD_SESSION_FLUSH;
+		flush_pkt.shdr.session_id = inst->session_id;
+		flush_pkt.flush_type = HFI_FLUSH_OUTPUT;
+		if (!iris_hfi_queue_cmd_write(inst->core, &flush_pkt,
+					      flush_pkt.shdr.hdr.size))
+			inst->flush_responses_pending++;
+	}
+
+	iris_vdec_src_change(inst);
+	iris_inst_sub_state_change_drc_last(inst);
+}
+
 static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 					    struct hfi_msg_event_notify_pkt *pkt)
 {
@@ -230,12 +261,10 @@ static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 	u32 height = inst->fmt_dst->fmt.pix_mp.height;
 	u32 size = inst->buffers[BUF_OUTPUT].size;
 	bool initial = !inst->fw_min_count;
-	struct hfi_session_flush_pkt flush_pkt;
 	u32 num_properties_changed;
 	int ret;
 
-	ret = iris_inst_sub_state_change_drc(inst);
-	if (ret)
+	if (inst->sub_state & IRIS_INST_SUB_DRC)
 		return;
 
 	switch (pkt->event_data1) {
@@ -291,20 +320,42 @@ static void iris_hfi_gen1_event_seq_changed(struct iris_inst *inst,
 	 */
 	iris_vb2_vp9_release_high_iova_hole(inst);
 
-	if (inst->state != IRIS_INST_ERROR && !(inst->sub_state & IRIS_INST_SUB_FIRST_IPSC)) {
+	iris_hfi_gen1_arm_drc(inst);
+}
 
-		if (!inst->flush_responses_pending)
-			reinit_completion(&inst->flush_completion);
-		flush_pkt.shdr.hdr.size = sizeof(struct hfi_session_flush_pkt);
-		flush_pkt.shdr.hdr.pkt_type = HFI_CMD_SESSION_FLUSH;
-		flush_pkt.shdr.session_id = inst->session_id;
-		flush_pkt.flush_type = HFI_FLUSH_OUTPUT;
-		if (!iris_hfi_queue_cmd_write(inst->core, &flush_pkt, flush_pkt.shdr.hdr.size))
-			inst->flush_responses_pending++;
-	}
+/*
+ * VIDEO.IR.1.2 reports the resized visible rectangle in FILL_BUFFER_DONE but
+ * does not raise HFI_EVENT_SESSION_SEQUENCE_CHANGED when the existing CAPTURE
+ * allocation already covers the new size, and it does not implement
+ * HFI_PROPERTY_PARAM_VDEC_ENABLE_SUFFICIENT_SEQCHANGE_EVENT.  The firmware
+ * keeps the OUTPUT2 configuration for an INTER-frame resize ("Not calling
+ * update ds info. We will continue to use old values for now."), so the
+ * CAPTURE allocation must not change and a reconfiguration flush asserts it.
+ * Publish the per-frame visible rectangle instead; clients crop the returned
+ * frame with G_SELECTION.
+ */
+static void
+iris_hfi_gen1_event_vp9_resize(struct iris_inst *inst,
+			       struct hfi_msg_session_fbd_uncompressed_plane0_pkt *pkt)
+{
+	dev_info(inst->core->dev,
+		 "Iris1 v155: VP9 resize frame=%ux%u origin=%u,%u crop=%ux%u filled=%u stats=%#x\n",
+		 pkt->frame_width, pkt->frame_height,
+		 pkt->start_x_coord, pkt->start_y_coord,
+		 inst->crop.width, inst->crop.height,
+		 pkt->filled_len, pkt->stats);
 
+	inst->crop.left = pkt->start_x_coord;
+	inst->crop.top = pkt->start_y_coord;
+	inst->crop.width = pkt->frame_width;
+	inst->crop.height = pkt->frame_height;
+
+	/*
+	 * Tell userspace the visible rectangle changed.  The CAPTURE format is
+	 * deliberately left alone so a client that re-queries G_FMT sees no
+	 * resolution change and does not tear the queue down.
+	 */
 	iris_vdec_src_change(inst);
-	iris_inst_sub_state_change_drc_last(inst);
 }
 
 static void
@@ -629,17 +680,28 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 
 	buf->data_offset = offset;
 	buf->data_size = filled_len;
+	/* A sufficient-resource VP9 resize shrinks the visible frame without a
+	 * firmware sequence change; adapt and notify userspace from the per-frame
+	 * geometry.  Skip the first sequence until its IPSC has set the crop and
+	 * only react to shrinks: the firmware rounds the reported height up to a
+	 * multiple of 8, so an unchanged 320x180 frame can read as 320x184. */
 	if (inst->domain == DECODER && buf->type == BUF_OUTPUT && filled_len &&
 	    inst->codec == V4L2_PIX_FMT_VP9 &&
-	    (uncom_pkt->frame_width != inst->crop.width ||
-	     uncom_pkt->frame_height != inst->crop.height))
-		dev_info_ratelimited(core->dev,
-			"VP9 output geometry: frame=%ux%u origin=%u,%u crop=%ux%u capture=%ux%u tag=%u flags=%#x\n",
-			uncom_pkt->frame_width, uncom_pkt->frame_height,
-			uncom_pkt->start_x_coord, uncom_pkt->start_y_coord,
-			inst->crop.width, inst->crop.height,
-			inst->fmt_dst->fmt.pix_mp.width, inst->fmt_dst->fmt.pix_mp.height,
-			output_tag, hfi_flags);
+	    inst->core->iris_platform_data->legacy_vpu5 &&
+	    inst->fw_min_count && !(inst->sub_state & IRIS_INST_SUB_DRC) &&
+	    uncom_pkt->frame_width && uncom_pkt->frame_height &&
+	    (uncom_pkt->frame_width < inst->crop.width ||
+	     uncom_pkt->frame_height < inst->crop.height))
+		iris_hfi_gen1_event_vp9_resize(inst, uncom_pkt);
+
+	/* Remember the visible rectangle this particular buffer carries so the
+	 * crop can be reported per buffer at dequeue time. */
+	if (inst->domain == DECODER && buf->type == BUF_OUTPUT && filled_len) {
+		buf->crop.left = inst->crop.left;
+		buf->crop.top = inst->crop.top;
+		buf->crop.width = inst->crop.width;
+		buf->crop.height = inst->crop.height;
+	}
 
 	if (filled_len) {
 		timestamp_us = timestamp_hi;

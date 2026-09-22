@@ -97,6 +97,8 @@ struct iris_buffer {
 	u32				flags; /* V4L2_BUF_FLAG_* */
 	u64				timestamp;
 	enum iris_buffer_attributes	attr;
+	/* Visible rectangle of the frame in this CAPTURE buffer. */
+	struct v4l2_rect		crop;
 };
 
 struct iris_buffers {

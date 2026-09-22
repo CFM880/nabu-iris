@@ -457,6 +457,30 @@ int iris_vb2_buf_out_validate(struct vb2_buffer *vb)
 	return 0;
 }
 
+void iris_vb2_buf_finish(struct vb2_buffer *vb)
+{
+	struct v4l2_rect *crop;
+	struct iris_buffer *buf;
+	struct iris_inst *inst;
+
+	if (!V4L2_TYPE_IS_CAPTURE(vb->type))
+		return;
+
+	inst = vb2_get_drv_priv(vb->vb2_queue);
+	if (inst->domain != DECODER)
+		return;
+
+	buf = to_iris_buffer(container_of(vb, struct vb2_v4l2_buffer, vb2_buf));
+	crop = &buf->crop;
+	if (!crop->width || !crop->height)
+		return;
+
+	/* Publish the visible rectangle of the buffer userspace just dequeued;
+	 * G_SELECTION returns it until the next buffer is dequeued. */
+	inst->dqbuf_crop = *crop;
+	inst->dqbuf_crop_valid = true;
+}
+
 void iris_vb2_buf_queue(struct vb2_buffer *vb2)
 {
 	static const struct v4l2_event eos = { .type = V4L2_EVENT_EOS };

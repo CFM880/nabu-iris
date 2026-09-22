@@ -17,5 +17,6 @@ void iris_vb2_stop_streaming(struct vb2_queue *q);
 int iris_vb2_buf_prepare(struct vb2_buffer *vb);
 int iris_vb2_buf_out_validate(struct vb2_buffer *vb);
 void iris_vb2_buf_queue(struct vb2_buffer *vb2);
+void iris_vb2_buf_finish(struct vb2_buffer *vb);
 
 #endif

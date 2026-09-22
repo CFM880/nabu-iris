@@ -618,10 +618,12 @@ static int iris_g_selection(struct file *filp, void *fh, struct v4l2_selection *
 	struct iris_inst *inst = iris_get_inst(filp, NULL);
 
 	if (s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
+	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE &&
 	    inst->domain == DECODER)
 		return -EINVAL;
 
 	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
+	    s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE &&
 	    inst->domain == ENCODER)
 		return -EINVAL;
 
@@ -634,10 +636,19 @@ static int iris_g_selection(struct file *filp, void *fh, struct v4l2_selection *
 		case V4L2_SEL_TGT_COMPOSE_PADDED:
 		case V4L2_SEL_TGT_COMPOSE_DEFAULT:
 		case V4L2_SEL_TGT_COMPOSE:
-			s->r.left = inst->crop.left;
-			s->r.top = inst->crop.top;
-			s->r.width = inst->crop.width;
-			s->r.height = inst->crop.height;
+			/* Prefer the visible rectangle of the buffer userspace just
+			 * dequeued; fall back to the current firmware geometry. */
+			if (inst->dqbuf_crop_valid) {
+				s->r.left = inst->dqbuf_crop.left;
+				s->r.top = inst->dqbuf_crop.top;
+				s->r.width = inst->dqbuf_crop.width;
+				s->r.height = inst->dqbuf_crop.height;
+			} else {
+				s->r.left = inst->crop.left;
+				s->r.top = inst->crop.top;
+				s->r.width = inst->crop.width;
+				s->r.height = inst->crop.height;
+			}
 			break;
 		default:
 			return -EINVAL;
@@ -800,6 +811,7 @@ static const struct vb2_ops iris_vb2_ops = {
 	.buf_prepare                    = iris_vb2_buf_prepare,
 	.buf_out_validate               = iris_vb2_buf_out_validate,
 	.buf_queue                      = iris_vb2_buf_queue,
+	.buf_finish                     = iris_vb2_buf_finish,
 };
 
 static const struct v4l2_ioctl_ops iris_v4l2_ioctl_ops_dec = {

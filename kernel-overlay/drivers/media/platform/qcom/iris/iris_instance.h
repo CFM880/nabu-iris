@@ -103,6 +103,9 @@ struct iris_inst {
 	enum domain_type		domain;
 	struct iris_hfi_rect_desc	crop;
 	struct iris_hfi_rect_desc	compose;
+	/* Visible rectangle of the most recently dequeued CAPTURE buffer. */
+	struct v4l2_rect		dqbuf_crop;
+	bool				dqbuf_crop_valid;
 	struct completion		completion;
 	struct completion		flush_completion;
 	u32				flush_responses_pending;
