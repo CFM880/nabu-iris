@@ -16,6 +16,9 @@ firmware     = ["firmware/venus.mbn"]
 [build]
 kernel_targets = ["drivers/media/platform/qcom/iris/qcom-iris.ko"]
 
+[hooks]
+install = "scripts/nabu-install.sh"
+
 [artifacts]
 "qcom-iris.ko" = "out:drivers/media/platform/qcom/iris/qcom-iris.ko"
 
