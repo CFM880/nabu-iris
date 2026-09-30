@@ -350,6 +350,14 @@ int iris_hfi_pm_resume(struct iris_core *core)
 
 	core->vpu_suspended = false;
 
+	/*
+	 * The idle worker had already collapsed the VPU before the system
+	 * suspended; the system resume powers it back up just to re-boot the
+	 * firmware.  Re-arm the idle collapse so it powers down again once no
+	 * session needs it, otherwise the VPU stays powered after every resume.
+	 */
+	iris_pc_schedule(core);
+
 	return 0;
 
 err_suspend_hw:
