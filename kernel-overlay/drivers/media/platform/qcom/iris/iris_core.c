@@ -27,7 +27,19 @@ void iris_core_deinit(struct iris_core *core)
 
 	mutex_lock(&core->lock);
 	iris_fw_unload(core);
-	iris_vpu_power_off(core);
+	/*
+	 * When idle power collapse already powered the VPU off (iris_pc_enter()
+	 * set vpu_suspended), the clocks/regulators are down.  Calling
+	 * iris_vpu_power_off() again disables and unprepares clocks that are
+	 * already off, which warns ("already disabled"/"already unprepared")
+	 * and unbalances the clock refcounts.  The core is being torn down, so
+	 * just drop the collapsed state instead.
+	 */
+	if (core->vpu_suspended) {
+		core->vpu_suspended = false;
+	} else {
+		iris_vpu_power_off(core);
+	}
 	iris_hfi_queues_deinit(core);
 	core->state = IRIS_CORE_DEINIT;
 	mutex_unlock(&core->lock);

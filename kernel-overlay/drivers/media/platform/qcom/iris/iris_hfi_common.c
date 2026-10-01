@@ -245,7 +245,7 @@ void iris_pc_schedule(struct iris_core *core)
 	if (!list_empty(&core->instances))
 		return;
 
-	queue_delayed_work(system_wq, &core->pc_work,
+	queue_delayed_work(system_percpu_wq, &core->pc_work,
 			   msecs_to_jiffies(IRIS_PC_DELAY_MS));
 }
 
