@@ -125,7 +125,10 @@ sudo modprobe qcom_iris
 cat /sys/module/qcom_iris/parameters/cached_capture
 ```
 
-最后一条应输出 `Y`。Chrome 的用户态驱动安装和验证请转到 `iris-vaapi` 仓库。
+最后一条应输出 `Y`。当通过 `nabu-main` 构建并安装本模块时（`make build && sudo make install`），
+构建钩子会一并交叉编译 `iris-vaapi` 的 VA-API 驱动（同目录的兄弟仓库）并安装到
+`/usr/lib/aarch64-linux-gnu/dri/vpu_drv_video.so`，同时装上 `99-qcom-iris-dmaheap.rules` udev
+规则。单独构建/验证该驱动请转到 `iris-vaapi` 仓库。
 
 ## 错误恢复
 

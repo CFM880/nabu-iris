@@ -135,8 +135,11 @@ sudo modprobe qcom_iris
 cat /sys/module/qcom_iris/parameters/cached_capture
 ```
 
-The last command should output `Y`. For Chrome userspace driver installation and verification, go to
-the `iris-vaapi` repository.
+The last command should output `Y`. When this module is built and installed through `nabu-main`
+(`make build && sudo make install`), the build hook also cross-builds the `iris-vaapi` VA-API driver
+(the sibling repository) and installs it to `/usr/lib/aarch64-linux-gnu/dri/vpu_drv_video.so`,
+together with the `99-qcom-iris-dmaheap.rules` udev rule. To build or verify the driver standalone,
+go to the `iris-vaapi` repository.
 
 ## Error recovery
 

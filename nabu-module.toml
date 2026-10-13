@@ -11,19 +11,25 @@ dtsi         = ["arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu-iris.dtsi"]
 config       = ["config/nabu-iris.config"]
 systemd      = ["system/qcom-iris-autoload.service"]
 modules_load = ["system/qcom-iris.conf"]
+rules        = ["config/99-qcom-iris-dmaheap.rules"]
 firmware     = ["firmware/venus.mbn"]
 
 [build]
 kernel_targets = ["drivers/media/platform/qcom/iris/qcom-iris.ko"]
+# Also builds the iris-vaapi VA-API userspace driver (sibling repository).
+hook = "scripts/nabu-build.sh"
 
 [hooks]
 install = "scripts/nabu-install.sh"
 
 [artifacts]
-"qcom-iris.ko" = "out:drivers/media/platform/qcom/iris/qcom-iris.ko"
+"qcom-iris.ko"     = "out:drivers/media/platform/qcom/iris/qcom-iris.ko"
+"vpu_drv_video.so" = "module:out/userspace/root/usr/lib/aarch64-linux-gnu/dri/vpu_drv_video.so"
 
 [install]
-"qcom-iris.ko"                      = "/lib/modules/@release@/kernel/drivers/media/platform/qcom/iris/qcom-iris.ko"
+"qcom-iris.ko"                       = "/lib/modules/@release@/kernel/drivers/media/platform/qcom/iris/qcom-iris.ko"
 "systemd/qcom-iris-autoload.service" = "/etc/systemd/system/qcom-iris-autoload.service"
 "modules_load/qcom-iris.conf"        = "/etc/modprobe.d/qcom-iris.conf"
+"rules/99-qcom-iris-dmaheap.rules"   = "/etc/udev/rules.d/99-qcom-iris-dmaheap.rules"
 "firmware/venus.mbn"                 = "/lib/firmware/qcom/sm8150/xiaomi/nabu/venus.mbn"
+"vpu_drv_video.so"                   = "/usr/lib/aarch64-linux-gnu/dri/vpu_drv_video.so"
