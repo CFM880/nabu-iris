@@ -170,7 +170,18 @@ static struct gdsc venus_gdsc = {
 	.pd = {
 		.name = "venus_gdsc",
 	},
-	.flags = 0,
+	/*
+	 * Nabu: the SM8150 MVSC domain collapses through the same hardware
+	 * control logic as MVS0/MVS1 (see vcodec0/1 below).  Left as a plain
+	 * software-controlled GDSC the SW "PWR_ON" write is ignored by the
+	 * hardware and gdsc_enable() polls forever:
+	 *
+	 *   venus_gdsc status stuck at 'off'
+	 *     gdsc_toggle_logic <- gdsc_enable <- _genpd_power_on
+	 *
+	 * which leaves the genpd state wedged and then breaks system suspend.
+	 */
+	.flags = HW_CTRL_TRIGGER,
 	.pwrsts = PWRSTS_OFF_ON,
 };
 
