@@ -90,17 +90,17 @@ int iris_core_init(struct iris_core *core)
 
 	core->state = IRIS_CORE_INIT;
 
-	dev_info(core->dev, "initializing HFI queues\n");
+	dev_dbg(core->dev, "initializing HFI queues\n");
 	ret = iris_hfi_queues_init(core);
 	if (ret)
 		goto error;
 
-	dev_info(core->dev, "powering on Iris hardware\n");
+	dev_dbg(core->dev, "powering on Iris hardware\n");
 	ret = iris_vpu_power_on(core);
 	if (ret)
 		goto error_queue_deinit;
 
-	dev_info(core->dev, "loading Iris firmware\n");
+	dev_dbg(core->dev, "loading Iris firmware\n");
 	ret = iris_fw_load(core);
 	if (ret)
 		goto error_power_off;
@@ -112,7 +112,7 @@ int iris_core_init(struct iris_core *core)
 	 * require this on their initial boot path.
 	 */
 	if (core->iris_platform_data->legacy_vpu5) {
-		dev_info(core->dev, "resuming secure VPU5 hardware state\n");
+		dev_dbg(core->dev, "resuming secure VPU5 hardware state\n");
 		ret = iris_set_hw_state(core, true);
 		if (ret) {
 			dev_err(core->dev,
@@ -120,15 +120,15 @@ int iris_core_init(struct iris_core *core)
 				ret);
 			goto error_unload_fw;
 		}
-		dev_info(core->dev, "secure VPU5 hardware state resumed\n");
+		dev_dbg(core->dev, "secure VPU5 hardware state resumed\n");
 	}
 
-	dev_info(core->dev, "booting Iris firmware CPU\n");
+	dev_dbg(core->dev, "booting Iris firmware CPU\n");
 	ret = iris_vpu_boot_firmware(core);
 	if (ret)
 		goto error_unload_fw;
 
-	dev_info(core->dev, "initializing HFI core\n");
+	dev_dbg(core->dev, "initializing HFI core\n");
 	ret = iris_hfi_core_init(core);
 	if (ret)
 		goto error_unload_fw;

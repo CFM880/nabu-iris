@@ -124,7 +124,7 @@ static void iris_vpu_interrupt_init(struct iris_core *core)
 		 * of an uncleared level interrupt.
 		 */
 		mask_val = readl(core->reg_base + wrapper_base + 0x10);
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 interrupt mask before unmask: %#x\n",
 			 mask_val);
 		mask_val |= BIT(4);
@@ -135,7 +135,7 @@ static void iris_vpu_interrupt_init(struct iris_core *core)
 	}
 	writel(mask_val, core->reg_base + wrapper_base + 0x10);
 	if (iris_vpu_uses_legacy_vpu5(core))
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 interrupt mask after unmask: %#x\n",
 			 mask_val);
 }
@@ -152,28 +152,28 @@ static void iris_vpu_setup_ucregion_memory_map(struct iris_core *core)
 			  (IFACEQ_QUEUE_SIZE * IFACEQ_NUMQ), SZ_4K);
 
 	value = (u32)core->iface_q_table_daddr;
-	dev_info(core->dev, "HFI registers: writing UC_REGION_ADDR %#x to %#x\n",
+	dev_dbg(core->dev, "HFI registers: writing UC_REGION_ADDR %#x to %#x\n",
 		 value, cpu_cs_base + 0x64);
 	writel(value, core->reg_base + cpu_cs_base + 0x64);
-	dev_info(core->dev, "HFI registers: UC_REGION_ADDR write complete\n");
+	dev_dbg(core->dev, "HFI registers: UC_REGION_ADDR write complete\n");
 
 	/* Iris hardware requires 1M queue alignment */
 	region_size = ALIGN(SFR_SIZE + queue_size, SZ_1M);
-	dev_info(core->dev, "HFI registers: writing UC_REGION_SIZE %#x to %#x\n",
+	dev_dbg(core->dev, "HFI registers: writing UC_REGION_SIZE %#x to %#x\n",
 		 region_size, cpu_cs_base + 0x68);
 	writel(region_size, core->reg_base + cpu_cs_base + 0x68);
-	dev_info(core->dev, "HFI registers: UC_REGION_SIZE write complete\n");
+	dev_dbg(core->dev, "HFI registers: UC_REGION_SIZE write complete\n");
 
 	value = (u32)core->iface_q_table_daddr;
-	dev_info(core->dev, "HFI registers: writing QTBL_ADDR %#x to %#x\n",
+	dev_dbg(core->dev, "HFI registers: writing QTBL_ADDR %#x to %#x\n",
 		 value, cpu_cs_base + 0x54);
 	writel(value, core->reg_base + cpu_cs_base + 0x54);
-	dev_info(core->dev, "HFI registers: QTBL_ADDR write complete\n");
+	dev_dbg(core->dev, "HFI registers: QTBL_ADDR write complete\n");
 
-	dev_info(core->dev, "HFI registers: enabling QTBL at %#x\n",
+	dev_dbg(core->dev, "HFI registers: enabling QTBL at %#x\n",
 		 cpu_cs_base + 0x50);
 	writel(QTBL_ENABLE, core->reg_base + cpu_cs_base + 0x50);
-	dev_info(core->dev, "HFI registers: QTBL enable complete\n");
+	dev_dbg(core->dev, "HFI registers: QTBL enable complete\n");
 
 	if (iris_vpu_uses_legacy_vpu5(core)) {
 		/*
@@ -182,22 +182,22 @@ static void iris_vpu_setup_ucregion_memory_map(struct iris_core *core)
 		 * by default even when CVP is unused.
 		 */
 		value = (u32)core->iface_q_table_daddr;
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "HFI registers: writing DSP QTBL/UC region %#x size %#x\n",
 			 value, region_size);
 		writel(value, core->reg_base + cpu_cs_base + 0x34);
 		writel(value, core->reg_base + cpu_cs_base + 0x38);
 		writel(region_size, core->reg_base + cpu_cs_base + 0x3c);
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "HFI registers: DSP QTBL/UC region writes complete\n");
 	}
 
 	if (core->sfr_daddr) {
 		value = (u32)core->sfr_daddr + core->iris_platform_data->core_arch;
-		dev_info(core->dev, "HFI registers: writing SFR_ADDR %#x to %#x\n",
+		dev_dbg(core->dev, "HFI registers: writing SFR_ADDR %#x to %#x\n",
 			 value, cpu_cs_base + 0x5c);
 		writel(value, core->reg_base + cpu_cs_base + 0x5c);
-		dev_info(core->dev, "HFI registers: SFR_ADDR write complete\n");
+		dev_dbg(core->dev, "HFI registers: SFR_ADDR write complete\n");
 	}
 }
 
@@ -208,12 +208,12 @@ int iris_vpu_boot_firmware(struct iris_core *core)
 
 	iris_vpu_setup_ucregion_memory_map(core);
 
-	dev_info(core->dev, "HFI registers: writing CTRL_INIT to %#x\n",
+	dev_dbg(core->dev, "HFI registers: writing CTRL_INIT to %#x\n",
 		 cpu_cs_base + 0x48);
 	writel(ctrl_init, core->reg_base + cpu_cs_base + 0x48);
-	dev_info(core->dev, "HFI registers: CTRL_INIT write complete\n");
+	dev_dbg(core->dev, "HFI registers: CTRL_INIT write complete\n");
 
-	dev_info(core->dev, "HFI registers: polling CTRL_STATUS at %#x\n",
+	dev_dbg(core->dev, "HFI registers: polling CTRL_STATUS at %#x\n",
 		 cpu_cs_base + 0x4c);
 	while (!ctrl_status && count < max_tries) {
 		ctrl_status = readl(core->reg_base + cpu_cs_base + 0x4c);
@@ -225,7 +225,7 @@ int iris_vpu_boot_firmware(struct iris_core *core)
 		usleep_range(50, 100);
 		count++;
 	}
-	dev_info(core->dev, "HFI registers: CTRL_STATUS %#x after %u polls\n",
+	dev_dbg(core->dev, "HFI registers: CTRL_STATUS %#x after %u polls\n",
 		 ctrl_status, count);
 
 	if (count >= max_tries) {
@@ -239,7 +239,7 @@ int iris_vpu_boot_firmware(struct iris_core *core)
 	 * programmed through the VPU5 CPU_CS window.
 	 */
 	if (iris_vpu_uses_legacy_vpu5(core)) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 firmware booted; leaving Iris2-only controls untouched\n");
 		return 0;
 	}
@@ -543,7 +543,7 @@ static int iris_vpu_power_on_controller(struct iris_core *core)
 	u32 i;
 	int ret;
 
-	dev_info(core->dev, "vpu controller: enabling power domain\n");
+	dev_dbg(core->dev, "vpu controller: enabling power domain\n");
 	if (core->iris_platform_data->defer_vcodec_power)
 		ret = pm_runtime_get_sync(pd_dev);
 	else
@@ -551,25 +551,25 @@ static int iris_vpu_power_on_controller(struct iris_core *core)
 	if (ret < 0)
 		return ret;
 
-	dev_info(core->dev, "vpu controller: resetting clocks\n");
+	dev_dbg(core->dev, "vpu controller: resetting clocks\n");
 	if (core->iris_platform_data->defer_vcodec_power) {
 		for (i = 0; i < rst_tbl_size; i++) {
-			dev_info(core->dev, "vpu controller: reset %u (%s): assert begin\n",
+			dev_dbg(core->dev, "vpu controller: reset %u (%s): assert begin\n",
 				 i, core->resets[i].id);
 			ret = reset_control_assert(core->resets[i].rstc);
 			if (ret)
 				goto err_disable_power;
-			dev_info(core->dev, "vpu controller: reset %u (%s): assert done\n",
+			dev_dbg(core->dev, "vpu controller: reset %u (%s): assert done\n",
 				 i, core->resets[i].id);
 
 			usleep_range(150, 250);
 
-			dev_info(core->dev, "vpu controller: reset %u (%s): deassert begin\n",
+			dev_dbg(core->dev, "vpu controller: reset %u (%s): deassert begin\n",
 				 i, core->resets[i].id);
 			ret = reset_control_deassert(core->resets[i].rstc);
 			if (ret)
 				goto err_disable_power;
-			dev_info(core->dev, "vpu controller: reset %u (%s): deassert done\n",
+			dev_dbg(core->dev, "vpu controller: reset %u (%s): deassert done\n",
 				 i, core->resets[i].id);
 		}
 	} else {
@@ -579,23 +579,23 @@ static int iris_vpu_power_on_controller(struct iris_core *core)
 	}
 
 	if (core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev, "vpu controller: enabling bus clock\n");
+		dev_dbg(core->dev, "vpu controller: enabling bus clock\n");
 		ret = iris_prepare_enable_clock(core, IRIS_BUS_CLK);
 		if (ret)
 			goto err_disable_power;
 	}
 
-	dev_info(core->dev, "vpu controller: enabling AXI clock\n");
+	dev_dbg(core->dev, "vpu controller: enabling AXI clock\n");
 	ret = iris_prepare_enable_clock(core, IRIS_AXI_CLK);
 	if (ret)
 		goto err_disable_bus_clock;
 
-	dev_info(core->dev, "vpu controller: enabling core clock\n");
+	dev_dbg(core->dev, "vpu controller: enabling core clock\n");
 	ret = iris_prepare_enable_clock(core, IRIS_CTRL_CLK);
 	if (ret)
 		goto err_disable_clock;
 
-	dev_info(core->dev, "vpu controller: power-on complete\n");
+	dev_dbg(core->dev, "vpu controller: power-on complete\n");
 	return 0;
 
 err_disable_clock:
@@ -633,10 +633,10 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 	 * acquires the vcodec GDSC directly at this stage.
 	 */
 	if (core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: enabling GDSC without duplicate OPP vote\n");
 		ret = pm_runtime_resume_and_get(pd_dev);
-		dev_info(core->dev, "vcodec power: GDSC enable returned %d\n", ret);
+		dev_dbg(core->dev, "vcodec power: GDSC enable returned %d\n", ret);
 	} else {
 		ret = iris_enable_power_domains(core, pd_dev);
 	}
@@ -644,10 +644,10 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 		return ret;
 
 	if (aux_pd_dev) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: enabling auxiliary GDSC\n");
 		ret = pm_runtime_resume_and_get(aux_pd_dev);
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: auxiliary GDSC enable returned %d\n",
 			 ret);
 		if (ret)
@@ -655,11 +655,11 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 	}
 
 	if (core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev, "vcodec power: enabling codec0 AXI clock\n");
+		dev_dbg(core->dev, "vcodec power: enabling codec0 AXI clock\n");
 		ret = iris_prepare_enable_clock(core, IRIS_HW_AXI_CLK);
 		if (ret)
 			goto err_disable_aux_power;
-		dev_info(core->dev, "vcodec power: enabling codec1 AXI clock\n");
+		dev_dbg(core->dev, "vcodec power: enabling codec1 AXI clock\n");
 		ret = iris_prepare_enable_clock(core, IRIS_AUX_HW_AXI_CLK);
 		if (ret)
 			goto err_disable_hw_axi_clock;
@@ -667,32 +667,32 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 
 	if (core->iris_platform_data->use_vcodec_hw_control &&
 	    !core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev, "vcodec power: requesting software control\n");
+		dev_dbg(core->dev, "vcodec power: requesting software control\n");
 		ret = iris_vpu_set_vcodec_hw_control(core, true);
 		if (ret)
 			goto err_disable_aux_hw_axi_clock;
-		dev_info(core->dev, "vcodec power: software control acquired\n");
+		dev_dbg(core->dev, "vcodec power: software control acquired\n");
 	}
 
-	dev_info(core->dev, "vcodec power: enabling core clock\n");
+	dev_dbg(core->dev, "vcodec power: enabling core clock\n");
 	ret = iris_prepare_enable_clock(core, IRIS_HW_CLK);
 	if (ret)
 		goto err_disable_aux_hw_axi_clock;
-	dev_info(core->dev, "vcodec power: core clock enabled\n");
+	dev_dbg(core->dev, "vcodec power: core clock enabled\n");
 
 	if (aux_pd_dev) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: enabling auxiliary core clock\n");
 		ret = iris_prepare_enable_clock(core, IRIS_AUX_HW_CLK);
 		if (ret)
 			goto err_disable_clock;
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: auxiliary core clock enabled\n");
 	}
 
 	if (core->iris_platform_data->use_vcodec_hw_control &&
 	    !core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev, "vcodec power: releasing software control\n");
+		dev_dbg(core->dev, "vcodec power: releasing software control\n");
 		ret = iris_vpu_set_vcodec_hw_control(core, false);
 	} else if (core->iris_platform_data->defer_vcodec_power) {
 		/*
@@ -700,7 +700,7 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 		 * This deliberately trades power collapse for a stable decode
 		 * path and avoids the inaccessible legacy wrapper registers.
 		 */
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vcodec power: keeping both GDSCs in software mode\n");
 		ret = 0;
 	} else {
@@ -708,7 +708,7 @@ static int iris_vpu_power_on_hw(struct iris_core *core)
 	}
 	if (ret)
 		goto err_disable_clock;
-	dev_info(core->dev, "vcodec power: hardware ready\n");
+	dev_dbg(core->dev, "vcodec power: hardware ready\n");
 
 	return 0;
 
@@ -742,49 +742,49 @@ int iris_vpu_power_on(struct iris_core *core)
 	u32 freq;
 	int ret;
 
-	dev_info(core->dev, "vpu power: voting interconnect\n");
+	dev_dbg(core->dev, "vpu power: voting interconnect\n");
 	ret = iris_set_icc_bw(core, INT_MAX);
 	if (ret)
 		goto err;
 	if (core->iris_platform_data->legacy_vpu5)
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1: booting at maximum OPP, runtime scaling follows\n");
 
-	dev_info(core->dev, "vpu power: enabling controller domain and clocks\n");
+	dev_dbg(core->dev, "vpu power: enabling controller domain and clocks\n");
 	ret = iris_vpu_power_on_controller(core);
 	if (ret)
 		goto err_unvote_icc;
 
 	if (!core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev, "vpu power: enabling codec domain and clock\n");
+		dev_dbg(core->dev, "vpu power: enabling codec domain and clock\n");
 		ret = iris_vpu_power_on_hw(core);
 		if (ret)
 			goto err_power_off_ctrl;
 	} else {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vpu power: codec domain deferred until after OPP vote\n");
 	}
 
 	freq = core->power.clk_freq ? core->power.clk_freq :
 				      (u32)ULONG_MAX;
 
-	dev_info(core->dev, "vpu power: setting OPP rate\n");
+	dev_dbg(core->dev, "vpu power: setting OPP rate\n");
 	ret = dev_pm_opp_set_rate(core->dev, freq);
 	if (ret)
 		goto err_power_off_ctrl;
 
 	if (core->iris_platform_data->defer_vcodec_power) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "vpu power: enabling codec domain after OPP vote\n");
 		ret = iris_vpu_power_on_hw(core);
 		if (ret)
 			goto err_clear_opp;
 	}
 
-	dev_info(core->dev, "vpu power: programming preset registers\n");
+	dev_dbg(core->dev, "vpu power: programming preset registers\n");
 	core->iris_platform_data->set_preset_registers(core);
 
-	dev_info(core->dev, "vpu power: enabling interrupt\n");
+	dev_dbg(core->dev, "vpu power: enabling interrupt\n");
 	iris_vpu_interrupt_init(core);
 	core->intr_status = 0;
 	enable_irq(core->irq);

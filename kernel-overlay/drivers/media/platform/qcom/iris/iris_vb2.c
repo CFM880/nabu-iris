@@ -82,7 +82,7 @@ int iris_vb2_vp9_alloc_high_iova_hole(struct iris_inst *inst)
 	inst->vp9_iova_hole_daddr = daddr;
 	inst->vp9_iova_hole_size = size;
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v85: VP9 reserved high IOVA hole %#llx-%#llx (size %#zx)\n",
 		 (unsigned long long)daddr,
 		 (unsigned long long)daddr + size - 1, size);
@@ -110,7 +110,7 @@ void iris_vb2_vp9_release_high_iova_hole(struct iris_inst *inst)
 
 	dma_free_attrs(core->dev, size, vaddr, daddr, DMA_ATTR_WRITE_COMBINE);
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v85: VP9 released high IOVA hole %#llx-%#llx\n",
 		 (unsigned long long)daddr,
 		 (unsigned long long)daddr + size - 1);
@@ -238,7 +238,7 @@ int iris_vb2_queue_setup(struct vb2_queue *q,
 	if (iris1_use_cached_capture(inst, q)) {
 		q->dma_dir = DMA_FROM_DEVICE;
 		q->non_coherent_mem = true;
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 v100: using cacheable %s CAPTURE MMAP buffers; dynamic power vote starts at %u fps\n",
 			 inst->codec == V4L2_PIX_FMT_H264 ? "H.264" :
 			 inst->codec == V4L2_PIX_FMT_HEVC ? "HEVC" : "VP9",

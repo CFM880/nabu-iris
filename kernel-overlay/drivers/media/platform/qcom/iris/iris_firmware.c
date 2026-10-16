@@ -65,10 +65,10 @@ static int iris_load_fw_to_memory(struct iris_core *core, const char *fw_name)
 	if (ret)
 		return ret;
 
-	dev_info(dev, "firmware image copied; starting PAS authentication (id %u)\n",
+	dev_dbg(dev, "firmware image copied; starting PAS authentication (id %u)\n",
 		 pas_id);
 	ret = qcom_scm_pas_auth_and_reset(pas_id);
-	dev_info(dev, "PAS authentication returned %d\n", ret);
+	dev_dbg(dev, "PAS authentication returned %d\n", ret);
 
 	return ret;
 
@@ -88,7 +88,7 @@ int iris_fw_load(struct iris_core *core)
 	if (ret)
 		fwpath = core->iris_platform_data->fwname;
 
-	dev_info(core->dev, "requesting firmware '%s'\n", fwpath);
+	dev_dbg(core->dev, "requesting firmware '%s'\n", fwpath);
 	ret = iris_load_fw_to_memory(core, fwpath);
 	if (ret) {
 		dev_err(core->dev, "firmware download failed\n");

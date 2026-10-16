@@ -103,7 +103,7 @@ static int iris_hfi_gen1_sys_debug_config(struct iris_core *core)
 	config->debug_config = HFI_DEBUG_MSG_ERROR | HFI_DEBUG_MSG_FATAL;
 	config->debug_mode = HFI_DEBUG_MODE_QUEUE;
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v57: enabling firmware error/fatal debug queue\n");
 	ret = iris_hfi_queue_cmd_write(core, pkt, packet_size);
 	kfree(pkt);
@@ -167,7 +167,7 @@ static int iris_hfi_gen1_syscache_config(struct iris_core *core)
 			llcc_get_slice_id(core->llcc_slices[i]);
 	}
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v57: setting LLCC resources: id=%u size=%u KiB, id=%u size=%u KiB\n",
 		 pkt->data[2], pkt->data[1], pkt->data[4], pkt->data[3]);
 	ret = iris_hfi_queue_cmd_write(core, pkt, packet_size);
@@ -223,7 +223,7 @@ static int iris_hfi_gen1_session_open(struct iris_inst *inst)
 	 * transferred the GDSC and clocks to hardware control.
 	 */
 	if (inst->core->iris_platform_data->legacy_vpu5) {
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v57: preparing SM8150 system resources before SESSION_INIT\n");
 		ret = iris_hfi_gen1_sys_debug_config(inst->core);
 		if (ret)
@@ -231,7 +231,7 @@ static int iris_hfi_gen1_session_open(struct iris_inst *inst)
 		ret = iris_hfi_gen1_syscache_config(inst->core);
 		if (ret)
 			return ret;
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v57: disabling codec power-plane collapse before SESSION_INIT\n");
 		ret = iris_hfi_gen1_sys_power_control(inst->core, false);
 		if (ret)
@@ -294,7 +294,7 @@ static int iris_hfi_gen1_session_start(struct iris_inst *inst, u32 plane)
 	struct hfi_session_pkt packet;
 	int ret;
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v107: session_start plane=%s state=%u substate=%#x load_resources=%u\n",
 		 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
 		 inst->state, inst->sub_state,
@@ -339,7 +339,7 @@ static int iris_hfi_gen1_session_stop(struct iris_inst *inst, u32 plane)
 	u32 flush_type = 0;
 	int ret = 0;
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v107: session_stop plane=%s state=%u substate=%#x streamoff=%u\n",
 		 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
 		 inst->state, inst->sub_state, inst->streamoff_pending);
@@ -358,7 +358,7 @@ static int iris_hfi_gen1_session_stop(struct iris_inst *inst, u32 plane)
 			flush_pkt.shdr.session_id = inst->session_id;
 			flush_pkt.flush_type = flush_type;
 
-			dev_info(core->dev,
+			dev_dbg(core->dev,
 				 "Iris1 v107: sending SESSION_FLUSH plane=%s type=%#x pending=%u\n",
 				 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
 				 flush_type, inst->flush_responses_pending);
@@ -369,7 +369,7 @@ static int iris_hfi_gen1_session_stop(struct iris_inst *inst, u32 plane)
 				ret = iris_wait_for_session_response(inst, true);
 			}
 
-			dev_info(core->dev,
+			dev_dbg(core->dev,
 				 "Iris1 v107: SESSION_FLUSH done plane=%s type=%#x ret=%d pending=%u\n",
 				 V4L2_TYPE_IS_OUTPUT(plane) ? "OUTPUT" : "CAPTURE",
 				 flush_type, ret, inst->flush_responses_pending);
@@ -1026,7 +1026,7 @@ static int iris_hfi_gen1_decide_core(struct iris_inst *inst, u32 plane)
 		return ret;
 	}
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v144: decoder codec=%p4cc assigned core=%u (loads %llu/%llu)\n",
 		 &inst->codec, cu.video_core_enable_mask, core1_load, core2_load);
 
@@ -1227,7 +1227,7 @@ static int iris_hfi_gen1_get_buffer_requirements(struct iris_inst *inst)
 	};
 	int ret;
 
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v58: querying firmware buffer requirements before LOAD_RESOURCES\n");
 
 	reinit_completion(&inst->completion);
@@ -1297,7 +1297,7 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	size.type = HFI_BUFFER_OUTPUT2;
 	size.size = inst->buffers[BUF_OUTPUT].size;
 
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v65: codec=%p4cc output2 width=%u height=%u actual=%u min_host=%u size=%u\n",
 		 &inst->codec,
 		 frame.width, frame.height, count.count_actual,
@@ -1316,7 +1316,7 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	size.size = inst->fw_buffer_sizes[BUF_DPB] ?:
 		iris_vpu_buf_size(inst, BUF_DPB);
 
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v65: codec=%p4cc internal dpb size=%u\n",
 		 &inst->codec, size.size);
 
@@ -1337,7 +1337,7 @@ static int iris_hfi_gen1_set_first_capture_config(struct iris_inst *inst)
 	count.count_actual = dpb_count;
 	count.count_min_host = dpb_count;
 
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v65: codec=%p4cc internal dpb actual=%u min_host=%u queued=%u\n",
 		 &inst->codec, count.count_actual,
 		 count.count_min_host, dpb_count);
@@ -1404,7 +1404,7 @@ static int iris_hfi_gen1_session_set_config_params(struct iris_inst *inst, u32 p
 	     inst->codec == V4L2_PIX_FMT_VP9) &&
 	    (core->iris_platform_data->legacy_vpu5 ||
 	     inst->sub_state & IRIS_INST_SUB_FIRST_IPSC)) {
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v65: applying first capture config for codec %p4cc\n",
 			 &inst->codec);
 		return iris_hfi_gen1_set_first_capture_config(inst);

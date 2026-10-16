@@ -303,7 +303,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 	queue_used = ALIGN(iris_hfi_queue_table_size(core) +
 			   (IFACEQ_QUEUE_SIZE * IFACEQ_NUMQ), SZ_4K);
 	queue_size = iris_hfi_queue_alloc_size(core);
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "HFI queues: allocating %u-byte queue region (%u bytes used)\n",
 		 queue_size, queue_used);
 	core->iface_q_table_vaddr = dma_alloc_attrs(core->dev, queue_size,
@@ -314,7 +314,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 		return -ENOMEM;
 	}
 	memset(core->iface_q_table_vaddr, 0, queue_size);
-	dev_info(core->dev, "HFI queues: queue table allocated at %pad\n",
+	dev_dbg(core->dev, "HFI queues: queue table allocated at %pad\n",
 		 &core->iface_q_table_daddr);
 
 	if (core->iris_platform_data->legacy_vpu5) {
@@ -328,7 +328,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 			last_phys = iommu_iova_to_phys(domain,
 						      core->iface_q_table_daddr +
 						      queue_size - 1);
-			dev_info(core->dev,
+			dev_dbg(core->dev,
 				 "HFI queues: IOMMU coverage IOVA %pad..%pad -> phys %pa..%pa\n",
 				 &core->iface_q_table_daddr,
 				 &(dma_addr_t) {
@@ -341,7 +341,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 		}
 	}
 
-	dev_info(core->dev, "HFI queues: allocating %u-byte SFR buffer\n",
+	dev_dbg(core->dev, "HFI queues: allocating %u-byte SFR buffer\n",
 		 SFR_SIZE);
 	core->sfr_vaddr = dma_alloc_attrs(core->dev, SFR_SIZE,
 					  &core->sfr_daddr,
@@ -352,17 +352,17 @@ int iris_hfi_queues_init(struct iris_core *core)
 			       core->iface_q_table_daddr, DMA_ATTR_WRITE_COMBINE);
 		return -ENOMEM;
 	}
-	dev_info(core->dev, "HFI queues: SFR buffer allocated at %pad\n",
+	dev_dbg(core->dev, "HFI queues: SFR buffer allocated at %pad\n",
 		 &core->sfr_daddr);
 
-	dev_info(core->dev, "HFI queues: initializing command queue\n");
+	dev_dbg(core->dev, "HFI queues: initializing command queue\n");
 	iris_hfi_queue_init(core, IFACEQ_CMDQ_ID, &core->command_queue);
-	dev_info(core->dev, "HFI queues: initializing message queue\n");
+	dev_dbg(core->dev, "HFI queues: initializing message queue\n");
 	iris_hfi_queue_init(core, IFACEQ_MSGQ_ID, &core->message_queue);
-	dev_info(core->dev, "HFI queues: initializing debug queue\n");
+	dev_dbg(core->dev, "HFI queues: initializing debug queue\n");
 	iris_hfi_queue_init(core, IFACEQ_DBGQ_ID, &core->debug_queue);
 
-	dev_info(core->dev, "HFI queues: initializing table header\n");
+	dev_dbg(core->dev, "HFI queues: initializing table header\n");
 	if (core->iris_platform_data->legacy_vpu5) {
 		legacy_tbl_hdr = core->iface_q_table_vaddr;
 		legacy_tbl_hdr->version = 0;
@@ -373,7 +373,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 			sizeof(legacy_tbl_hdr->q_hdr[0]);
 		legacy_tbl_hdr->num_q = IFACEQ_NUMQ;
 		legacy_tbl_hdr->num_active_q = IFACEQ_NUMQ;
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "HFI queues: legacy Venus table size %zu, first header offset %u\n",
 			 sizeof(*legacy_tbl_hdr),
 			 legacy_tbl_hdr->qhdr0_offset);
@@ -399,7 +399,7 @@ int iris_hfi_queues_init(struct iris_core *core)
 	 * HFI Gen1 implementation has the same final barrier.
 	 */
 	wmb();
-	dev_info(core->dev, "HFI queues: initialization complete\n");
+	dev_dbg(core->dev, "HFI queues: initialization complete\n");
 
 	return 0;
 }

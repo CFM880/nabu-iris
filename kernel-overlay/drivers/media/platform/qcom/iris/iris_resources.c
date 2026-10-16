@@ -125,7 +125,7 @@ int iris_prepare_enable_clock(struct iris_core *core, enum platform_clk_type clk
 
 	ret = clk_prepare_enable(clock);
 	if (!ret)
-		dev_info(core->dev, "clock type %u enabled at %lu Hz\n",
+		dev_dbg(core->dev, "clock type %u enabled at %lu Hz\n",
 			 clk_type, clk_get_rate(clock));
 
 	return ret;

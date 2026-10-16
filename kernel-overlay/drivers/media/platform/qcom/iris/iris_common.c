@@ -402,7 +402,7 @@ void iris_run_pending_core_recovery(struct iris_core *core)
 	WRITE_ONCE(core->recovery_pending, false);
 	mutex_unlock(&core->lock);
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v155: power-cycling core after fatal session error\n");
 	iris_core_recover(core);
 }
@@ -464,7 +464,7 @@ int iris_reserve_core_load(struct iris_inst *inst, u32 frame_rate)
 	inst->core_load_reserved = true;
 	mutex_unlock(&core->lock);
 
-	dev_info(core->dev,
+	dev_dbg(core->dev,
 		 "Iris1 v154: reserved %u mb/f at %u fps; aggregate %llu/%u mb/s\n",
 		 mbpf, frame_rate, (unsigned long long)total_mbps,
 		 core->iris_platform_data->max_core_mbps);
@@ -527,7 +527,7 @@ int iris_session_streamoff(struct iris_inst *inst, u32 plane)
 		if (ret)
 			return ret;
 
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v135: released stopped-session DMA and HFI resources\n");
 	}
 

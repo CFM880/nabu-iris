@@ -29,7 +29,7 @@ int iris_vdec_recycle_pending_output(struct iris_inst *inst)
 		return 0;
 
 	inst->pending_output = NULL;
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v155: recycling pending output timestamp %llu ns\n",
 		 buf->timestamp);
 	buf->data_size = 0;
@@ -697,7 +697,7 @@ int iris_vdec_qbuf(struct iris_inst *inst, struct vb2_v4l2_buffer *vbuf)
 				inst->frame_rate_down_count = 0;
 			}
 
-			dev_info(inst->core->dev,
+			dev_dbg(inst->core->dev,
 				 "Iris1 v140: measured input %u fps (qbuf %u, timestamps %u), voting %u fps (down windows %u)\n",
 				 measured_fps, qbuf_fps, timestamp_fps, inst->frame_rate,
 				 inst->frame_rate_down_count);

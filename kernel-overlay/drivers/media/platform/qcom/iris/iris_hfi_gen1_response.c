@@ -104,7 +104,7 @@ static void iris_hfi_gen1_read_changed_params(struct iris_inst *inst,
 			event.buf_count =
 				iris_hfi_gen1_bufreq_count_min(inst, bufreq);
 			if (inst->core->iris_platform_data->legacy_vpu5)
-				dev_info(inst->core->dev,
+				dev_dbg(inst->core->dev,
 					 "Iris1 v64: HFI 4xx buffer minimum=%u (raw hold=%u min=%u)\n",
 					 event.buf_count, bufreq->hold_count,
 					 bufreq->count_min);
@@ -338,7 +338,7 @@ static void
 iris_hfi_gen1_event_vp9_resize(struct iris_inst *inst,
 			       struct hfi_msg_session_fbd_uncompressed_plane0_pkt *pkt)
 {
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v155: VP9 resize frame=%ux%u origin=%u,%u crop=%ux%u filled=%u stats=%#x\n",
 		 pkt->frame_width, pkt->frame_height,
 		 pkt->start_x_coord, pkt->start_y_coord,
@@ -751,7 +751,7 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
 		    inst->corrupt_output_drops < IRIS1_MAX_CORRUPT_OUTPUT_DROPS) {
 			inst->corrupt_output_drops++;
 			recycle_output = true;
-			dev_info(inst->core->dev,
+			dev_dbg(inst->core->dev,
 				 "Iris1 v137: recycling corrupt output timestamp %llu ns flags %#x (drop %u/%u)\n",
 				 timestamp_us, hfi_flags,
 				 inst->corrupt_output_drops,
@@ -839,7 +839,7 @@ error:
 	 */
 	m2m_stopped = v4l2_m2m_has_stopped(m2m_ctx);
 	if (inst->streamoff_pending || inst->last_buffer_dequeued || m2m_stopped) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 v99: ignoring terminal late FTB: tag=%u offset=%u filled=%u flags=%#x state=%u substate=%#x streamoff=%u last=%u stopped=%u\n",
 			 output_tag, offset, filled_len, hfi_flags, inst->state,
 			 inst->sub_state, inst->streamoff_pending,
@@ -863,7 +863,7 @@ iris_hfi_gen1_session_property_info(struct iris_inst *inst, void *packet)
 	u32 req_bytes, count, i;
 
 	req_bytes = pkt->shdr.hdr.size - sizeof(*pkt);
-	dev_info(inst->core->dev,
+	dev_dbg(inst->core->dev,
 		 "Iris1 v58: SESSION_PROPERTY_INFO properties=%u property=%#x payload=%u bytes\n",
 		 pkt->num_properties, pkt->property, req_bytes);
 
@@ -879,7 +879,7 @@ iris_hfi_gen1_session_property_info(struct iris_inst *inst, void *packet)
 	count = req_bytes / sizeof(*req);
 	req = (struct hfi_buffer_requirements *)pkt->data;
 	for (i = 0; i < count; i++, req++) {
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v58: bufreq[%u] type=%#x size=%u region=%u hold=%u min=%u actual=%u contiguous=%u align=%u\n",
 			 i, req->type, req->size, req->region_size,
 			 req->hold_count, req->count_min, req->count_actual,

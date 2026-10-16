@@ -354,7 +354,7 @@ static void iris_fill_internal_buf_info(struct iris_inst *inst,
 	if (exact_firmware_size) {
 		buffers->size = inst->fw_buffer_sizes[buffer_type];
 		if (buffers->size != calculated_size)
-			dev_info(inst->core->dev,
+			dev_dbg(inst->core->dev,
 				 "Iris1 v145: buffer type %u using exact firmware size %u instead of calculated %u\n",
 				 buffer_type, buffers->size, calculated_size);
 	} else {
@@ -365,7 +365,7 @@ static void iris_fill_internal_buf_info(struct iris_inst *inst,
 
 	if (!exact_firmware_size &&
 	    inst->fw_buffer_sizes[buffer_type] > calculated_size)
-		dev_info(inst->core->dev,
+		dev_dbg(inst->core->dev,
 			 "Iris1 v58: buffer type %u using firmware size %u instead of calculated %u\n",
 			 buffer_type, inst->fw_buffer_sizes[buffer_type],
 			 calculated_size);

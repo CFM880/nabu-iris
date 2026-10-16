@@ -95,7 +95,7 @@ int iris_hfi_core_init(struct iris_core *core)
 	 * properties later, immediately before SESSION_INIT.
 	 */
 	if (core->iris_platform_data->legacy_vpu5) {
-		dev_info(core->dev,
+		dev_dbg(core->dev,
 			 "Iris1 v88: sending SYS_INIT through legacy HFI queue\n");
 		return hfi_ops->sys_init(core);
 	}
@@ -174,7 +174,7 @@ static int iris_pc_enter(struct iris_core *core)
 
 	iris_vpu_power_off(core);
 	core->vpu_suspended = true;
-	dev_info(core->dev, "VPU entered power collapse\n");
+	dev_dbg(core->dev, "VPU entered power collapse\n");
 
 	return 0;
 }
@@ -206,7 +206,7 @@ static int iris_pc_exit(struct iris_core *core)
 	}
 
 	core->vpu_suspended = false;
-	dev_info(core->dev, "VPU resumed from power collapse\n");
+	dev_dbg(core->dev, "VPU resumed from power collapse\n");
 
 	return 0;
 
