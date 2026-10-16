@@ -29,6 +29,14 @@ void iris_core_deinit(struct iris_core *core)
 	iris_fw_unload(core);
 	iris_vpu_power_off(core);
 	iris_hfi_queues_deinit(core);
+	/*
+	 * The VPU is fully off now, so it is no longer sitting in its firmware
+	 * power collapse.  Clear that state and drop any queued collapse work,
+	 * otherwise a stale worker would power-collapse the freshly restarted
+	 * core and the next open would have to recover it again.
+	 */
+	cancel_delayed_work(&core->pc_work);
+	core->vpu_suspended = false;
 	core->state = IRIS_CORE_DEINIT;
 	mutex_unlock(&core->lock);
 

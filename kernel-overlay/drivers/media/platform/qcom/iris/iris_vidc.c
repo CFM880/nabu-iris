@@ -284,8 +284,23 @@ int iris_open(struct file *filp)
 		return ret;
 
 	ret = iris_pc_resume(core);
-	if (ret)
-		dev_warn(core->dev, "failed to resume from power collapse\n");
+	if (ret) {
+		/*
+		 * The VPU did not come back from its power collapse.  core->state
+		 * is still IRIS_CORE_INIT here, so the iris_core_init() below
+		 * would happily return 0 and hand out a session on a dead VPU --
+		 * which also leaves the device wedged for the next system
+		 * suspend.  Restart the core from scratch instead: the recovery
+		 * does a PAS shutdown, reloads the firmware and re-inits HFI.
+		 */
+		dev_warn(core->dev,
+			 "failed to resume from power collapse; restarting the core\n");
+		WRITE_ONCE(core->recovery_pending, false);
+		ret = iris_core_recover(core);
+		if (ret)
+			dev_err(core->dev,
+				"restarting the core failed: %d\n", ret);
+	}
 
 	ret = iris_core_init(core);
 	if (ret && core->state == IRIS_CORE_ERROR) {
