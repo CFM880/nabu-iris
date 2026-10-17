@@ -516,6 +516,23 @@ void iris_vpu_power_off(struct iris_core *core)
 {
 	int i;
 
+	/*
+	 * Nabu: powering the VPU off twice unbalances the MVS genpds and their
+	 * clocks -- the second pass reports "already disabled" and "Runtime PM
+	 * usage count underflow!", and that underflow then makes every later
+	 * power-on fail with -EINVAL (pm_runtime_resume_and_get() reports it),
+	 * which is what ends up wedging suspend.  The last-instance close
+	 * (iris_core_deinit()) and the PM paths both call this, so make it
+	 * idempotent.  Note this is deliberately independent of vpu_suspended:
+	 * that flag is about firmware power-collapse semantics, and reusing it
+	 * made the resume path try a firmware re-boot that SM8150 cannot do.
+	 */
+	if (!core->vpu_powered) {
+		dev_dbg(core->dev, "vpu power: already off, nothing to do\n");
+		return;
+	}
+	core->vpu_powered = false;
+
 	if (core->llcc_active) {
 		for (i = ARRAY_SIZE(core->llcc_slices) - 1; i >= 0; i--) {
 			llcc_slice_deactivate(core->llcc_slices[i]);
@@ -741,6 +758,12 @@ int iris_vpu_power_on(struct iris_core *core)
 {
 	u32 freq;
 	int ret;
+
+	/*
+	 * Nabu: account for the attempt before touching anything, so that a
+	 * partly successful power-on is still undone by iris_vpu_power_off().
+	 */
+	core->vpu_powered = true;
 
 	dev_dbg(core->dev, "vpu power: voting interconnect\n");
 	ret = iris_set_icc_bw(core, INT_MAX);

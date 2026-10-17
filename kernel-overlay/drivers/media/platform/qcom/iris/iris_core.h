@@ -74,6 +74,7 @@ enum domain_type {
  * @sys_error_handler: a delayed work for handling system fatal error
  * @recovery_pending: a fatal session error needs a core power-cycle
  * @vpu_suspended: the VPU was power-collapsed and needs a firmware re-boot
+ * @vpu_powered: the VPU was powered on and still needs a power-off
  * @pc_work: delayed work that power-collapses an idle VPU5
  * @instances: a list_head of all instances
  * @inst_fw_caps_dec: an array of supported instance capabilities by decoder
@@ -125,6 +126,7 @@ struct iris_core {
 	bool					syscache_set;
 	bool					recovery_pending;
 	bool					vpu_suspended;
+	bool					vpu_powered;
 	/* encoder and decoder have overlapping caps, so two different arrays are required */
 	struct platform_inst_fw_cap		inst_fw_caps_dec[INST_FW_CAP_MAX];
 	struct platform_inst_fw_cap		inst_fw_caps_enc[INST_FW_CAP_MAX];
