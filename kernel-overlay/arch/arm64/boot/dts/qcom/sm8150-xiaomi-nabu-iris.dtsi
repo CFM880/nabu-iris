@@ -7,9 +7,19 @@
  */
 
 &{/reserved-memory/ramoops@b0000000} {
-	/* Keep the complete printk console across hard resets. */
+	/*
+	 * Keep the complete printk console across hard resets: the whole 4 MiB
+	 * region is the console ring, which records every printk (including a
+	 * panic dump) whether or not anything is reading the console.
+	 *
+	 * Every other zone size must be set to 0 here, not just the ones that
+	 * differ from the base: pmsg-size is inherited, and 4 MiB console plus
+	 * 512 KiB pmsg does not fit in a 4 MiB region, which makes the probe
+	 * fail with -ENOMEM and leaves /sys/fs/pstore empty.
+	 */
 	record-size = <0>;
 	console-size = <0x400000>;
+	pmsg-size = <0>;
 	ecc-size = <0>;
 };
 
