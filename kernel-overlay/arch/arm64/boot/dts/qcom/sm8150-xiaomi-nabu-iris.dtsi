@@ -6,7 +6,7 @@
  * sm8150.dtsi and sm8150-xiaomi-nabu.dts remain untouched.
  */
 
-&{/reserved-memory/ramoops@b4000000} {
+&{/reserved-memory/ramoops@b4400000} {
 	/*
 	 * Keep the complete printk console across hard resets: the whole 4 MiB
 	 * region is the console ring, which records every printk (including a
