@@ -4,6 +4,10 @@ schema = 1
 name        = "nabu-iris"
 description = "Iris/Venus video decoder (SM8150 legacy VPU5)"
 requires    = []
+# The build hook compiles the VA-API driver from a sibling repository that is
+# not a module of its own; `scripts/nabu switch` keeps it on the same branch and
+# the CI image build checks it out next to nabu-main.
+repos       = ["iris-vaapi"]
 
 [provides]
 overlay      = "kernel-overlay"
