@@ -625,6 +625,10 @@ static int iris_querycap(struct file *filp, void *fh, struct v4l2_capability *ca
 	else
 		strscpy(cap->card, "Iris Encoder", sizeof(cap->card));
 
+	snprintf(cap->bus_info, sizeof(cap->bus_info), "platform:%s:%s",
+		 dev_name(inst->core->dev),
+		 inst->domain == DECODER ? "dec" : "enc");
+
 	return 0;
 }
 
